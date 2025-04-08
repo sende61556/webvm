@@ -1,0 +1,25 @@
+{
+  "id": "/",
+  "short_name": "WEBVM",
+  "name": "Web VM",
+  "version": "0.0.0",
+  "icons": [
+  	{
+  		"src": "tower.ico",
+  		"type": "image/x-icon",
+  		"sizes": "153x155",
+  		"purpose": "any maskable"
+  	}
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "display_override": ["borderless"],
+  "scope": "/",
+  "isolated_storage": true,
+  "permissions_policy": {
+  "cross-origin-isolated": ["self"],
+  "direct-sockets": ["self"],
+  "controlled-frame": ["self"],
+  "window-management": ["self"],
+  "all-screens-capture": ["self"]
+}
