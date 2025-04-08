@@ -5,8 +5,8 @@
   "version": "0.0.0",
   "icons": [
   	{
-  		"src": "tower.ico",
-  		"type": "image/x-icon",
+  		"src": "tower.png",
+  		"type": "image/png",
   		"sizes": "153x155",
   		"purpose": "any maskable"
   	}
