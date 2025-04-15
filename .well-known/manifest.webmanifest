@@ -5,13 +5,13 @@
   "version": "0.0.0",
   "icons": [
   	{
-  		"src": "tower.png",
+  		"src": "../favicon.png",
   		"type": "image/png",
-  		"sizes": "153x155",
+  		"sizes": "256x256",
   		"purpose": "any maskable"
   	}
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "display_override": ["borderless"],
   "scope": "/",
