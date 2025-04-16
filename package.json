@@ -4,8 +4,9 @@
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
-		"postbuild": "node ./post_process.cjs && cp -r .well-known/ build/"
+		"build": "CX_URL=assets/cx.esm.js vite build",
+		"postbuild": "node ./post_process.cjs && cp -r .well-known/ build/",
+		"iwa": "nginx -p . -c nginx.conf"
 	},
 	"devDependencies": {
 		"@anthropic-ai/sdk": "^0.33.0",
