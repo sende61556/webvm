@@ -6610,7 +6610,7 @@ function __ZN7CheerpX6System16runIOReadRequestEPS0_jjjjj(Larg0,Larg1,Larg2,Larg3
 		}
 		return;
 	}
-	___assert_fail(_$pstr$p37$p28,0,_$pstr$p26$p29,0,599,___func__$p_ZN7CheerpX6System16runIOReadRequestEPS0_jjjjj,0);
+	___assert_fail(_$pstr$p42$p36,0,_$pstr$p31$p37,0,638,___func__$p_ZN7CheerpX6System16runIOReadRequestEPS0_jjjjj,0);
 	;
 }
 function __ZN7CheerpX6System17runIOWriteRequestEPS0_jjjjj(Larg0,Larg1,Larg2,Larg3,Larg4,Larg5,Larg6){
@@ -6666,7 +6666,7 @@ function __ZN7CheerpX6System17runIOWriteRequestEPS0_jjjjj(Larg0,Larg1,Larg2,Larg
 		}
 		return;
 	}
-	___assert_fail(_$pstr$p37$p28,0,_$pstr$p26$p29,0,610,___func__$p_ZN7CheerpX6System17runIOWriteRequestEPS0_jjjjj,0);
+	___assert_fail(_$pstr$p42$p36,0,_$pstr$p31$p37,0,649,___func__$p_ZN7CheerpX6System17runIOWriteRequestEPS0_jjjjj,0);
 	;
 }
 function __ZN11CheerpXBase21handleCoreMessageBaseEPN6client11CoreMessageE(Larg0,Larg1){
@@ -6901,12 +6901,20 @@ function __Z13getCheerpXUrlv(){
 	tmp3=tmp3[0];
 	tmp4="/cx_esm.js";
 	tmp0=tmp3.indexOf(tmp4);
+	console.log("cxStart: ",tmp0);
+	if((tmp0|0)===-1){
+		tmp4="isolated-app:";
+		Lsmax_select=tmp3.lastIndexOf(tmp4);
+		console.log("iwaStart: ",Lsmax_select);
+	}
 	tmp4="http:";
 	tmp1=(+(tmp0|0));
 	Lsmax_select=tmp3.lastIndexOf(tmp4,tmp1);
 	tmp4="https:";
 	tmp2=tmp3.lastIndexOf(tmp4,tmp1);
 	Lsmax_select=(Lsmax_select|0)>(tmp2|0)?Lsmax_select|0:tmp2|0;
+	console.log("urlStart: ",Lsmax_select);
+	if((Lsmax_select|0)===-1)return "/";
 	if((Lsmax_select|0)<0){
 		tmp4="chrome-extension:";
 		Lsmax_select=tmp3.lastIndexOf(tmp4,tmp1);
@@ -6958,7 +6966,7 @@ function __ZN11CheerpXBase16cheerpOsInitImplEv(Larg0,Larg1){
 	}
 }
 function __ZN11CheerpXBase10coreWorkerERKN6client6StringE12CORE_MESSAGE(Larg0,Larg1,Larg2,Larg3){
-	var tmp0=null,tmp1=null,tmp2=null,L$poptgepsqueezed21=null;
+	var tmp0=null,tmp1=null,tmp2=null,L$poptgepsqueezed23=null;
 	tmp0=new constructor__ZN11CheerpXBase10coreWorkerERKN6client6StringE12CORE_MESSAGE$pFrame().a;
 	tmp1=tmp0[0];
 	tmp1.a0=__ZN11CheerpXBase10coreWorkerERKN6client6StringE12CORE_MESSAGE$presume;
@@ -6970,20 +6978,22 @@ function __ZN11CheerpXBase10coreWorkerERKN6client6StringE12CORE_MESSAGE(Larg0,La
 	Larg0.a0=tmp2;
 	tmp2=__Z13getCheerpXUrlv();
 	tmp1.a10=tmp2;
+	tmp1.a11="/";
+	console.log(tmp2);
 	tmp2=tmp2.concat(Larg2);
 	tmp2=tmp2;
-	tmp1.a11=tmp2;
-	tmp2=fetch(tmp2);
 	tmp1.a12=tmp2;
-	L$poptgepsqueezed21=tmp1.a3;
-	L$poptgepsqueezed21.a0=tmp2;
+	tmp2=fetch(tmp2);
+	tmp1.a13=tmp2;
+	L$poptgepsqueezed23=tmp1.a3;
+	L$poptgepsqueezed23.a0=tmp2;
 	tmp1.i5=0;
 	tmp1=[{a0:null,a1:{a0:nullArray,a0o:0}}];
-	tmp1[0].a0=L$poptgepsqueezed21;
+	tmp1[0].a0=L$poptgepsqueezed23;
 	tmp1[0].a1.a0=tmp0;
 	tmp1[0].a1.a0o=0;
-	L$poptgepsqueezed21=cheerpCreateClosure(__ZN6cheerp12InvokeHelperIvE6invokeIZZawIPN6client8ResponseEEDaRNS4_7PromiseIT_EEEN15promise_awaiter13await_suspendESt16coroutine_handleIvEEUlS6_E_JS6_EEEvPS8_DpT0_,tmp1[0]);
-	tmp2.then(L$poptgepsqueezed21);
+	L$poptgepsqueezed23=cheerpCreateClosure(__ZN6cheerp12InvokeHelperIvE6invokeIZZawIPN6client8ResponseEEDaRNS4_7PromiseIT_EEEN15promise_awaiter13await_suspendESt16coroutine_handleIvEEUlS6_E_JS6_EEEvPS8_DpT0_,tmp1[0]);
+	tmp2.then(L$poptgepsqueezed23);
 }
 function __ZN6cheerp12InvokeHelperIvE6invokeIZN11CheerpXBase21handleCoreMessageBaseEPN6client11CoreMessageEE3$_2JPNS4_6ObjectEEEEvPT_DpT0_(Larg0,Larg1){
 	var tmp0=null,tmp1=null,tmp2=null,tmp3=0;
@@ -7076,11 +7086,11 @@ function __ZN11CheerpXBase11ContextDataC2E12CONTEXT_TYPEj9DBG_STATE(Larg0,Larg1,
 	Larg0.a2=null;
 	Larg0.i3=Larg3;
 	if((Larg1|0)!==0){
-		if((Larg1|0)!==1)___assert_fail(_$pstr$p81,0,_$pstr$p82,0,64,___func__$p_ZN11CheerpXBase11ContextDataC2E12CONTEXT_TYPEj9DBG_STATE,0);
+		if((Larg1|0)!==1)___assert_fail(_$pstr$p86,0,_$pstr$p87,0,64,___func__$p_ZN11CheerpXBase11ContextDataC2E12CONTEXT_TYPEj9DBG_STATE,0);
 		;
-		tmp0=_$pstr$p83;
+		tmp0=_$pstr$p88;
 	}else{
-		tmp0=_$pstr$p80;
+		tmp0=_$pstr$p85;
 	}
 	tmp0=_cheerpCreate_ZN6client6StringC2EPKc(tmp0,0);
 	Larg0.a2=tmp0;
@@ -7570,43 +7580,53 @@ function __ZNSt6vectorI13HudGlobalStatSaIS0_EE26__swap_out_circular_bufferERSt14
 	Larg1.a0=tmp4[Lgeptoindexphi11];
 }
 function __ZN11CheerpXBase10coreWorkerERKN6client6StringE12CORE_MESSAGE$presume(Larg0,Marg0){
-	var tmp0=0,tmp1=null,L$poptgepsqueezed23=null,tmp3=null,tmp4=null,tmp5=null,tmp6=null;
-	L$poptgepsqueezed23=Larg0[Marg0].a4;
+	var tmp0=0,tmp1=null,L$poptgepsqueezed24=null,tmp3=null,tmp4=null,tmp5=null,tmp6=null;
+	tmp1=Larg0[Marg0].a8;
+	L$poptgepsqueezed24=Larg0[Marg0].a4;
 	if(Larg0[Marg0].i5|0){
-		tmp3=Larg0[Marg0].a10;
-		tmp0=Larg0[Marg0].i9|0;
-		tmp4=Larg0[Marg0].a8;
-		tmp1=Larg0[Marg0].a7;
-		L$poptgepsqueezed23=L$poptgepsqueezed23.a1;
+		tmp3=Larg0[Marg0].a11;
+		tmp4=Larg0[Marg0].a10;
+		L$poptgepsqueezed24=L$poptgepsqueezed24.a1;
 		tmp5=".js";
 		tmp6=".wasm";
-		tmp4=tmp4.replace(tmp5,tmp6);
-		tmp5=tmp3.concat(tmp4);
-		tmp6=L$poptgepsqueezed23.replace(tmp4,tmp5);
-		tmp5="cxCoreInit.promise.then(function(){cxCoreInit();}).catch(function(e){postMessage({type:";
-		L$poptgepsqueezed23=new Blob(new Array(tmp6.concat(tmp5,tmp0,",value:e.toString()});})")));
-		tmp3=URL.createObjectURL(L$poptgepsqueezed23);
-		tmp1.a6=new Worker(tmp3);
-		tmp1.a6.onmessage=tmp1.a2;
+		tmp1=tmp1.replace(tmp5,tmp6);
+		tmp5=tmp4.concat(tmp1);
+		tmp6=L$poptgepsqueezed24.replace(tmp1,tmp5);
+		if(tmp4===tmp3){
+			L$poptgepsqueezed24=Larg0[Marg0].a7;
+			tmp6="cxcore.js";
+			L$poptgepsqueezed24.a6=new Worker(tmp6);
+		}else{
+			tmp0=Larg0[Marg0].i9|0;
+			tmp5=Larg0[Marg0].a7;
+			L$poptgepsqueezed24="cxCoreInit.promise.then(function(){cxCoreInit();}).catch(function(e){postMessage({type:";
+			L$poptgepsqueezed24=new Blob(new Array(tmp6.concat(L$poptgepsqueezed24,tmp0,",value:e.toString()});})")));
+			console.log(L$poptgepsqueezed24);
+			tmp6=URL.createObjectURL(L$poptgepsqueezed24);
+			tmp5.a6=new Worker(tmp6);
+		}
+		L$poptgepsqueezed24=Larg0[Marg0].a7;
+		L$poptgepsqueezed24.a6.onmessage=L$poptgepsqueezed24.a2;
 	}else{
-		tmp3=Larg0[Marg0].a11;
+		tmp3=Larg0[Marg0].a12;
 		tmp4=Larg0[Marg0].a3.a1;
-		tmp3=tmp4.text();
-		Larg0[Marg0].a13=tmp3;
-		L$poptgepsqueezed23.a0=tmp3;
+		console.log(tmp1);
+		tmp1=tmp4.text();
+		Larg0[Marg0].a14=tmp1;
+		L$poptgepsqueezed24.a0=tmp1;
 		Larg0[Marg0].i5=1;
-		tmp4=[{a0:null,a1:{a0:nullArray,a0o:0}}];
-		tmp4[0].a0=L$poptgepsqueezed23;
-		tmp4[0].a1.a0=Larg0;
-		tmp4[0].a1.a0o=Marg0;
-		tmp4=cheerpCreateClosure(__ZN6cheerp12InvokeHelperIvE6invokeIZZawIPN6client6StringEEDaRNS4_7PromiseIT_EEEN15promise_awaiter13await_suspendESt16coroutine_handleIvEEUlS6_E_JS6_EEEvPS8_DpT0_,tmp4[0]);
-		tmp3.then(tmp4);
+		tmp3=[{a0:null,a1:{a0:nullArray,a0o:0}}];
+		tmp3[0].a0=L$poptgepsqueezed24;
+		tmp3[0].a1.a0=Larg0;
+		tmp3[0].a1.a0o=Marg0;
+		tmp3=cheerpCreateClosure(__ZN6cheerp12InvokeHelperIvE6invokeIZZawIPN6client6StringEEDaRNS4_7PromiseIT_EEEN15promise_awaiter13await_suspendESt16coroutine_handleIvEEUlS6_E_JS6_EEEvPS8_DpT0_,tmp3[0]);
+		tmp1.then(tmp3);
 	}
 }
 function __ZN11CheerpXBase10coreWorkerERKN6client6StringE12CORE_MESSAGE$pdestroy(Larg0,Marg0){
 	Larg0=Larg0[Marg0];
 	var tmp0=null;
-	if(!(Larg0.i5|0))tmp0=Larg0.a11;
+	if(!(Larg0.i5|0))tmp0=Larg0.a12;
 }
 function __ZN6cheerp12InvokeHelperIvE6invokeIZZawIPN6client6StringEEDaRNS4_7PromiseIT_EEEN15promise_awaiter13await_suspendESt16coroutine_handleIvEEUlS6_E_JS6_EEEvPS8_DpT0_(Larg0,Larg1){
 	var tmp0=null,tmp1=0;
@@ -7951,7 +7971,7 @@ function __ZN6cheerp12InvokeHelperIvE6invokeIZN11CheerpXBase13createHudImplEvE3$
 			return;
 		}
 	}
-	___assert_fail(_$pstr$p91,0,_$pstr$p26$p29,0,795,___func__$p_ZZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationEENK3$_0clES1_jPNS2_19FloppyConfigurationE,0);
+	___assert_fail(_$pstr$p96,0,_$pstr$p31$p37,0,834,___func__$p_ZZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationEENK3$_0clES1_jPNS2_19FloppyConfigurationE,0);
 	;
 }
 function __ZN6cheerp12InvokeHelperIvE6invokeIZN11CheerpXBase13createHudImplEvE3$_5JEEEvPT_DpT0_(Larg0){
@@ -8032,7 +8052,7 @@ function __ZZN11CheerpXBase13createHudImplEvENK3$_1clEv(Larg0){
 		}
 		return;
 	}
-	___assert_fail(_$pstr$p90,0,_$pstr$p26$p29,0,730,___func__$p_ZZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationEENK3$_0clES1_jPNS2_19FloppyConfigurationE,0);
+	___assert_fail(_$pstr$p95,0,_$pstr$p31$p37,0,769,___func__$p_ZZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationEENK3$_0clES1_jPNS2_19FloppyConfigurationE,0);
 	;
 }
 function __ZN11CheerpXBase4initEPFvPN6client6ObjectEEPFvRKNS0_6StringEE(Larg0,Larg1,Larg2){
@@ -8342,10 +8362,10 @@ function __ZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationE(Larg0,L
 						tmp1.a6.postMessage(tmp2);
 						break a;
 					}
-					___assert_fail(_$pstr$p27$p68,0,_$pstr$p26$p29,0,510,___func__$p_ZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationE,0);
+					___assert_fail(_$pstr$p32$p70,0,_$pstr$p31$p37,0,549,___func__$p_ZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationE,0);
 					;
 				}
-				___assert_fail(_$pstr$p25$p67,0,_$pstr$p26$p29,0,505,___func__$p_ZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationE,0);
+				___assert_fail(_$pstr$p30$p69,0,_$pstr$p31$p37,0,544,___func__$p_ZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationE,0);
 				;
 			}
 		}
@@ -8380,7 +8400,7 @@ function __ZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationE$presume
 								L$ppre75_1=Larg0[Marg0].a3.a1.i0|0;
 								if((L$ppre75_1&65535)>=256)Larg0[Marg0].a3.a1.i0=L$ppre75_1&255;
 								L$ppre_0=Larg0[Marg0].a14.bios.this;
-								if((L$ppre_0.i1|0)!==1)___assert_fail(_$pstr$p25$p67,0,_$pstr$p26$p29,0,505,___func__$p_ZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationE,0);
+								if((L$ppre_0.i1|0)!==1)___assert_fail(_$pstr$p30$p69,0,_$pstr$p31$p37,0,544,___func__$p_ZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationE,0);
 								;
 								tmp9=Larg0[Marg0].a13;
 								tmp10=new Uint8Array((+(L$ppre_0.i3>>>0)));
@@ -8405,7 +8425,7 @@ function __ZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationE$presume
 							L$ppre75_1=L$ppre75_0.a0o|0;
 							if(L$ppre_0!==nullArray||L$ppre75_1!==0)L$ppre_0[L$ppre75_1].a1(L$ppre_0,L$ppre75_1);
 							L$ppre75_0=Larg0[Marg0].a14.vgaBios.this;
-							if((L$ppre75_0.i1|0)!==1)___assert_fail(_$pstr$p27$p68,0,_$pstr$p26$p29,0,510,___func__$p_ZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationE,0);
+							if((L$ppre75_0.i1|0)!==1)___assert_fail(_$pstr$p32$p70,0,_$pstr$p31$p37,0,549,___func__$p_ZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationE,0);
 							;
 							L$ppre_0=Larg0[Marg0].a13;
 							tmp9=new Uint8Array((+(L$ppre75_0.i3>>>0)));
@@ -8707,7 +8727,7 @@ function __ZZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationEENK3$_0
 		if(tmp4){
 			tmp3=tmp1.a5.dev.this;
 			tmp1.a6=tmp3;
-			if((tmp3.i1|0)===0)___assert_fail(_$pstr$p86,0,_$pstr$p26$p29,0,535,___func__$p_ZZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationEENK3$_0clES1_jPNS2_19FloppyConfigurationE,0);
+			if((tmp3.i1|0)===0)___assert_fail(_$pstr$p91,0,_$pstr$p31$p37,0,574,___func__$p_ZZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationEENK3$_0clES1_jPNS2_19FloppyConfigurationE,0);
 			;
 			L$poptgepsqueezed23=tmp1.a5;
 			tmp6="size";
@@ -8787,7 +8807,7 @@ function __ZZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationEENK3$_0
 					tmp5=Larg0[Marg0].a5;
 					tmp6=tmp5.dev.this;
 					Larg0[Marg0].a6=tmp6;
-					if((tmp6.i1|0)===0)___assert_fail(_$pstr$p86,0,_$pstr$p26$p29,0,535,___func__$p_ZZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationEENK3$_0clES1_jPNS2_19FloppyConfigurationE,0);
+					if((tmp6.i1|0)===0)___assert_fail(_$pstr$p91,0,_$pstr$p31$p37,0,574,___func__$p_ZZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationEENK3$_0clES1_jPNS2_19FloppyConfigurationE,0);
 					;
 					tmp0="size";
 					if(tmp5.hasOwnProperty(tmp0)){
@@ -9049,12 +9069,12 @@ function __ZN7CheerpX5Linux12cheerpOSInitEv(Larg0,Larg1){
 							continue;
 						}
 						if((tmp6|0)===1){
-							tmp3={d:_$pstr$p92,o:0};
+							tmp3={d:_$pstr$p97,o:0};
 						}else{
-							tmp3={d:_$pstr$p1$p93,o:0};
+							tmp3={d:_$pstr$p1$p98,o:0};
 						}
 					}else{
-						tmp3=((tmp6|0)===3?{d:_$pstr$p2$p94,o:0}:((tmp6|0)===4?{d:_$pstr$p3$p95,o:0}:{d:_$pstr$p4$p83,o:0}));
+						tmp3=((tmp6|0)===3?{d:_$pstr$p2$p99,o:0}:((tmp6|0)===4?{d:_$pstr$p3$p100,o:0}:{d:_$pstr$p4$p86,o:0}));
 					}
 					break;
 				}
@@ -9062,7 +9082,7 @@ function __ZN7CheerpX5Linux12cheerpOSInitEv(Larg0,Larg1){
 				tmp6=tmp4.a11o|0;
 				L$poptgep20$poptgep27$poptgepsqueezed=L$poptgepsqueezed65[tmp6].a2;
 				L$poptgepsqueezed65=L$poptgepsqueezed65[tmp6].a4.a2;
-				___printf(_$pstr$p5$p96,0,{d:L$poptgep20$poptgep27$poptgepsqueezed,o:0},{d:L$poptgepsqueezed65,o:0},tmp3);
+				___printf(_$pstr$p5$p101,0,{d:L$poptgep20$poptgep27$poptgepsqueezed,o:0},{d:L$poptgepsqueezed65,o:0},tmp3);
 				tmp6=tmp1.i0|0;
 				tmp1.a1=null;
 				if((tmp6&65535)>=256)break b;
@@ -9077,7 +9097,7 @@ function __ZN7CheerpX5Linux12cheerpOSInitEv(Larg0,Larg1){
 		tmp4.a0=null;
 		tmp3=L$poptgepsqueezed62.a0;
 		tmp6=L$poptgepsqueezed62.a0o|0;
-		(tmp3!==nullArray||tmp6!==0?tmp3:_NoopCoro$pFrame$pConst$p97)[tmp3!==nullArray||tmp6!==0?tmp6:$NoopCoro$pFrame$pConst$p97].a0((tmp3!==nullArray||tmp6!==0?tmp3:_NoopCoro$pFrame$pConst$p97),tmp3!==nullArray||tmp6!==0?tmp6:$NoopCoro$pFrame$pConst$p97);
+		(tmp3!==nullArray||tmp6!==0?tmp3:_NoopCoro$pFrame$pConst$p102)[tmp3!==nullArray||tmp6!==0?tmp6:$NoopCoro$pFrame$pConst$p102].a0((tmp3!==nullArray||tmp6!==0?tmp3:_NoopCoro$pFrame$pConst$p102),tmp3!==nullArray||tmp6!==0?tmp6:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux12cheerpOSInitEv$presume(Larg0,Marg0){
@@ -9174,18 +9194,18 @@ function __ZN7CheerpX5Linux12cheerpOSInitEv$presume(Larg0,Marg0){
 								continue d;
 							}
 							if((L$ppre_1|0)===1){
-								L$ppre_0={d:_$pstr$p92,o:0};
+								L$ppre_0={d:_$pstr$p97,o:0};
 							}else{
-								L$ppre_0={d:_$pstr$p1$p93,o:0};
+								L$ppre_0={d:_$pstr$p1$p98,o:0};
 							}
 						}else{
-							L$ppre_0=((L$ppre_1|0)===3?{d:_$pstr$p2$p94,o:0}:((L$ppre_1|0)===4?{d:_$pstr$p3$p95,o:0}:{d:_$pstr$p4$p83,o:0}));
+							L$ppre_0=((L$ppre_1|0)===3?{d:_$pstr$p2$p99,o:0}:((L$ppre_1|0)===4?{d:_$pstr$p3$p100,o:0}:{d:_$pstr$p4$p86,o:0}));
 						}
 						L$poptgep$poptgep11$poptgep12=Larg0[Marg0].a11;
 						L$ppre_1=Larg0[Marg0].a11o|0;
 						tmp10=L$poptgep$poptgep11$poptgep12[L$ppre_1].a2;
 						L$poptgep$poptgep11$poptgep12=L$poptgep$poptgep11$poptgep12[L$ppre_1].a4.a2;
-						___printf(_$pstr$p5$p96,0,{d:tmp10,o:0},{d:L$poptgep$poptgep11$poptgep12,o:0},L$ppre_0);
+						___printf(_$pstr$p5$p101,0,{d:tmp10,o:0},{d:L$poptgep$poptgep11$poptgep12,o:0},L$ppre_0);
 						L$ppre_0=L$poptgepsqueezed43.a1;
 						L$ppre_1=L$ppre_0.i0|0;
 						L$ppre_0.a1=null;
@@ -9258,7 +9278,7 @@ function __ZN7CheerpX5Linux12cheerpOSInitEv$presume(Larg0,Marg0){
 		Larg0[Marg0].a0=null;
 		L$ppre_0=L$poptgepsqueezed43.a0;
 		L$ppre_1=L$poptgepsqueezed43.a0o|0;
-		(L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p97)[L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p97].a0((L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p97),L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p97);
+		(L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p102)[L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p102].a0((L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p102),L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux12cheerpOSInitEv$pdestroy(Larg0,Marg0){
@@ -9326,7 +9346,7 @@ function __ZN7CheerpX5Linux28requestCreateExternalProcessEv(Larg0,Larg1){
 		tmp3.a0=null;
 		tmp2=L$poptgepsqueezed8.a0;
 		tmp5=L$poptgepsqueezed8.a0o|0;
-		(tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p97)[tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p97].a0((tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p97),tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p97);
+		(tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p102)[tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p102].a0((tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p102),tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux14requestAppInitEv(Larg0,Larg1){
@@ -9362,7 +9382,7 @@ function __ZN7CheerpX5Linux14requestAppInitEv(Larg0,Larg1){
 		tmp2.a0=null;
 		tmp1=L$poptgepsqueezed7.a0;
 		tmp4=L$poptgepsqueezed7.a0o|0;
-		(tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p97)[tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p97].a0((tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p97),tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p97);
+		(tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p102)[tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p102].a0((tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p102),tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux13runFSRequestsEv(Larg0,Larg1){
@@ -9626,7 +9646,7 @@ function __ZN7CheerpX5Linux13runFSRequestsEv(Larg0,Larg1){
 			tmp5[tmp6].a1(tmp5,tmp6);
 			break;
 			default:
-			___assert_fail(_$pstr$p61,0,_$pstr$p14$p101,0,205,___func__$p_ZN7CheerpX5Linux13runFSRequestsEv,0);
+			___assert_fail(_$pstr$p61,0,_$pstr$p14$p106,0,205,___func__$p_ZN7CheerpX5Linux13runFSRequestsEv,0);
 			;
 		}
 		tmp5=tmp3.a8;
@@ -9842,10 +9862,10 @@ function __ZN7CheerpX5Linux12requestMountERKSsS2_j(Larg0,Larg1,Larg2,Larg3,Larg4
 		tmp3.a0=null;
 		tmp2=L$poptgepsqueezed20.a0;
 		tmp5=L$poptgepsqueezed20.a0o|0;
-		(tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p97)[tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p97].a0((tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p97),tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p97);
+		(tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p102)[tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p102].a0((tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p102),tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p102);
 	}
 }
-function ___NoopCoro_ResumeDestroy$p98(Larg0){
+function ___NoopCoro_ResumeDestroy$p103(Larg0){
 }
 function __ZN7CheerpX5Linux12requestMountERKSsS2_j$presume(Larg0,Marg0){
 	Larg0=Larg0[Marg0];
@@ -9865,7 +9885,7 @@ function __ZN7CheerpX5Linux12requestMountERKSsS2_j$presume(Larg0,Marg0){
 	Larg0.a0=null;
 	L$poptgep$poptgep2$poptgep=L$poptgepsqueezed5.a0;
 	tmp1=L$poptgepsqueezed5.a0o|0;
-	(L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p97)[L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p97].a0((L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p97),L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p97);
+	(L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p102)[L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p102].a0((L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p102),L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p102);
 }
 function __ZN7CheerpX5Linux12requestMountERKSsS2_j$pdestroy(Larg0,Marg0){
 	Larg0=Larg0[Marg0];
@@ -9987,10 +10007,10 @@ function __ZN7CheerpX5Linux11postRequestI12MOUNT_RESULTEE4TaskIT_EiPN6client6Obj
 		Larg0.a0=null;
 		L$poptgep$poptgep2$poptgep=L$poptgepsqueezed9.a0;
 		tmp2=L$poptgepsqueezed9.a0o|0;
-		(L$poptgep$poptgep2$poptgep!==nullArray||tmp2!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p97)[L$poptgep$poptgep2$poptgep!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p97].a0((L$poptgep$poptgep2$poptgep!==nullArray||tmp2!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p97),L$poptgep$poptgep2$poptgep!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p97);
+		(L$poptgep$poptgep2$poptgep!==nullArray||tmp2!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p102)[L$poptgep$poptgep2$poptgep!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p102].a0((L$poptgep$poptgep2$poptgep!==nullArray||tmp2!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p102),L$poptgep$poptgep2$poptgep!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p102);
 		return;
 	}
-	___assert_fail(_$pstr$p61,0,_$pstr$p83$p100,0,258,___func__$p_ZN7CheerpX5Linux11postRequestIjEE4TaskIT_EiPN6client6ObjectEb,0);
+	___assert_fail(_$pstr$p61,0,_$pstr$p83$p105,0,258,___func__$p_ZN7CheerpX5Linux11postRequestIjEE4TaskIT_EiPN6client6ObjectEb,0);
 	;
 }
 function __ZN7CheerpX5Linux11postRequestI12MOUNT_RESULTEE4TaskIT_EiPN6client6ObjectEb$pdestroy(Larg0,Marg0){
@@ -10491,7 +10511,7 @@ function __ZN7CheerpX5Linux13runFSRequestsEv$presume(Larg0,Marg0){
 				L$ppre_1=12;
 				continue a;
 				default:
-				___assert_fail(_$pstr$p61,0,_$pstr$p14$p101,0,205,___func__$p_ZN7CheerpX5Linux13runFSRequestsEv,0);
+				___assert_fail(_$pstr$p61,0,_$pstr$p14$p106,0,205,___func__$p_ZN7CheerpX5Linux13runFSRequestsEv,0);
 				;
 			}
 			default:
@@ -10612,7 +10632,7 @@ function __ZN7CheerpX5Linux12MessageQueue3popEv(Larg0,Larg1){
 		tmp5.a0=null;
 		tmp4=L$poptgepsqueezed13.a0;
 		tmp7=L$poptgepsqueezed13.a0o|0;
-		(tmp4!==nullArray||tmp7!==0?tmp4:_NoopCoro$pFrame$pConst$p97)[tmp4!==nullArray||tmp7!==0?tmp7:$NoopCoro$pFrame$pConst$p97].a0((tmp4!==nullArray||tmp7!==0?tmp4:_NoopCoro$pFrame$pConst$p97),tmp4!==nullArray||tmp7!==0?tmp7:$NoopCoro$pFrame$pConst$p97);
+		(tmp4!==nullArray||tmp7!==0?tmp4:_NoopCoro$pFrame$pConst$p102)[tmp4!==nullArray||tmp7!==0?tmp7:$NoopCoro$pFrame$pConst$p102].a0((tmp4!==nullArray||tmp7!==0?tmp4:_NoopCoro$pFrame$pConst$p102),tmp4!==nullArray||tmp7!==0?tmp7:$NoopCoro$pFrame$pConst$p102);
 	}else{
 		tmp5.i3=0;
 		tmp5=tmp5.a5;
@@ -10661,10 +10681,10 @@ function __ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjj
 		tmp1=Larg2;
 	}
 	tmp10.a9=tmp1;
-	if((tmp12|0)!==0)___assert_fail(_$pstr$p33$p102,0,_$pstr$p14$p101,0,1114,___func__$p_ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjjjjj,0);
+	if((tmp12|0)!==0)___assert_fail(_$pstr$p33$p107,0,_$pstr$p14$p106,0,1114,___func__$p_ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjjjjj,0);
 	;
 	if((Larg5&3|0)!==0){
-		tmp11=((Larg5&512|0)!==0?_$pstr$p7:_$pstr$p44$p108);
+		tmp11=((Larg5&512|0)!==0?_$pstr$p7:_$pstr$p44$p113);
 		tmp12=(Larg5&512|0)!==0?0:0;
 	}else{
 		tmp11=_$pstr$p10;
@@ -10692,14 +10712,14 @@ function __ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjj
 		tmp9=tmp10.a10;
 		tmp11=tmp10.a9;
 		if((tmp12|0)<0){
-			if((tmp10.i6&3|0)===0)___assert_fail(_$pstr$p45$p111,0,_$pstr$p14$p101,0,1121,___func__$p_ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjjjjj,0);
+			if((tmp10.i6&3|0)===0)___assert_fail(_$pstr$p45$p116,0,_$pstr$p14$p106,0,1121,___func__$p_ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjjjjj,0);
 			;
 			tmp9={type:62,tid:(tmp10.i4|0),value: -30};
 		}else{
 			__ZN7CheerpX14CheerpOSDevice7fdDescsE.length;
 			tmp9=__ZN7CheerpX14CheerpOSDevice7fdDescsE;
 			tmp9=tmp9[0+tmp12|0].fileData;
-			if(tmp9.parent===null)___assert_fail(_$pstr$p46$p107,0,_$pstr$p14$p101,0,1130,___func__$p_ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjjjjj,0);
+			if(tmp9.parent===null)___assert_fail(_$pstr$p46$p112,0,_$pstr$p14$p106,0,1130,___func__$p_ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjjjjj,0);
 			;
 			tmp15=tmp10.i6|0;
 			tmp3=tmp9.inodeId;
@@ -10707,7 +10727,7 @@ function __ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjj
 			Lgeptoindexphi=tmp9.permType;
 			tmp5=tmp9.lastModified;
 			if((tmp15&64|0)!==0)if(((tmp9.dirty)|0)!==0){
-				if((Lgeptoindexphi|0)===0)___assert_fail(_$pstr$p43$p104,0,_$pstr$p14$p101,0,1140,___func__$p_ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjjjjj,0);
+				if((Lgeptoindexphi|0)===0)___assert_fail(_$pstr$p43$p109,0,_$pstr$p14$p106,0,1140,___func__$p_ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjjjjj,0);
 				;
 				Lgeptoindexphi=tmp10.i7&511|Lgeptoindexphi& -512;
 				tmp9.permType=Lgeptoindexphi;
@@ -10723,7 +10743,7 @@ function __ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjj
 		tmp10.a0=null;
 		tmp9=L$poptgepsqueezed29.a0;
 		tmp12=L$poptgepsqueezed29.a0o|0;
-		(tmp9!==nullArray||tmp12!==0?tmp9:_NoopCoro$pFrame$pConst$p97)[tmp9!==nullArray||tmp12!==0?tmp12:$NoopCoro$pFrame$pConst$p97].a0((tmp9!==nullArray||tmp12!==0?tmp9:_NoopCoro$pFrame$pConst$p97),tmp9!==nullArray||tmp12!==0?tmp12:$NoopCoro$pFrame$pConst$p97);
+		(tmp9!==nullArray||tmp12!==0?tmp9:_NoopCoro$pFrame$pConst$p102)[tmp9!==nullArray||tmp12!==0?tmp12:$NoopCoro$pFrame$pConst$p102].a0((tmp9!==nullArray||tmp12!==0?tmp9:_NoopCoro$pFrame$pConst$p102),tmp9!==nullArray||tmp12!==0?tmp12:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux17runFSMkdirRequestEPN6client6StringEj12CORE_MESSAGEjjjj(Larg0,Larg1,Larg2,Larg3,Larg4,Larg5,Larg6,Larg7,Larg8){
@@ -10758,7 +10778,7 @@ function __ZN7CheerpX5Linux17runFSMkdirRequestEPN6client6StringEj12CORE_MESSAGEj
 			break;
 		}
 	}
-	if((L$plcssa.i1|0)!==0)___assert_fail(_$pstr$p33$p102,0,_$pstr$p14$p101,0,1154,___func__$p_ZN7CheerpX5Linux17runFSMkdirRequestEPN6client6StringEj12CORE_MESSAGEjjjj,0);
+	if((L$plcssa.i1|0)!==0)___assert_fail(_$pstr$p33$p107,0,_$pstr$p14$p106,0,1154,___func__$p_ZN7CheerpX5Linux17runFSMkdirRequestEPN6client6StringEj12CORE_MESSAGEjjjj,0);
 	;
 	tmp3.a10=L$plcssa;
 	L$poptgepsqueezed23=tmp3.a13;
@@ -10812,7 +10832,7 @@ function __ZN7CheerpX5Linux17runFSMkdirRequestEPN6client6StringEj12CORE_MESSAGEj
 		tmp3.a0=null;
 		tmp2=L$poptgepsqueezed31.a0;
 		tmp5=L$poptgepsqueezed31.a0o|0;
-		(tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p97)[tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p97].a0((tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p97),tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p97);
+		(tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p102)[tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p102].a0((tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p102),tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_MESSAGEjPNS1_6ObjectEjjj(Larg0,Larg1,Larg2,Larg3,Larg4,Larg5,Larg6,Larg7,Larg8,Larg9){
@@ -10849,7 +10869,7 @@ function __ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_ME
 			break;
 		}
 	}
-	if((L$plcssa.i1|0)!==0)___assert_fail(_$pstr$p33$p102,0,_$pstr$p14$p101,0,1180,___func__$p_ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_MESSAGEjPNS1_6ObjectEjjj,0);
+	if((L$plcssa.i1|0)!==0)___assert_fail(_$pstr$p33$p107,0,_$pstr$p14$p106,0,1180,___func__$p_ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_MESSAGEjPNS1_6ObjectEjjj,0);
 	;
 	tmp6="s";
 	tmp3.a12=tmp6;
@@ -10872,12 +10892,12 @@ function __ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_ME
 		if(L$plcssa!==nullArray||Lgeptoindexphi!==0)L$plcssa[Lgeptoindexphi].a1(L$plcssa,Lgeptoindexphi);
 		L$plcssa=tmp3.a12;
 		tmp6=tmp3.a4;
-		if((tmp5|0)<=-1)___assert_fail(_$pstr$p48$p106,0,_$pstr$p14$p101,0,1183,___func__$p_ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_MESSAGEjPNS1_6ObjectEjjj,0);
+		if((tmp5|0)<=-1)___assert_fail(_$pstr$p48$p111,0,_$pstr$p14$p106,0,1183,___func__$p_ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_MESSAGEjPNS1_6ObjectEjjj,0);
 		;
 		__ZN7CheerpX14CheerpOSDevice7fdDescsE.length;
 		L$plcssa=__ZN7CheerpX14CheerpOSDevice7fdDescsE;
 		L$plcssa=L$plcssa[0+tmp5|0].fileData;
-		if(L$plcssa.parent===null)___assert_fail(_$pstr$p46$p107,0,_$pstr$p14$p101,0,1187,___func__$p_ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_MESSAGEjPNS1_6ObjectEjjj,0);
+		if(L$plcssa.parent===null)___assert_fail(_$pstr$p46$p112,0,_$pstr$p14$p106,0,1187,___func__$p_ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_MESSAGEjPNS1_6ObjectEjjj,0);
 		;
 		Lgeptoindexphi=tmp3.i7|0;
 		tmp3.i13=L$plcssa.inodeId;
@@ -10907,7 +10927,7 @@ function __ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_ME
 		tmp3.a0=null;
 		tmp2=L$poptgepsqueezed43.a0;
 		tmp5=L$poptgepsqueezed43.a0o|0;
-		(tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p97)[tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p97].a0((tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p97),tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p97);
+		(tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p102)[tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p102].a0((tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p102),tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux16runFSReadRequestE12CORE_MESSAGEjjjPKN6client6TArrayIPNS2_10ChunkSliceEEE(Larg0,Larg1,Larg2,Larg3,Larg4,Larg5,Larg6){
@@ -10986,7 +11006,7 @@ function __ZN7CheerpX5Linux16runFSReadRequestE12CORE_MESSAGEjjjPKN6client6TArray
 		tmp3.a0=null;
 		tmp2=L$poptgepsqueezed25.a0;
 		tmp5=L$poptgepsqueezed25.a0o|0;
-		(tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p97)[tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p97].a0((tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p97),tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p97);
+		(tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p102)[tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p102].a0((tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p102),tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux17runFSWriteRequestE12CORE_MESSAGEjjjPKN6client6TArrayIPNS2_10ChunkSliceEEE(Larg0,Larg1,Larg2,Larg3,Larg4,Larg5,Larg6){
@@ -11068,7 +11088,7 @@ function __ZN7CheerpX5Linux17runFSWriteRequestE12CORE_MESSAGEjjjPKN6client6TArra
 		tmp3.a0=null;
 		tmp2=L$poptgepsqueezed25.a0;
 		tmp5=L$poptgepsqueezed25.a0o|0;
-		(tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p97)[tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p97].a0((tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p97),tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p97);
+		(tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p102)[tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p102].a0((tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p102),tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux18checkPendingWritesEv(Larg0){
@@ -11146,7 +11166,7 @@ function __ZN7CheerpX5Linux17runFSCloseRequestE12CORE_MESSAGEjj(Larg0,Larg1,Larg
 		tmp3.a0=null;
 		tmp2=L$poptgepsqueezed17.a0;
 		tmp5=L$poptgepsqueezed17.a0o|0;
-		(tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p97)[tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p97].a0((tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p97),tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p97);
+		(tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p102)[tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p102].a0((tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p102),tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux18runFSFchmodRequestE12CORE_MESSAGEjjj(Larg0,Larg1,Larg2,Larg3,Larg4){
@@ -11164,7 +11184,7 @@ function __ZN7CheerpX5Linux18runFSFchmodRequestE12CORE_MESSAGEjjj(Larg0,Larg1,La
 		}
 		return;
 	}
-	___assert_fail(_$pstr$p43$p104,0,_$pstr$p14$p101,0,1029,___func__$p_ZN7CheerpX5Linux18runFSFchmodRequestE12CORE_MESSAGEjjj,0);
+	___assert_fail(_$pstr$p43$p109,0,_$pstr$p14$p106,0,1029,___func__$p_ZN7CheerpX5Linux18runFSFchmodRequestE12CORE_MESSAGEjjj,0);
 	;
 }
 function __ZN7CheerpX5Linux16runFSLinkRequestE12CORE_MESSAGEjjPN6client6StringES4_(Larg0,Larg1,Larg2,Larg3,Larg4,Larg5,Larg6){
@@ -11197,7 +11217,7 @@ function __ZN7CheerpX5Linux16runFSLinkRequestE12CORE_MESSAGEjjPN6client6StringES
 			break;
 		}
 	}
-	if((L$plcssa.i1|0)!==0)___assert_fail(_$pstr$p33$p102,0,_$pstr$p14$p101,0,1043,___func__$p_ZN7CheerpX5Linux16runFSLinkRequestE12CORE_MESSAGEjjPN6client6StringES4_,0);
+	if((L$plcssa.i1|0)!==0)___assert_fail(_$pstr$p33$p107,0,_$pstr$p14$p106,0,1043,___func__$p_ZN7CheerpX5Linux16runFSLinkRequestE12CORE_MESSAGEjjPN6client6StringES4_,0);
 	;
 	L$poptgepsqueezed14=tmp2.a9;
 	__ZN7CheerpX14CheerpOSDevice4linkERKN6client6StringES4_(L$poptgepsqueezed14,L$plcssa,Larg5,Larg6);
@@ -11228,7 +11248,7 @@ function __ZN7CheerpX5Linux16runFSLinkRequestE12CORE_MESSAGEjjPN6client6StringES
 		tmp2.a0=null;
 		tmp1=L$poptgepsqueezed20.a0;
 		tmp4=L$poptgepsqueezed20.a0o|0;
-		(tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p97)[tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p97].a0((tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p97),tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p97);
+		(tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p102)[tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p102].a0((tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p102),tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux21runFSCacheNodeRequestE12CORE_MESSAGEjPN6client6StringEjj(Larg0,Larg1,Larg2,Larg3,Larg4,Larg5,Larg6){
@@ -11272,7 +11292,7 @@ function __ZN7CheerpX5Linux21runFSCacheNodeRequestE12CORE_MESSAGEjPN6client6Stri
 	}else{
 		tmp12=Larg4;
 	}
-	if((tmp11|0)!==0)___assert_fail(_$pstr$p33$p102,0,_$pstr$p14$p101,0,654,___func__$p_ZN7CheerpX5Linux21runFSCacheNodeRequestE12CORE_MESSAGEjPN6client6StringEjj,0);
+	if((tmp11|0)!==0)___assert_fail(_$pstr$p33$p107,0,_$pstr$p14$p106,0,654,___func__$p_ZN7CheerpX5Linux21runFSCacheNodeRequestE12CORE_MESSAGEjPN6client6StringEjj,0);
 	;
 	tmp9.a9=L$plcssa;
 	L$poptgepsqueezed28=tmp9.a11;
@@ -11294,7 +11314,7 @@ function __ZN7CheerpX5Linux21runFSCacheNodeRequestE12CORE_MESSAGEjPN6client6Stri
 		if(tmp12!==nullArray||tmp11!==0)tmp12[tmp11].a1(tmp12,tmp11);
 		tmp12=tmp9.a9;
 		tmp11=tmp12.a0.a1(tmp12)|0;
-		if(L$plcssa.parent===null)___assert_fail(_$pstr$p28$p103,0,_$pstr$p14$p101,0,660,___func__$p_ZN7CheerpX5Linux21runFSCacheNodeRequestE12CORE_MESSAGEjPN6client6StringEjj,0);
+		if(L$plcssa.parent===null)___assert_fail(_$pstr$p28$p108,0,_$pstr$p14$p106,0,660,___func__$p_ZN7CheerpX5Linux21runFSCacheNodeRequestE12CORE_MESSAGEjPN6client6StringEjj,0);
 		;
 		Lgeptoindexphi=tmp9.i8|0;
 		tmp1=tmp9.i7|0;
@@ -11313,7 +11333,7 @@ function __ZN7CheerpX5Linux21runFSCacheNodeRequestE12CORE_MESSAGEjPN6client6Stri
 		tmp9.a0=null;
 		tmp8=L$poptgepsqueezed27.a0;
 		tmp11=L$poptgepsqueezed27.a0o|0;
-		(tmp8!==nullArray||tmp11!==0?tmp8:_NoopCoro$pFrame$pConst$p97)[tmp8!==nullArray||tmp11!==0?tmp11:$NoopCoro$pFrame$pConst$p97].a0((tmp8!==nullArray||tmp11!==0?tmp8:_NoopCoro$pFrame$pConst$p97),tmp8!==nullArray||tmp11!==0?tmp11:$NoopCoro$pFrame$pConst$p97);
+		(tmp8!==nullArray||tmp11!==0?tmp8:_NoopCoro$pFrame$pConst$p102)[tmp8!==nullArray||tmp11!==0?tmp11:$NoopCoro$pFrame$pConst$p102].a0((tmp8!==nullArray||tmp11!==0?tmp8:_NoopCoro$pFrame$pConst$p102),tmp8!==nullArray||tmp11!==0?tmp11:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux21runFSCacheListRequestE12CORE_MESSAGEjPN6client6StringEjj(Larg0,Larg1,Larg2,Larg3,Larg4,Larg5,Larg6){
@@ -11347,7 +11367,7 @@ function __ZN7CheerpX5Linux21runFSCacheListRequestE12CORE_MESSAGEjPN6client6Stri
 			break;
 		}
 	}
-	if((L$plcssa.i1|0)!==0)___assert_fail(_$pstr$p33$p102,0,_$pstr$p14$p101,0,674,___func__$p_ZN7CheerpX5Linux21runFSCacheListRequestE12CORE_MESSAGEjPN6client6StringEjj,0);
+	if((L$plcssa.i1|0)!==0)___assert_fail(_$pstr$p33$p107,0,_$pstr$p14$p106,0,674,___func__$p_ZN7CheerpX5Linux21runFSCacheListRequestE12CORE_MESSAGEjPN6client6StringEjj,0);
 	;
 	L$poptgepsqueezed15=tmp2.a10;
 	__ZN7CheerpX14CheerpOSDevice9listFilesERKN6client6StringE(L$poptgepsqueezed15,L$plcssa,Larg4);
@@ -11374,7 +11394,7 @@ function __ZN7CheerpX5Linux21runFSCacheListRequestE12CORE_MESSAGEjPN6client6Stri
 		tmp2.a0=null;
 		tmp1=L$poptgepsqueezed22.a0;
 		tmp4=L$poptgepsqueezed22.a0o|0;
-		(tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p97)[tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p97].a0((tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p97),tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p97);
+		(tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p102)[tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p102].a0((tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p102),tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux18runFSRenameRequestE12CORE_MESSAGEjjPN6client6StringES4_(Larg0,Larg1,Larg2,Larg3,Larg4,Larg5,Larg6){
@@ -11407,7 +11427,7 @@ function __ZN7CheerpX5Linux18runFSRenameRequestE12CORE_MESSAGEjjPN6client6String
 			break;
 		}
 	}
-	if((L$plcssa.i1|0)!==0)___assert_fail(_$pstr$p33$p102,0,_$pstr$p14$p101,0,1062,___func__$p_ZN7CheerpX5Linux18runFSRenameRequestE12CORE_MESSAGEjjPN6client6StringES4_,0);
+	if((L$plcssa.i1|0)!==0)___assert_fail(_$pstr$p33$p107,0,_$pstr$p14$p106,0,1062,___func__$p_ZN7CheerpX5Linux18runFSRenameRequestE12CORE_MESSAGEjjPN6client6StringES4_,0);
 	;
 	L$poptgepsqueezed14=tmp2.a9;
 	__ZN7CheerpX14CheerpOSDevice6renameERKN6client6StringES4_(L$poptgepsqueezed14,L$plcssa,Larg5,Larg6);
@@ -11438,7 +11458,7 @@ function __ZN7CheerpX5Linux18runFSRenameRequestE12CORE_MESSAGEjjPN6client6String
 		tmp2.a0=null;
 		tmp1=L$poptgepsqueezed20.a0;
 		tmp4=L$poptgepsqueezed20.a0o|0;
-		(tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p97)[tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p97].a0((tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p97),tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p97);
+		(tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p102)[tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p102].a0((tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p102),tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux18runFSUnlinkRequestE12CORE_MESSAGEjPN6client6StringEj(Larg0,Larg1,Larg2,Larg3,Larg4,Larg5){
@@ -11470,7 +11490,7 @@ function __ZN7CheerpX5Linux18runFSUnlinkRequestE12CORE_MESSAGEjPN6client6StringE
 			break;
 		}
 	}
-	if((L$plcssa.i1|0)!==0)___assert_fail(_$pstr$p33$p102,0,_$pstr$p14$p101,0,1081,___func__$p_ZN7CheerpX5Linux18runFSUnlinkRequestE12CORE_MESSAGEjPN6client6StringEj,0);
+	if((L$plcssa.i1|0)!==0)___assert_fail(_$pstr$p33$p107,0,_$pstr$p14$p106,0,1081,___func__$p_ZN7CheerpX5Linux18runFSUnlinkRequestE12CORE_MESSAGEjPN6client6StringEj,0);
 	;
 	tmp2.a7=L$plcssa;
 	L$poptgepsqueezed18=tmp2.a9;
@@ -11521,7 +11541,7 @@ function __ZN7CheerpX5Linux18runFSUnlinkRequestE12CORE_MESSAGEjPN6client6StringE
 		tmp2.a0=null;
 		tmp1=L$poptgepsqueezed23.a0;
 		tmp4=L$poptgepsqueezed23.a0o|0;
-		(tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p97)[tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p97].a0((tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p97),tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p97);
+		(tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p102)[tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p102].a0((tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p102),tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux18runFSUnlinkRequestE12CORE_MESSAGEjPN6client6StringEj$presume(Larg0,Marg0){
@@ -11581,7 +11601,7 @@ function __ZN7CheerpX5Linux18runFSUnlinkRequestE12CORE_MESSAGEjPN6client6StringE
 		Larg0[Marg0].a0=null;
 		L$ppre_0=L$poptgepsqueezed25.a0;
 		L$ppre_1=L$poptgepsqueezed25.a0o|0;
-		(L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p97)[L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p97].a0((L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p97),L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p97);
+		(L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p102)[L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p102].a0((L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p102),L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux18runFSUnlinkRequestE12CORE_MESSAGEjPN6client6StringEj$pdestroy(Larg0,Marg0){
@@ -11621,7 +11641,7 @@ function __ZN7CheerpX5Linux18runFSRenameRequestE12CORE_MESSAGEjjPN6client6String
 	Larg0.a0=null;
 	tmp3=L$poptgepsqueezed9.a0;
 	tmp1=L$poptgepsqueezed9.a0o|0;
-	(tmp3!==nullArray||tmp1!==0?tmp3:_NoopCoro$pFrame$pConst$p97)[tmp3!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p97].a0((tmp3!==nullArray||tmp1!==0?tmp3:_NoopCoro$pFrame$pConst$p97),tmp3!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p97);
+	(tmp3!==nullArray||tmp1!==0?tmp3:_NoopCoro$pFrame$pConst$p102)[tmp3!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p102].a0((tmp3!==nullArray||tmp1!==0?tmp3:_NoopCoro$pFrame$pConst$p102),tmp3!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p102);
 }
 function __ZN7CheerpX5Linux18runFSRenameRequestE12CORE_MESSAGEjjPN6client6StringES4_$pdestroy(Larg0,Marg0){
 	Larg0=Larg0[Marg0];
@@ -11653,7 +11673,7 @@ function __ZN7CheerpX5Linux21runFSCacheListRequestE12CORE_MESSAGEjPN6client6Stri
 	Larg0.a0=null;
 	tmp2=L$poptgepsqueezed16.a0;
 	tmp1=L$poptgepsqueezed16.a0o|0;
-	(tmp2!==nullArray||tmp1!==0?tmp2:_NoopCoro$pFrame$pConst$p97)[tmp2!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p97].a0((tmp2!==nullArray||tmp1!==0?tmp2:_NoopCoro$pFrame$pConst$p97),tmp2!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p97);
+	(tmp2!==nullArray||tmp1!==0?tmp2:_NoopCoro$pFrame$pConst$p102)[tmp2!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p102].a0((tmp2!==nullArray||tmp1!==0?tmp2:_NoopCoro$pFrame$pConst$p102),tmp2!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p102);
 }
 function __ZN7CheerpX5Linux21runFSCacheListRequestE12CORE_MESSAGEjPN6client6StringEjj$pdestroy(Larg0,Marg0){
 	Larg0=Larg0[Marg0];
@@ -11696,10 +11716,10 @@ function __ZN7CheerpX5Linux21runFSCacheNodeRequestE12CORE_MESSAGEjPN6client6Stri
 		Larg0.a0=null;
 		tmp12=L$poptgepsqueezed17.a0;
 		tmp11=L$poptgepsqueezed17.a0o|0;
-		(tmp12!==nullArray||tmp11!==0?tmp12:_NoopCoro$pFrame$pConst$p97)[tmp12!==nullArray||tmp11!==0?tmp11:$NoopCoro$pFrame$pConst$p97].a0((tmp12!==nullArray||tmp11!==0?tmp12:_NoopCoro$pFrame$pConst$p97),tmp12!==nullArray||tmp11!==0?tmp11:$NoopCoro$pFrame$pConst$p97);
+		(tmp12!==nullArray||tmp11!==0?tmp12:_NoopCoro$pFrame$pConst$p102)[tmp12!==nullArray||tmp11!==0?tmp11:$NoopCoro$pFrame$pConst$p102].a0((tmp12!==nullArray||tmp11!==0?tmp12:_NoopCoro$pFrame$pConst$p102),tmp12!==nullArray||tmp11!==0?tmp11:$NoopCoro$pFrame$pConst$p102);
 		return;
 	}
-	___assert_fail(_$pstr$p28$p103,0,_$pstr$p14$p101,0,660,___func__$p_ZN7CheerpX5Linux21runFSCacheNodeRequestE12CORE_MESSAGEjPN6client6StringEjj,0);
+	___assert_fail(_$pstr$p28$p108,0,_$pstr$p14$p106,0,660,___func__$p_ZN7CheerpX5Linux21runFSCacheNodeRequestE12CORE_MESSAGEjPN6client6StringEjj,0);
 	;
 }
 function __ZN7CheerpX5Linux21runFSCacheNodeRequestE12CORE_MESSAGEjPN6client6StringEjj$pdestroy(Larg0,Marg0){
@@ -11734,7 +11754,7 @@ function __ZN7CheerpX5Linux16runFSLinkRequestE12CORE_MESSAGEjjPN6client6StringES
 	Larg0.a0=null;
 	tmp3=L$poptgepsqueezed9.a0;
 	tmp1=L$poptgepsqueezed9.a0o|0;
-	(tmp3!==nullArray||tmp1!==0?tmp3:_NoopCoro$pFrame$pConst$p97)[tmp3!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p97].a0((tmp3!==nullArray||tmp1!==0?tmp3:_NoopCoro$pFrame$pConst$p97),tmp3!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p97);
+	(tmp3!==nullArray||tmp1!==0?tmp3:_NoopCoro$pFrame$pConst$p102)[tmp3!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p102].a0((tmp3!==nullArray||tmp1!==0?tmp3:_NoopCoro$pFrame$pConst$p102),tmp3!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p102);
 }
 function __ZN7CheerpX5Linux16runFSLinkRequestE12CORE_MESSAGEjjPN6client6StringES4_$pdestroy(Larg0,Marg0){
 	Larg0=Larg0[Marg0];
@@ -11761,7 +11781,7 @@ function __ZN7CheerpX5Linux17runFSCloseRequestE12CORE_MESSAGEjj$presume(Larg0,Ma
 	Larg0.a0=null;
 	tmp2=L$poptgepsqueezed10.a0;
 	tmp1=L$poptgepsqueezed10.a0o|0;
-	(tmp2!==nullArray||tmp1!==0?tmp2:_NoopCoro$pFrame$pConst$p97)[tmp2!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p97].a0((tmp2!==nullArray||tmp1!==0?tmp2:_NoopCoro$pFrame$pConst$p97),tmp2!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p97);
+	(tmp2!==nullArray||tmp1!==0?tmp2:_NoopCoro$pFrame$pConst$p102)[tmp2!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p102].a0((tmp2!==nullArray||tmp1!==0?tmp2:_NoopCoro$pFrame$pConst$p102),tmp2!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p102);
 }
 function __ZN7CheerpX5Linux17runFSCloseRequestE12CORE_MESSAGEjj$pdestroy(Larg0,Marg0){
 	Larg0=Larg0[Marg0];
@@ -11867,7 +11887,7 @@ function __ZN7CheerpX5Linux17runFSWriteRequestE12CORE_MESSAGEjjjPKN6client6TArra
 		Larg0[Marg0].a0=null;
 		L$ppre_0=L$poptgepsqueezed25.a0;
 		L$ppre_1=L$poptgepsqueezed25.a0o|0;
-		(L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p97)[L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p97].a0((L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p97),L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p97);
+		(L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p102)[L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p102].a0((L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p102),L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux17runFSWriteRequestE12CORE_MESSAGEjjjPKN6client6TArrayIPNS2_10ChunkSliceEEE$pdestroy(Larg0,Marg0){
@@ -11934,7 +11954,7 @@ function __ZN7CheerpX5Linux16runFSReadRequestE12CORE_MESSAGEjjjPKN6client6TArray
 		Larg0[Marg0].a0=null;
 		L$ppre_0=L$poptgepsqueezed25.a0;
 		L$ppre_1=L$poptgepsqueezed25.a0o|0;
-		(L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p97)[L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p97].a0((L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p97),L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p97);
+		(L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p102)[L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p102].a0((L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p102),L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux16runFSReadRequestE12CORE_MESSAGEjjjPKN6client6TArrayIPNS2_10ChunkSliceEEE$pdestroy(Larg0,Marg0){
@@ -11967,12 +11987,12 @@ function __ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_ME
 				if(L$ppre_0!==nullArray||tmp4!==0)L$ppre_0[tmp4].a1(L$ppre_0,tmp4);
 				L$ppre_0=Larg0[Marg0].a12;
 				tmp0=Larg0[Marg0].a4;
-				if((L$ppre_1|0)<=-1)___assert_fail(_$pstr$p48$p106,0,_$pstr$p14$p101,0,1183,___func__$p_ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_MESSAGEjPNS1_6ObjectEjjj,0);
+				if((L$ppre_1|0)<=-1)___assert_fail(_$pstr$p48$p111,0,_$pstr$p14$p106,0,1183,___func__$p_ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_MESSAGEjPNS1_6ObjectEjjj,0);
 				;
 				__ZN7CheerpX14CheerpOSDevice7fdDescsE.length;
 				L$ppre_0=__ZN7CheerpX14CheerpOSDevice7fdDescsE;
 				L$ppre_0=L$ppre_0[0+L$ppre_1|0].fileData;
-				if(L$ppre_0.parent===null)___assert_fail(_$pstr$p46$p107,0,_$pstr$p14$p101,0,1187,___func__$p_ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_MESSAGEjPNS1_6ObjectEjjj,0);
+				if(L$ppre_0.parent===null)___assert_fail(_$pstr$p46$p112,0,_$pstr$p14$p106,0,1187,___func__$p_ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_MESSAGEjPNS1_6ObjectEjjj,0);
 				;
 				tmp4=Larg0[Marg0].i7|0;
 				Larg0[Marg0].i13=L$ppre_0.inodeId;
@@ -12005,7 +12025,7 @@ function __ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_ME
 		Larg0[Marg0].a0=null;
 		L$ppre_0=L$poptgepsqueezed45.a0;
 		L$ppre_1=L$poptgepsqueezed45.a0o|0;
-		(L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p97)[L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p97].a0((L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p97),L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p97);
+		(L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p102)[L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p102].a0((L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p102),L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_MESSAGEjPNS1_6ObjectEjjj$pdestroy(Larg0,Marg0){
@@ -12082,7 +12102,7 @@ function __ZN7CheerpX5Linux17runFSMkdirRequestEPN6client6StringEj12CORE_MESSAGEj
 		Larg0[Marg0].a0=null;
 		L$ppre_0=L$poptgepsqueezed33.a0;
 		L$ppre_1=L$poptgepsqueezed33.a0o|0;
-		(L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p97)[L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p97].a0((L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p97),L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p97);
+		(L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p102)[L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p102].a0((L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_0:_NoopCoro$pFrame$pConst$p102),L$ppre_0!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux17runFSMkdirRequestEPN6client6StringEj12CORE_MESSAGEjjjj$pdestroy(Larg0,Marg0){
@@ -12112,14 +12132,14 @@ function __ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjj
 	L$poptgepsqueezed15=Larg0.a10;
 	tmp9=Larg0.a9;
 	if((tmp7|0)<0){
-		if((Larg0.i6&3|0)===0)___assert_fail(_$pstr$p45$p111,0,_$pstr$p14$p101,0,1121,___func__$p_ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjjjjj,0);
+		if((Larg0.i6&3|0)===0)___assert_fail(_$pstr$p45$p116,0,_$pstr$p14$p106,0,1121,___func__$p_ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjjjjj,0);
 		;
 		L$poptgepsqueezed15={type:62,tid:(Larg0.i4|0),value: -30};
 	}else{
 		__ZN7CheerpX14CheerpOSDevice7fdDescsE.length;
 		L$poptgepsqueezed15=__ZN7CheerpX14CheerpOSDevice7fdDescsE;
 		L$poptgepsqueezed15=L$poptgepsqueezed15[0+tmp7|0].fileData;
-		if(L$poptgepsqueezed15.parent===null)___assert_fail(_$pstr$p46$p107,0,_$pstr$p14$p101,0,1130,___func__$p_ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjjjjj,0);
+		if(L$poptgepsqueezed15.parent===null)___assert_fail(_$pstr$p46$p112,0,_$pstr$p14$p106,0,1130,___func__$p_ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjjjjj,0);
 		;
 		tmp10=Larg0.i6|0;
 		tmp0=L$poptgepsqueezed15.inodeId;
@@ -12127,7 +12147,7 @@ function __ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjj
 		tmp8=L$poptgepsqueezed15.permType;
 		tmp2=L$poptgepsqueezed15.lastModified;
 		if((tmp10&64|0)!==0)if(((L$poptgepsqueezed15.dirty)|0)!==0){
-			if((tmp8|0)===0)___assert_fail(_$pstr$p43$p104,0,_$pstr$p14$p101,0,1140,___func__$p_ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjjjjj,0);
+			if((tmp8|0)===0)___assert_fail(_$pstr$p43$p109,0,_$pstr$p14$p106,0,1140,___func__$p_ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjjjjj,0);
 			;
 			tmp8=Larg0.i7&511|tmp8& -512;
 			L$poptgepsqueezed15.permType=tmp8;
@@ -12144,7 +12164,7 @@ function __ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjj
 	Larg0.a0=null;
 	tmp9=L$poptgepsqueezed15.a0;
 	tmp7=L$poptgepsqueezed15.a0o|0;
-	(tmp9!==nullArray||tmp7!==0?tmp9:_NoopCoro$pFrame$pConst$p97)[tmp9!==nullArray||tmp7!==0?tmp7:$NoopCoro$pFrame$pConst$p97].a0((tmp9!==nullArray||tmp7!==0?tmp9:_NoopCoro$pFrame$pConst$p97),tmp9!==nullArray||tmp7!==0?tmp7:$NoopCoro$pFrame$pConst$p97);
+	(tmp9!==nullArray||tmp7!==0?tmp9:_NoopCoro$pFrame$pConst$p102)[tmp9!==nullArray||tmp7!==0?tmp7:$NoopCoro$pFrame$pConst$p102].a0((tmp9!==nullArray||tmp7!==0?tmp9:_NoopCoro$pFrame$pConst$p102),tmp9!==nullArray||tmp7!==0?tmp7:$NoopCoro$pFrame$pConst$p102);
 }
 function __ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjjjjj$pdestroy(Larg0,Marg0){
 	Larg0=Larg0[Marg0];
@@ -12187,7 +12207,7 @@ function __ZN7CheerpX5Linux12MessageQueue3popEv$presume(Larg0,Marg0){
 	Larg0.a0=null;
 	tmp5=L$poptgepsqueezed9.a0;
 	tmp3=L$poptgepsqueezed9.a0o|0;
-	(tmp5!==nullArray||tmp3!==0?tmp5:_NoopCoro$pFrame$pConst$p97)[tmp5!==nullArray||tmp3!==0?tmp3:$NoopCoro$pFrame$pConst$p97].a0((tmp5!==nullArray||tmp3!==0?tmp5:_NoopCoro$pFrame$pConst$p97),tmp5!==nullArray||tmp3!==0?tmp3:$NoopCoro$pFrame$pConst$p97);
+	(tmp5!==nullArray||tmp3!==0?tmp5:_NoopCoro$pFrame$pConst$p102)[tmp5!==nullArray||tmp3!==0?tmp3:$NoopCoro$pFrame$pConst$p102].a0((tmp5!==nullArray||tmp3!==0?tmp5:_NoopCoro$pFrame$pConst$p102),tmp5!==nullArray||tmp3!==0?tmp3:$NoopCoro$pFrame$pConst$p102);
 }
 function __ZN7CheerpX5Linux12MessageQueue3popEv$pdestroy(Larg0,Marg0){
 }
@@ -12204,7 +12224,7 @@ function __ZN7CheerpX5Linux14requestAppInitEv$presume(Larg0,Marg0){
 	Larg0.a0=null;
 	tmp0=L$poptgepsqueezed4.a0;
 	tmp2=L$poptgepsqueezed4.a0o|0;
-	(tmp0!==nullArray||tmp2!==0?tmp0:_NoopCoro$pFrame$pConst$p97)[tmp0!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p97].a0((tmp0!==nullArray||tmp2!==0?tmp0:_NoopCoro$pFrame$pConst$p97),tmp0!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p97);
+	(tmp0!==nullArray||tmp2!==0?tmp0:_NoopCoro$pFrame$pConst$p102)[tmp0!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p102].a0((tmp0!==nullArray||tmp2!==0?tmp0:_NoopCoro$pFrame$pConst$p102),tmp0!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p102);
 }
 function __ZN7CheerpX5Linux14requestAppInitEv$pdestroy(Larg0,Marg0){
 	Larg0=Larg0[Marg0];
@@ -12331,7 +12351,7 @@ function __ZN7CheerpX5Linux11postRequestIPN6client6ObjectEEE4TaskIT_EiS4_b$presu
 	Larg0.a0=null;
 	tmp3=L$poptgepsqueezed13.a0;
 	tmp2=L$poptgepsqueezed13.a0o|0;
-	(tmp3!==nullArray||tmp2!==0?tmp3:_NoopCoro$pFrame$pConst$p97)[tmp3!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p97].a0((tmp3!==nullArray||tmp2!==0?tmp3:_NoopCoro$pFrame$pConst$p97),tmp3!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p97);
+	(tmp3!==nullArray||tmp2!==0?tmp3:_NoopCoro$pFrame$pConst$p102)[tmp3!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p102].a0((tmp3!==nullArray||tmp2!==0?tmp3:_NoopCoro$pFrame$pConst$p102),tmp3!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p102);
 }
 function __ZN7CheerpX5Linux11postRequestIPN6client6ObjectEEE4TaskIT_EiS4_b$pdestroy(Larg0,Marg0){
 }
@@ -12353,7 +12373,7 @@ function __ZN7CheerpX5Linux28requestCreateExternalProcessEv$presume(Larg0,Marg0)
 	Larg0.a0=null;
 	L$poptgep$poptgep2$poptgep=L$poptgepsqueezed5.a0;
 	tmp1=L$poptgepsqueezed5.a0o|0;
-	(L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p97)[L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p97].a0((L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p97),L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p97);
+	(L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p102)[L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p102].a0((L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p102),L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p102);
 }
 function __ZN7CheerpX5Linux28requestCreateExternalProcessEv$pdestroy(Larg0,Marg0){
 	Larg0=Larg0[Marg0];
@@ -12477,10 +12497,10 @@ function __ZN7CheerpX5Linux11postRequestIjEE4TaskIT_EiPN6client6ObjectEb$presume
 		Larg0.a0=null;
 		L$poptgep$poptgep2$poptgep=L$poptgepsqueezed9.a0;
 		tmp2=L$poptgepsqueezed9.a0o|0;
-		(L$poptgep$poptgep2$poptgep!==nullArray||tmp2!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p97)[L$poptgep$poptgep2$poptgep!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p97].a0((L$poptgep$poptgep2$poptgep!==nullArray||tmp2!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p97),L$poptgep$poptgep2$poptgep!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p97);
+		(L$poptgep$poptgep2$poptgep!==nullArray||tmp2!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p102)[L$poptgep$poptgep2$poptgep!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p102].a0((L$poptgep$poptgep2$poptgep!==nullArray||tmp2!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p102),L$poptgep$poptgep2$poptgep!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p102);
 		return;
 	}
-	___assert_fail(_$pstr$p61,0,_$pstr$p83$p100,0,258,___func__$p_ZN7CheerpX5Linux11postRequestIjEE4TaskIT_EiPN6client6ObjectEb,0);
+	___assert_fail(_$pstr$p61,0,_$pstr$p83$p105,0,258,___func__$p_ZN7CheerpX5Linux11postRequestIjEE4TaskIT_EiPN6client6ObjectEb,0);
 	;
 }
 function __ZN7CheerpX5Linux11postRequestIjEE4TaskIT_EiPN6client6ObjectEb$pdestroy(Larg0,Marg0){
@@ -12759,7 +12779,7 @@ function __ZN7CheerpX5Linux16setCustomConsoleEPFvPN6client10Uint8ArrayEjEjj(Larg
 	tmp0={type:87,columns:Larg2,rows:Larg3};
 	Larg0.a6.postMessage(tmp0);
 	tmp0=Larg0.a26;
-	if(tmp0.a2!==null)___assert_fail(_$pstr$p28$p225,0,_$pstr$p1$p190,0,375,___func__$p_ZN11CXUIConsole16setWriteCallbackEPFvPN6client10Uint8ArrayEjE,0);
+	if(tmp0.a2!==null)___assert_fail(_$pstr$p28$p230,0,_$pstr$p1$p195,0,375,___func__$p_ZN11CXUIConsole16setWriteCallbackEPFvPN6client10Uint8ArrayEjE,0);
 	;
 	tmp0.a3=Larg1;
 	tmp0=[{a0:null}];
@@ -12806,7 +12826,7 @@ function __ZN7CheerpX5Linux18createUnixListenerEPN6client6StringE(Larg0,Larg1){
 function __ZN7CheerpX5Linux18setActivateConsoleEPFvjE(Larg0,Larg1){
 	var tmp0=null;
 	tmp0=Larg0.a26;
-	if(tmp0.a2!==null)___assert_fail(_$pstr$p28$p225,0,_$pstr$p1$p190,0,381,___func__$p_ZN11CXUIConsole19setActivateCallbackEPFvjE,0);
+	if(tmp0.a2!==null)___assert_fail(_$pstr$p28$p230,0,_$pstr$p1$p195,0,381,___func__$p_ZN11CXUIConsole19setActivateCallbackEPFvjE,0);
 	;
 	tmp0.a4=Larg1;
 	tmp0=[{a0:null}];
@@ -12958,7 +12978,7 @@ function __ZN7CheerpX5Linux3runEPN6client6StringEPNS1_6TArrayIS3_EEPNS1_12RunOpt
 							if((tmp11|0)===32)break c;
 							continue;
 						}
-						___assert_fail(_$pstr$p61,0,_$pstr$p14$p101,0,631,___func__$p_ZN7CheerpX5Linux3runEPN6client6StringEPNS1_6TArrayIS3_EEPNS1_12RunOptionalsE,0);
+						___assert_fail(_$pstr$p61,0,_$pstr$p14$p106,0,631,___func__$p_ZN7CheerpX5Linux3runEPN6client6StringEPNS1_6TArrayIS3_EEPNS1_12RunOptionalsE,0);
 						;
 					}
 					tmp2=Larg3.stdout;
@@ -13079,10 +13099,10 @@ function __ZN7CheerpX5Linux6createEPN6client14LinuxOptionalsE(Larg0){
 						}
 						break a;
 					}else{
-						tmp7=_$pstr$p10$p119;
+						tmp7=_$pstr$p10$p124;
 					}
 				}else{
-					tmp7=_$pstr$p11$p120;
+					tmp7=_$pstr$p11$p125;
 				}
 				console.log(_cheerpCreate_ZN6client6StringC2EPKc(tmp7,0));
 			}
@@ -13279,7 +13299,7 @@ function __ZZN7CheerpX5Linux6createEPN6client14LinuxOptionalsEENK3$_0clEv(Larg0)
 			L$poptgep8$poptgep$poptgepsqueezed=location.pathname;
 			tmp5="/";
 			tmp6=L$poptgep8$poptgep$poptgepsqueezed.lastIndexOf(tmp5);
-			if((tmp6|0)<=-1)___assert_fail(_$pstr$p73$p122,0,_$pstr$p14$p101,0,128,___func__$p_ZZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationEENK3$_0clES1_jPNS2_19FloppyConfigurationE,0);
+			if((tmp6|0)<=-1)___assert_fail(_$pstr$p73$p127,0,_$pstr$p14$p106,0,128,___func__$p_ZZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationEENK3$_0clES1_jPNS2_19FloppyConfigurationE,0);
 			;
 			tmp5=L$poptgep8$poptgep$poptgepsqueezed.substr(0,(+(tmp6|0)));
 			tmp3.a5=tmp5;
@@ -13311,7 +13331,7 @@ function __ZZN7CheerpX5Linux6createEPN6client14LinuxOptionalsEENK3$_0clEv(Larg0)
 			tmp9=L$poptgepsqueezed31.a2.a0;
 			tmp8=L$poptgepsqueezed31.a2.a0o|0;
 			if(tmp6<tmp8){
-				__ZNSsC2B7v160000IDnEEPKc(tmp2,_$pstr$p74$p123,0);
+				__ZNSsC2B7v160000IDnEEPKc(tmp2,_$pstr$p74$p128,0);
 				tmp9=tmp3.a3[0];
 				__ZNSsC2B7v160000IDnEEPKc(L$poptgep8$poptgep$poptgepsqueezed,_$pstr$p6,0);
 				__ZNSsC2ERKSs(tmp5[tmp6],tmp2);
@@ -13360,7 +13380,7 @@ function __ZZN7CheerpX5Linux6createEPN6client14LinuxOptionalsEENK3$_0clEv$presum
 	tmp0=L$poptgepsqueezed24.a2.a0;
 	tmp1=L$poptgepsqueezed24.a2.a0o|0;
 	if(tmp3<tmp1){
-		__ZNSsC2B7v160000IDnEEPKc(tmp6,_$pstr$p74$p123,0);
+		__ZNSsC2B7v160000IDnEEPKc(tmp6,_$pstr$p74$p128,0);
 		__ZNSsC2B7v160000IDnEEPKc(tmp7,_$pstr$p6,0);
 		__ZNSsC2ERKSs(tmp8[tmp3],tmp6);
 		tmp8[tmp3].a3=tmp4;
@@ -13449,7 +13469,7 @@ function __ZNSt6vectorIN7CheerpX5Linux10MountPointESaIS2_EE24__emplace_back_slow
 	L$poptgepsqueezed9.a0o=0+tmp8|0;
 	L$poptgepsqueezed9={i0:0,i1:0,a2:nullArray};
 	tmp3={i0:0,i1:0,a2:nullArray};
-	__ZNSsC2B7v160000IDnEEPKc(L$poptgepsqueezed9,_$pstr$p74$p123,0);
+	__ZNSsC2B7v160000IDnEEPKc(L$poptgepsqueezed9,_$pstr$p74$p128,0);
 	tmp4=Larg1[Marg1];
 	__ZNSsC2B7v160000IDnEEPKc(tmp3,_$pstr$p6,0);
 	__ZNSsC2ERKSs(L$poptgepsqueezed14[tmp6],L$poptgepsqueezed9);
@@ -13719,10 +13739,10 @@ function __ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE(Larg0,Lar
 				L$poptgep74$poptgep$poptgepsqueezed[Lmergedload2].a0(L$poptgep74$poptgep$poptgepsqueezed,Lmergedload2);
 				break a;
 			}
-			___assert_fail(_$pstr$p16$p125,0,_$pstr$p14$p101,0,234,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
+			___assert_fail(_$pstr$p16$p130,0,_$pstr$p14$p106,0,234,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
 			;
 		}
-		___assert_fail(_$pstr$p15$p124,0,_$pstr$p14$p101,0,233,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
+		___assert_fail(_$pstr$p15$p129,0,_$pstr$p14$p106,0,233,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
 		;
 		case 82:
 		Lmergedload2=Larg1.fd;
@@ -13763,10 +13783,10 @@ function __ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE(Larg0,Lar
 							if((Lmergedload2|0)===((L$poptgepsqueezed121.bufOffset)|0)){
 								Lmergedload2=tmp8[Lgeptoindexphi11+Lgeptoindexphi|0].a3.len;
 								if((Lmergedload2|0)===((L$poptgepsqueezed121.len)|0))break a;
-								___assert_fail(_$pstr$p19$p130,0,_$pstr$p14$p101,0,264,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
+								___assert_fail(_$pstr$p19$p135,0,_$pstr$p14$p106,0,264,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
 								;
 							}
-							___assert_fail(_$pstr$p18$p129,0,_$pstr$p14$p101,0,263,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
+							___assert_fail(_$pstr$p18$p134,0,_$pstr$p14$p106,0,263,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
 							;
 						}
 						Lgeptoindexphi=Lgeptoindexphi+1|0;
@@ -13774,7 +13794,7 @@ function __ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE(Larg0,Lar
 						break;
 					}
 				}
-				if(((Larg1.slices.length)|0)!==1)___assert_fail(_$pstr$p16$p125,0,_$pstr$p14$p101,0,268,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
+				if(((Larg1.slices.length)|0)!==1)___assert_fail(_$pstr$p16$p130,0,_$pstr$p14$p106,0,268,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
 				;
 				Lgeptoindexphi11=Larg1.replyType;
 				LmergedArray[1]=Lgeptoindexphi11;
@@ -13812,7 +13832,7 @@ function __ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE(Larg0,Lar
 			}
 			break a;
 		}
-		___assert_fail(_$pstr$p15$p124,0,_$pstr$p14$p101,0,249,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
+		___assert_fail(_$pstr$p15$p129,0,_$pstr$p14$p106,0,249,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
 		;
 		case 55:
 		Lmergedload2=Larg1.index;
@@ -13824,10 +13844,10 @@ function __ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE(Larg0,Lar
 				L$poptgep74$poptgep$poptgepsqueezed({status:(Larg1.value)});
 				break a;
 			}
-			___assert_fail(_$pstr$p21$p132,0,_$pstr$p14$p101,0,284,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
+			___assert_fail(_$pstr$p21$p137,0,_$pstr$p14$p106,0,284,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
 			;
 		}
-		___assert_fail(_$pstr$p20$p131,0,_$pstr$p14$p101,0,282,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
+		___assert_fail(_$pstr$p20$p136,0,_$pstr$p14$p106,0,282,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
 		;
 		case 34:
 		LmergedArray=Larg0.a48;
@@ -13880,7 +13900,7 @@ function __ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE(Larg0,Lar
 				break;
 			}
 		}
-		___assert_fail(_$pstr$p61,0,_$pstr$p14$p101,0,308,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
+		___assert_fail(_$pstr$p61,0,_$pstr$p14$p106,0,308,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
 		;
 		case 53:
 		LmergedArray=Larg1.arg1;
@@ -13891,7 +13911,7 @@ function __ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE(Larg0,Lar
 			__ZN11CXUIConsole5flushEv(Larg0.a26);
 			break a;
 		}
-		___assert_fail(_$pstr$p22$p133,0,_$pstr$p14$p101,0,315,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
+		___assert_fail(_$pstr$p22$p138,0,_$pstr$p14$p106,0,315,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
 		;
 		case 29:
 		Lmergedload2=Larg1.arg1;
@@ -13902,7 +13922,7 @@ function __ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE(Larg0,Lar
 			LmergedArray(Lmergedload2);
 			break a;
 		}
-		___assert_fail(_$pstr$p22$p133,0,_$pstr$p14$p101,0,323,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
+		___assert_fail(_$pstr$p22$p138,0,_$pstr$p14$p106,0,323,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
 		;
 		case 72:
 		Lmergedload2=Larg1.width;
@@ -13921,7 +13941,7 @@ function __ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE(Larg0,Lar
 			Larg0.a30=new Uint8Array(LmergedArray);
 			break a;
 		}
-		___assert_fail(_$pstr$p23$p134,0,_$pstr$p14$p101,0,330,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
+		___assert_fail(_$pstr$p23$p139,0,_$pstr$p14$p106,0,330,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
 		;
 		case 74:
 		Larg0.a29=null;
@@ -13982,7 +14002,7 @@ function __ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE(Larg0,Lar
 				}
 			}
 		}
-		___assert_fail(_$pstr$p24$p135,0,_$pstr$p14$p101,0,369,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
+		___assert_fail(_$pstr$p24$p140,0,_$pstr$p14$p106,0,369,___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE,0);
 		;
 		case 88:
 		L$poptgepsqueezed120=Larg1.arg1;
@@ -14543,7 +14563,7 @@ function __ZN7CheerpX5Linux11postRequestIPN6client11MessagePortEEE4TaskIT_EiPNS2
 	Larg0.a0=null;
 	tmp3=L$poptgepsqueezed13.a0;
 	tmp2=L$poptgepsqueezed13.a0o|0;
-	(tmp3!==nullArray||tmp2!==0?tmp3:_NoopCoro$pFrame$pConst$p97)[tmp3!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p97].a0((tmp3!==nullArray||tmp2!==0?tmp3:_NoopCoro$pFrame$pConst$p97),tmp3!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p97);
+	(tmp3!==nullArray||tmp2!==0?tmp3:_NoopCoro$pFrame$pConst$p102)[tmp3!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p102].a0((tmp3!==nullArray||tmp2!==0?tmp3:_NoopCoro$pFrame$pConst$p102),tmp3!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p102);
 }
 function __ZN7CheerpX5Linux11postRequestIPN6client11MessagePortEEE4TaskIT_EiPNS2_6ObjectEb$pdestroy(Larg0,Marg0){
 }
@@ -16069,7 +16089,7 @@ function __ZN7CheerpX5Linux13requestSocketEjiii(Larg0,Larg1,Larg2){
 		tmp3.a0=null;
 		tmp2=L$poptgepsqueezed8.a0;
 		tmp5=L$poptgepsqueezed8.a0o|0;
-		(tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p97)[tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p97].a0((tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p97),tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p97);
+		(tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p102)[tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p102].a0((tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p102),tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux11requestBindEjjPhj(Larg0,Larg1,Larg2,Larg3,Larg4,Marg4,Larg5){
@@ -16112,7 +16132,7 @@ function __ZN7CheerpX5Linux11requestBindEjjPhj(Larg0,Larg1,Larg2,Larg3,Larg4,Mar
 		tmp4.a0=null;
 		tmp3=L$poptgepsqueezed8.a0;
 		tmp6=L$poptgepsqueezed8.a0o|0;
-		(tmp3!==nullArray||tmp6!==0?tmp3:_NoopCoro$pFrame$pConst$p97)[tmp3!==nullArray||tmp6!==0?tmp6:$NoopCoro$pFrame$pConst$p97].a0((tmp3!==nullArray||tmp6!==0?tmp3:_NoopCoro$pFrame$pConst$p97),tmp3!==nullArray||tmp6!==0?tmp6:$NoopCoro$pFrame$pConst$p97);
+		(tmp3!==nullArray||tmp6!==0?tmp3:_NoopCoro$pFrame$pConst$p102)[tmp3!==nullArray||tmp6!==0?tmp6:$NoopCoro$pFrame$pConst$p102].a0((tmp3!==nullArray||tmp6!==0?tmp3:_NoopCoro$pFrame$pConst$p102),tmp3!==nullArray||tmp6!==0?tmp6:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux11requestBindEjjPhj$presume(Larg0,Marg0){
@@ -16133,7 +16153,7 @@ function __ZN7CheerpX5Linux11requestBindEjjPhj$presume(Larg0,Marg0){
 	Larg0.a0=null;
 	L$poptgep$poptgep2$poptgep=L$poptgepsqueezed5.a0;
 	tmp1=L$poptgepsqueezed5.a0o|0;
-	(L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p97)[L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p97].a0((L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p97),L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p97);
+	(L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p102)[L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p102].a0((L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p102),L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p102);
 }
 function __ZN7CheerpX5Linux11requestBindEjjPhj$pdestroy(Larg0,Marg0){
 	Larg0=Larg0[Marg0];
@@ -16162,7 +16182,7 @@ function __ZN7CheerpX5Linux13requestSocketEjiii$presume(Larg0,Marg0){
 	Larg0.a0=null;
 	L$poptgep$poptgep2$poptgep=L$poptgepsqueezed5.a0;
 	tmp1=L$poptgepsqueezed5.a0o|0;
-	(L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p97)[L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p97].a0((L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p97),L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p97);
+	(L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p102)[L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p102].a0((L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p102),L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p102);
 }
 function __ZN7CheerpX5Linux13requestSocketEjiii$pdestroy(Larg0,Marg0){
 	Larg0=Larg0[Marg0];
@@ -16337,7 +16357,7 @@ function __ZZN7CheerpX5Linux19connectToPortHelperEjPN6client11MessagePortEPNS1_1
 						L$poptgep$poptgep44$poptgepsqueezed.a1o=tmp6;
 						break b;
 					}
-					___assert_fail(_$pstr$p77$p152,0,_$pstr$p14$p101,0,902,___func__$p_ZZN7CheerpX5Linux19connectToPortHelperEjPN6client11MessagePortEPNS1_10Uint8ArrayEEN11HTTPParsing13processBufferES5_,0);
+					___assert_fail(_$pstr$p77$p157,0,_$pstr$p14$p106,0,902,___func__$p_ZZN7CheerpX5Linux19connectToPortHelperEjPN6client11MessagePortEPNS1_10Uint8ArrayEEN11HTTPParsing13processBufferES5_,0);
 					;
 				}
 				tmp7=L$poptgep$poptgep44$poptgepsqueezed.a1;
@@ -16452,7 +16472,7 @@ function __ZZN7CheerpX5Linux19connectToPortHelperEjPN6client11MessagePortEPNS1_1
 	var tmp0=0,tmp1=0,L$poptgep$poptgep26$poptgepsqueezed=null,tmp3=null,tmp4=null,tmp5=0,tmp6=0,Lgeptoindexphi11=0,Lgeptoindexphi=0,Lgeptoindexphi7=0,tmp10=0;
 	tmp1=Larg0.i3|0;
 	a:if((tmp1|0)!==0){
-		if((tmp1|0)!==1)___assert_fail(_$pstr$p61,0,_$pstr$p14$p101,0,885,___func__$p_ZZN7CheerpX5Linux19connectToPortHelperEjPN6client11MessagePortEPNS1_10Uint8ArrayEEN11HTTPParsing11processLineEv,0);
+		if((tmp1|0)!==1)___assert_fail(_$pstr$p61,0,_$pstr$p14$p106,0,885,___func__$p_ZZN7CheerpX5Linux19connectToPortHelperEjPN6client11MessagePortEPNS1_10Uint8ArrayEEN11HTTPParsing11processLineEv,0);
 		;
 		L$poptgep$poptgep26$poptgepsqueezed=Larg0.a2;
 		tmp3=L$poptgep$poptgep26$poptgepsqueezed.a1;
@@ -16550,7 +16570,7 @@ function __ZZN7CheerpX5Linux19connectToPortHelperEjPN6client11MessagePortEPNS1_1
 					break a;
 				}
 			}
-			___assert_fail(_$pstr$p81$p155,0,_$pstr$p14$p101,0,875,___func__$p_ZZN7CheerpX5Linux19connectToPortHelperEjPN6client11MessagePortEPNS1_10Uint8ArrayEEN11HTTPParsing11processLineEv,0);
+			___assert_fail(_$pstr$p81$p161,0,_$pstr$p14$p106,0,875,___func__$p_ZZN7CheerpX5Linux19connectToPortHelperEjPN6client11MessagePortEPNS1_10Uint8ArrayEEN11HTTPParsing11processLineEv,0);
 			;
 		}
 		Larg0.i3=2;
@@ -16565,7 +16585,7 @@ function __ZZN7CheerpX5Linux19connectToPortHelperEjPN6client11MessagePortEPNS1_1
 				Lgeptoindexphi=0;
 				Lgeptoindexphi11=12;
 				while(1){
-					tmp10=_$pstr$p78$p153[Lgeptoindexphi]|0;
+					tmp10=_$pstr$p78$p158[Lgeptoindexphi]|0;
 					tmp0=(tmp6&255)===(tmp10&255)?1:0;
 					if((tmp10&255)!==0){
 						Lgeptoindexphi11=Lgeptoindexphi11-1|0;
@@ -16574,7 +16594,7 @@ function __ZZN7CheerpX5Linux19connectToPortHelperEjPN6client11MessagePortEPNS1_1
 							tmp6=L$poptgep$poptgep26$poptgepsqueezed[tmp1+Lgeptoindexphi7|0]|0;
 							Lgeptoindexphi=Lgeptoindexphi+1|0;
 							if((tmp6&255)!==0)continue;
-							tmp10=_$pstr$p78$p153[Lgeptoindexphi]|0;
+							tmp10=_$pstr$p78$p158[Lgeptoindexphi]|0;
 							tmp6=0;
 						}
 					}
@@ -16585,7 +16605,7 @@ function __ZZN7CheerpX5Linux19connectToPortHelperEjPN6client11MessagePortEPNS1_1
 				Lgeptoindexphi11=0;
 				tmp6=12;
 				while(1){
-					Lgeptoindexphi7=_$pstr$p79[Lgeptoindexphi11]|0;
+					Lgeptoindexphi7=_$pstr$p79$p159[Lgeptoindexphi11]|0;
 					tmp10=(tmp5&255)===(Lgeptoindexphi7&255)?1:0;
 					if((Lgeptoindexphi7&255)!==0){
 						tmp6=tmp6-1|0;
@@ -16603,7 +16623,7 @@ function __ZZN7CheerpX5Linux19connectToPortHelperEjPN6client11MessagePortEPNS1_1
 				tmp5=0;
 				Lgeptoindexphi11=0;
 			}
-			if((tmp5&255)!==(_$pstr$p79[Lgeptoindexphi11]&255))___assert_fail(_$pstr$p80$p154,0,_$pstr$p14$p101,0,864,___func__$p_ZZN7CheerpX5Linux19connectToPortHelperEjPN6client11MessagePortEPNS1_10Uint8ArrayEEN11HTTPParsing11processLineEv,0);
+			if((tmp5&255)!==(_$pstr$p79$p159[Lgeptoindexphi11]&255))___assert_fail(_$pstr$p80$p160,0,_$pstr$p14$p106,0,864,___func__$p_ZZN7CheerpX5Linux19connectToPortHelperEjPN6client11MessagePortEPNS1_10Uint8ArrayEEN11HTTPParsing11processLineEv,0);
 			;
 		}
 		Larg0.i3=1;
@@ -17361,7 +17381,7 @@ function __ZN7CheerpX5Linux13requestAcceptEjj(Larg0,Larg1,Larg2,Larg3){
 		tmp3.a0=null;
 		tmp2=L$poptgepsqueezed14.a0;
 		tmp5=L$poptgepsqueezed14.a0o|0;
-		(tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p97)[tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p97].a0((tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p97),tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p97);
+		(tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p102)[tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p102].a0((tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p102),tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux13requestAcceptEjj$presume(Larg0,Marg0){
@@ -17411,7 +17431,7 @@ function __ZN7CheerpX5Linux13requestAcceptEjj$presume(Larg0,Marg0){
 		Larg0[Marg0].a0=null;
 		L$poptgepsqueezed12=L$poptgepsqueezed11.a0;
 		L$ppre_1=L$poptgepsqueezed11.a0o|0;
-		(L$poptgepsqueezed12!==nullArray||L$ppre_1!==0?L$poptgepsqueezed12:_NoopCoro$pFrame$pConst$p97)[L$poptgepsqueezed12!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p97].a0((L$poptgepsqueezed12!==nullArray||L$ppre_1!==0?L$poptgepsqueezed12:_NoopCoro$pFrame$pConst$p97),L$poptgepsqueezed12!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p97);
+		(L$poptgepsqueezed12!==nullArray||L$ppre_1!==0?L$poptgepsqueezed12:_NoopCoro$pFrame$pConst$p102)[L$poptgepsqueezed12!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p102].a0((L$poptgepsqueezed12!==nullArray||L$ppre_1!==0?L$poptgepsqueezed12:_NoopCoro$pFrame$pConst$p102),L$poptgepsqueezed12!==nullArray||L$ppre_1!==0?L$ppre_1:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux13requestAcceptEjj$pdestroy(Larg0,Marg0){
@@ -17478,7 +17498,7 @@ function __ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8A
 		b:{
 			if((L$ppre$mphi_1|0)>-1){
 				L$poptgepsqueezed55=tmp2.a6;
-				if(L$poptgepsqueezed55===null)___assert_fail(_$pstr$p35$p176,0,_$pstr$p14$p101,0,720,___func__$p_ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8ArrayEjPNS3_6ObjectE,0);
+				if(L$poptgepsqueezed55===null)___assert_fail(_$pstr$p35$p181,0,_$pstr$p14$p106,0,720,___func__$p_ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8ArrayEjPNS3_6ObjectE,0);
 				;
 				L$poptgepsqueezed56=tmp2.a17;
 				__ZN7CheerpX14CheerpOSDevice4readEiPN6client10Uint8ArrayEii(L$poptgepsqueezed56,L$ppre$mphi_1,L$poptgepsqueezed55,tmp2.i7|0,131072);
@@ -17528,7 +17548,7 @@ function __ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8A
 				tmp6=L$poptgepsqueezed55.a0;
 				L$ppre$mphi_1=L$poptgepsqueezed55.a0o|0;
 				if(tmp6!==nullArray||L$ppre$mphi_1!==0)tmp6[L$ppre$mphi_1].a1(tmp6,L$ppre$mphi_1);
-				if(((L$poptgepsqueezed56.length)|0)!==131072)___assert_fail(_$pstr$p36$p177,0,_$pstr$p14$p101,0,729,___func__$p_ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8ArrayEjPNS3_6ObjectE,0);
+				if(((L$poptgepsqueezed56.length)|0)!==131072)___assert_fail(_$pstr$p36$p182,0,_$pstr$p14$p106,0,729,___func__$p_ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8ArrayEjPNS3_6ObjectE,0);
 				;
 				tmp6=tmp2.a6;
 				if(tmp6!==null){
@@ -17573,7 +17593,7 @@ function __ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8A
 				if(L$poptgepsqueezed55!==nullArray||Lgeptoindexphi!==0)L$poptgepsqueezed55[Lgeptoindexphi].a1(L$poptgepsqueezed55,Lgeptoindexphi);
 				L$poptgepsqueezed55=tmp2.a13;
 				L$poptgepsqueezed56=tmp2.a9;
-				if((L$ppre$mphi_1|0)<=-1)___assert_fail(_$pstr$p38$p178,0,_$pstr$p14$p101,0,740,___func__$p_ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8ArrayEjPNS3_6ObjectE,0);
+				if((L$ppre$mphi_1|0)<=-1)___assert_fail(_$pstr$p38$p183,0,_$pstr$p14$p106,0,740,___func__$p_ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8ArrayEjPNS3_6ObjectE,0);
 				;
 				L$poptgepsqueezed55=tmp2.a21;
 				__ZN7CheerpX14CheerpOSDevice5writeEiPN6client10Uint8ArrayEii(L$poptgepsqueezed55,L$ppre$mphi_1,tmp2.a12,0,131072);
@@ -17610,7 +17630,7 @@ function __ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8A
 		tmp2.a0=null;
 		L$ppre$mphi_0=L$poptgepsqueezed50.a0;
 		L$ppre$mphi_1=L$poptgepsqueezed50.a0o|0;
-		(L$ppre$mphi_0!==nullArray||L$ppre$mphi_1!==0?L$ppre$mphi_0:_NoopCoro$pFrame$pConst$p97)[L$ppre$mphi_0!==nullArray||L$ppre$mphi_1!==0?L$ppre$mphi_1:$NoopCoro$pFrame$pConst$p97].a0((L$ppre$mphi_0!==nullArray||L$ppre$mphi_1!==0?L$ppre$mphi_0:_NoopCoro$pFrame$pConst$p97),L$ppre$mphi_0!==nullArray||L$ppre$mphi_1!==0?L$ppre$mphi_1:$NoopCoro$pFrame$pConst$p97);
+		(L$ppre$mphi_0!==nullArray||L$ppre$mphi_1!==0?L$ppre$mphi_0:_NoopCoro$pFrame$pConst$p102)[L$ppre$mphi_0!==nullArray||L$ppre$mphi_1!==0?L$ppre$mphi_1:$NoopCoro$pFrame$pConst$p102].a0((L$ppre$mphi_0!==nullArray||L$ppre$mphi_1!==0?L$ppre$mphi_0:_NoopCoro$pFrame$pConst$p102),L$ppre$mphi_0!==nullArray||L$ppre$mphi_1!==0?L$ppre$mphi_1:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8ArrayEjPNS3_6ObjectE$presume(Larg0,Marg0){
@@ -17663,7 +17683,7 @@ function __ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8A
 										break e;
 									}
 									L$poptgepsqueezed60=Larg0[Marg0].a6;
-									if(L$poptgepsqueezed60===null)___assert_fail(_$pstr$p35$p176,0,_$pstr$p14$p101,0,720,___func__$p_ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8ArrayEjPNS3_6ObjectE,0);
+									if(L$poptgepsqueezed60===null)___assert_fail(_$pstr$p35$p181,0,_$pstr$p14$p106,0,720,___func__$p_ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8ArrayEjPNS3_6ObjectE,0);
 									;
 									__ZN7CheerpX14CheerpOSDevice4readEiPN6client10Uint8ArrayEii(L$poptgepsqueezed65,L$ppre46_0,L$poptgepsqueezed60,Larg0[Marg0].i7|0,131072);
 									L$poptgepsqueezed60=L$poptgepsqueezed65.a0;
@@ -17717,7 +17737,7 @@ function __ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8A
 						L$poptgepsqueezed65=L$poptgepsqueezed63.a0;
 						L$ppre46_0=L$poptgepsqueezed63.a0o|0;
 						if(L$poptgepsqueezed65!==nullArray||L$ppre46_0!==0)L$poptgepsqueezed65[L$ppre46_0].a1(L$poptgepsqueezed65,L$ppre46_0);
-						if(((L$ppre39_0.length)|0)!==131072)___assert_fail(_$pstr$p36$p177,0,_$pstr$p14$p101,0,729,___func__$p_ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8ArrayEjPNS3_6ObjectE,0);
+						if(((L$ppre39_0.length)|0)!==131072)___assert_fail(_$pstr$p36$p182,0,_$pstr$p14$p106,0,729,___func__$p_ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8ArrayEjPNS3_6ObjectE,0);
 						;
 						L$poptgepsqueezed65=Larg0[Marg0].a6;
 						if(L$poptgepsqueezed65!==null){
@@ -17783,7 +17803,7 @@ function __ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8A
 					if(L$poptgepsqueezed63!==nullArray||Lgeptoindexphi!==0)L$poptgepsqueezed63[Lgeptoindexphi].a1(L$poptgepsqueezed63,Lgeptoindexphi);
 					L$poptgepsqueezed62=Larg0[Marg0].a13;
 					L$poptgepsqueezed63=Larg0[Marg0].a9;
-					if((L$ppre46_0|0)<=-1)___assert_fail(_$pstr$p38$p178,0,_$pstr$p14$p101,0,740,___func__$p_ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8ArrayEjPNS3_6ObjectE,0);
+					if((L$ppre46_0|0)<=-1)___assert_fail(_$pstr$p38$p183,0,_$pstr$p14$p106,0,740,___func__$p_ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8ArrayEjPNS3_6ObjectE,0);
 					;
 					__ZN7CheerpX14CheerpOSDevice5writeEiPN6client10Uint8ArrayEii(L$poptgepsqueezed61,L$ppre46_0,Larg0[Marg0].a12,0,131072);
 					L$poptgepsqueezed62=L$poptgepsqueezed61.a0;
@@ -17823,7 +17843,7 @@ function __ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8A
 		Larg0[Marg0].a0=null;
 		L$poptgepsqueezed61=L$poptgepsqueezed60.a0;
 		L$ppre46_0=L$poptgepsqueezed60.a0o|0;
-		(L$poptgepsqueezed61!==nullArray||L$ppre46_0!==0?L$poptgepsqueezed61:_NoopCoro$pFrame$pConst$p97)[L$poptgepsqueezed61!==nullArray||L$ppre46_0!==0?L$ppre46_0:$NoopCoro$pFrame$pConst$p97].a0((L$poptgepsqueezed61!==nullArray||L$ppre46_0!==0?L$poptgepsqueezed61:_NoopCoro$pFrame$pConst$p97),L$poptgepsqueezed61!==nullArray||L$ppre46_0!==0?L$ppre46_0:$NoopCoro$pFrame$pConst$p97);
+		(L$poptgepsqueezed61!==nullArray||L$ppre46_0!==0?L$poptgepsqueezed61:_NoopCoro$pFrame$pConst$p102)[L$poptgepsqueezed61!==nullArray||L$ppre46_0!==0?L$ppre46_0:$NoopCoro$pFrame$pConst$p102].a0((L$poptgepsqueezed61!==nullArray||L$ppre46_0!==0?L$poptgepsqueezed61:_NoopCoro$pFrame$pConst$p102),L$poptgepsqueezed61!==nullArray||L$ppre46_0!==0?L$ppre46_0:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8ArrayEjPNS3_6ObjectE$pdestroy(Larg0,Marg0){
@@ -18002,7 +18022,7 @@ function __ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE(Larg0,Larg1,Larg
 				}
 				L$poptgep92$poptgep96$poptgepsqueezed.a1=L$pbe;
 				L$poptgep92$poptgep96$poptgepsqueezed.a1o=(tmp24+L$pbe151|0)+(Lgeptoindexphi>>4)|0;
-				if((Lxtraiter182&131071|0)!==0)___assert_fail(_$pstr$p39$p181,0,_$pstr$p14$p101,0,814,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
+				if((Lxtraiter182&131071|0)!==0)___assert_fail(_$pstr$p39$p186,0,_$pstr$p14$p106,0,814,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
 				;
 				L$pbe=tmp1.a15;
 				L$poptgep92$poptgep96$poptgepsqueezed="/".concat(Lxtraiter182>>>17);
@@ -18028,12 +18048,12 @@ function __ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE(Larg0,Larg1,Larg
 				if(L$poptgep92$poptgep96$poptgepsqueezed!==nullArray||Lgeptoindex20!==0)L$poptgep92$poptgep96$poptgepsqueezed[Lgeptoindex20].a1(L$poptgep92$poptgep96$poptgepsqueezed,Lgeptoindex20);
 				L$pbe=tmp1.a32;
 				L$pbe147=tmp1.a31;
-				if((L$pbe151|0)<=-1)___assert_fail(_$pstr$p38$p178,0,_$pstr$p14$p101,0,819,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
+				if((L$pbe151|0)<=-1)___assert_fail(_$pstr$p38$p183,0,_$pstr$p14$p106,0,819,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
 				;
 				L$poptgep$poptgep69$poptgepsqueezed=L$poptgep$poptgep69$poptgepsqueezed.a3;
 				Lgeptoindexphi=L$poptgep$poptgep69$poptgepsqueezed.len;
 				Lgeptoindex20=L$poptgep$poptgep69$poptgepsqueezed.bufOffset;
-				if((Lgeptoindexphi|0)!==131072)___assert_fail(_$pstr$p40$p182,0,_$pstr$p14$p101,0,822,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
+				if((Lgeptoindexphi|0)!==131072)___assert_fail(_$pstr$p40$p187,0,_$pstr$p14$p106,0,822,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
 				;
 				__ZN7CheerpX14CheerpOSDevice5writeEiPN6client10Uint8ArrayEii(L$poptgepsqueezed222,L$pbe151,HEAP8,Lgeptoindex20,131072);
 				L$poptgep$poptgep69$poptgepsqueezed=L$poptgepsqueezed222.a0;
@@ -18116,7 +18136,7 @@ function __ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE(Larg0,Larg1,Larg
 				}
 				L$poptgep92$poptgep$poptgepsqueezed.a1=L$poptgep$poptgep69$poptgepsqueezed;
 				L$poptgep92$poptgep$poptgepsqueezed.a1o=(tmp10+L$pbe151|0)+(tmp26>>2)|0;
-				if((tmp21&131071|0)!==0)___assert_fail(_$pstr$p41$p183,0,_$pstr$p14$p101,0,776,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
+				if((tmp21&131071|0)!==0)___assert_fail(_$pstr$p41$p188,0,_$pstr$p14$p106,0,776,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
 				;
 				L$poptgep$poptgep69$poptgepsqueezed=tmp1.a15;
 				if(tmp21>>>0<L$poptgep$poptgep69$poptgepsqueezed.i3>>>0){
@@ -18266,11 +18286,11 @@ function __ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE(Larg0,Larg1,Larg
 			}
 			L$poptgep92$poptgep$poptgepsqueezed.a1=tmp18;
 			L$poptgep92$poptgep$poptgepsqueezed.a1o=L$pbe151+(Lgeptoindex20>>4)|0;
-			if((tmp21&131071|0)!==0)___assert_fail(_$pstr$p39$p181,0,_$pstr$p14$p101,0,761,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
+			if((tmp21&131071|0)!==0)___assert_fail(_$pstr$p39$p186,0,_$pstr$p14$p106,0,761,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
 			;
 			L$pbe151=L$poptgep$poptgep69$poptgepsqueezed.len;
 			Lgeptoindex20=L$poptgep$poptgep69$poptgepsqueezed.bufOffset;
-			if((L$pbe151|0)!==131072)___assert_fail(_$pstr$p40$p182,0,_$pstr$p14$p101,0,765,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
+			if((L$pbe151|0)!==131072)___assert_fail(_$pstr$p40$p187,0,_$pstr$p14$p106,0,765,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
 			;
 			L$poptgep$poptgep69$poptgepsqueezed=tmp1.a16;
 			L$pbe=tmp1.a15;
@@ -18564,10 +18584,10 @@ function __ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE$presume(Larg0,Ma
 						L$ppre76_1=7;
 						continue b;
 					}
-					___assert_fail(_$pstr$p40$p182,0,_$pstr$p14$p101,0,822,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
+					___assert_fail(_$pstr$p40$p187,0,_$pstr$p14$p106,0,822,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
 					;
 				}
-				___assert_fail(_$pstr$p38$p178,0,_$pstr$p14$p101,0,819,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
+				___assert_fail(_$pstr$p38$p183,0,_$pstr$p14$p106,0,819,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
 				;
 				case 9:
 				Larg0[Marg0].i23=L$pdispatch21;
@@ -18680,7 +18700,7 @@ function __ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE$presume(Larg0,Ma
 						}
 						L$ppre72_0.a1=tmp34;
 						L$ppre72_0.a1o=(Lgeptoindexphi68+L$ppre76_1|0)+(Lgeptoindexphi51>>4)|0;
-						if((Lxtraiter111&131071|0)!==0)___assert_fail(_$pstr$p39$p181,0,_$pstr$p14$p101,0,814,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
+						if((Lxtraiter111&131071|0)!==0)___assert_fail(_$pstr$p39$p186,0,_$pstr$p14$p106,0,814,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
 						;
 						L$ppre72_0=Larg0[Marg0].a15;
 						tmp30="/".concat(Lxtraiter111>>>17);
@@ -18752,7 +18772,7 @@ function __ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE$presume(Larg0,Ma
 					}
 					L$poptgep171$poptgep$poptgepsqueezed.a1=tmp34;
 					L$poptgep171$poptgep$poptgepsqueezed.a1o=(tmp9+L$ppre76_1|0)+(tmp39>>2)|0;
-					if((tmp36&131071|0)!==0)___assert_fail(_$pstr$p41$p183,0,_$pstr$p14$p101,0,776,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
+					if((tmp36&131071|0)!==0)___assert_fail(_$pstr$p41$p188,0,_$pstr$p14$p106,0,776,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
 					;
 					tmp30=Larg0[Marg0].a15;
 					if(tmp36>>>0<tmp30.i3>>>0){
@@ -18819,7 +18839,7 @@ function __ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE$presume(Larg0,Ma
 				}
 				L$poptgep171$poptgep$poptgepsqueezed.a1=L$poptgep$poptgep133$poptgepsqueezed;
 				L$poptgep171$poptgep$poptgepsqueezed.a1o=Lgeptoindexphi51+(Lxtraiter111>>4)|0;
-				if((Lgeptoindex48&131071|0)!==0)___assert_fail(_$pstr$p39$p181,0,_$pstr$p14$p101,0,761,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
+				if((Lgeptoindex48&131071|0)!==0)___assert_fail(_$pstr$p39$p186,0,_$pstr$p14$p106,0,761,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
 				;
 				Lgeptoindexphi51=tmp30.len;
 				Lxtraiter111=tmp30.bufOffset;
@@ -18846,7 +18866,7 @@ function __ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE$presume(Larg0,Ma
 					L$ppre76_1=10;
 					continue b;
 				}
-				___assert_fail(_$pstr$p40$p182,0,_$pstr$p14$p101,0,765,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
+				___assert_fail(_$pstr$p40$p187,0,_$pstr$p14$p106,0,765,___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE,0);
 				;
 				case 10:
 				if(L$ppre_0!==nullArray||L$ppre_1!==0)L$ppre_0[L$ppre_1].a1(L$ppre_0,L$ppre_1);
@@ -18999,7 +19019,7 @@ function __ZN7CheerpX5Linux13requestDeviceEjj(Larg0,Larg1,Larg2,Larg3){
 		tmp2.a0=null;
 		tmp1=L$poptgepsqueezed7.a0;
 		tmp4=L$poptgepsqueezed7.a0o|0;
-		(tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p97)[tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p97].a0((tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p97),tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p97);
+		(tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p102)[tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p102].a0((tmp1!==nullArray||tmp4!==0?tmp1:_NoopCoro$pFrame$pConst$p102),tmp1!==nullArray||tmp4!==0?tmp4:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux13requestDeviceEjj$presume(Larg0,Marg0){
@@ -19015,7 +19035,7 @@ function __ZN7CheerpX5Linux13requestDeviceEjj$presume(Larg0,Marg0){
 	Larg0.a0=null;
 	tmp0=L$poptgepsqueezed4.a0;
 	tmp2=L$poptgepsqueezed4.a0o|0;
-	(tmp0!==nullArray||tmp2!==0?tmp0:_NoopCoro$pFrame$pConst$p97)[tmp0!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p97].a0((tmp0!==nullArray||tmp2!==0?tmp0:_NoopCoro$pFrame$pConst$p97),tmp0!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p97);
+	(tmp0!==nullArray||tmp2!==0?tmp0:_NoopCoro$pFrame$pConst$p102)[tmp0!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p102].a0((tmp0!==nullArray||tmp2!==0?tmp0:_NoopCoro$pFrame$pConst$p102),tmp0!==nullArray||tmp2!==0?tmp2:$NoopCoro$pFrame$pConst$p102);
 }
 function __ZN7CheerpX5Linux13requestDeviceEjj$pdestroy(Larg0,Marg0){
 	Larg0=Larg0[Marg0];
@@ -19065,7 +19085,7 @@ function __ZN7CheerpX5Linux17requestCreateFileEjRKN6client6StringE(Larg0,Larg1,L
 		tmp3.a0=null;
 		tmp2=L$poptgepsqueezed8.a0;
 		tmp5=L$poptgepsqueezed8.a0o|0;
-		(tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p97)[tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p97].a0((tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p97),tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p97);
+		(tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p102)[tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p102].a0((tmp2!==nullArray||tmp5!==0?tmp2:_NoopCoro$pFrame$pConst$p102),tmp2!==nullArray||tmp5!==0?tmp5:$NoopCoro$pFrame$pConst$p102);
 	}
 }
 function __ZN7CheerpX5Linux17requestCreateFileEjRKN6client6StringE$presume(Larg0,Marg0){
@@ -19086,7 +19106,7 @@ function __ZN7CheerpX5Linux17requestCreateFileEjRKN6client6StringE$presume(Larg0
 	Larg0.a0=null;
 	L$poptgep$poptgep2$poptgep=L$poptgepsqueezed5.a0;
 	tmp1=L$poptgepsqueezed5.a0o|0;
-	(L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p97)[L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p97].a0((L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p97),L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p97);
+	(L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p102)[L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p102].a0((L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?L$poptgep$poptgep2$poptgep:_NoopCoro$pFrame$pConst$p102),L$poptgep$poptgep2$poptgep!==nullArray||tmp1!==0?tmp1:$NoopCoro$pFrame$pConst$p102);
 }
 function __ZN7CheerpX5Linux17requestCreateFileEjRKN6client6StringE$pdestroy(Larg0,Marg0){
 	Larg0=Larg0[Marg0];
@@ -19104,7 +19124,7 @@ function __ZN11CXUIConsole4Line8truncateEj(Larg0,Larg1){
 	tmp1=Larg0.a0;
 	tmp2=Larg0.a0o|0;
 	tmp6=(__imul(Lxtraiter,2));
-	if(tmp6-(__imul(tmp2,2))>>1>>>0<Larg1>>>0)___assert_fail(_$pstr$p189,0,_$pstr$p1$p190,0,10,___func__$p_ZN11CXUIConsole4Line8truncateEj,0);
+	if(tmp6-(__imul(tmp2,2))>>1>>>0<Larg1>>>0)___assert_fail(_$pstr$p194,0,_$pstr$p1$p195,0,10,___func__$p_ZN11CXUIConsole4Line8truncateEj,0);
 	;
 	if(tmp1!==tmp0||(tmp2+Larg1|0)!==Lxtraiter){
 		tmp3=Larg1<<1>>1;
@@ -19305,7 +19325,7 @@ function __ZN11CXUIConsole4Line7writeAtEjhh(Larg0,Larg1,Larg2,Larg3){
 				break;
 			}
 		}
-		if((L$ppre$mphi38>>1|0)!==(Larg1|0))___assert_fail(_$pstr$p2$p191,0,_$pstr$p1$p190,0,35,___func__$p_ZN11CXUIConsole4Line7writeAtEjhh,0);
+		if((L$ppre$mphi38>>1|0)!==(Larg1|0))___assert_fail(_$pstr$p2$p196,0,_$pstr$p1$p195,0,35,___func__$p_ZN11CXUIConsole4Line7writeAtEjhh,0);
 		;
 		L$poptgepsqueezed28=Larg0.a2;
 		tmp9=L$poptgepsqueezed28.a0;
@@ -19756,7 +19776,7 @@ function __ZN11CXUIConsole7newLineEv(Larg0){
 		while(1){
 			L$ppre_0=L$poptgepsqueezed44.a0;
 			tmp6=L$poptgepsqueezed44.a0o|0;
-			if(L$ppre_0===L$ppre12_0&&tmp6===L$ppre12_1)___assert_fail(_$pstr$p3$p192,0,_$pstr$p1$p190,0,61,___func__$p_ZN11CXUIConsole7newLineEv,0);
+			if(L$ppre_0===L$ppre12_0&&tmp6===L$ppre12_1)___assert_fail(_$pstr$p3$p197,0,_$pstr$p1$p195,0,61,___func__$p_ZN11CXUIConsole7newLineEv,0);
 			;
 			L$ppre13_0=Larg0.a2;
 			if(L$ppre13_0!==null){
@@ -19938,7 +19958,7 @@ function __ZN11CXUIConsole12processPlainEh(Larg0,Larg1){
 	if((Larg1+249&255)<2){
 		if((Larg1&255)!==7){
 			tmp7=Larg0.i5|0;
-			if((tmp7|0)===0)___assert_fail(_$pstr$p12$p201,0,_$pstr$p1$p190,0,145,___func__$p_ZN11CXUIConsole12processPlainEh,0);
+			if((tmp7|0)===0)___assert_fail(_$pstr$p12$p206,0,_$pstr$p1$p195,0,145,___func__$p_ZN11CXUIConsole12processPlainEh,0);
 			;
 			Larg0.i5=tmp7-1|0;
 		}
@@ -19997,7 +20017,7 @@ function __ZN11CXUIConsole8applySGREj(Larg0){
 		if((tmp0|0)===36)Larg0.i7=4;
 		else Larg0.i7=1;
 	}else if((tmp0|0)===90)Larg0.i7=5;
-	else ___printf(_$pstr$p13$p202,0,tmp0);
+	else ___printf(_$pstr$p13$p207,0,tmp0);
 }
 function __ZN11CXUIConsole13processBufferEPN6client10Uint8ArrayEjjj(Larg0,Larg1,Larg2,Larg3){
 	var tmp0=null,tmp1=0;
@@ -20025,12 +20045,12 @@ function __ZN11CXUIConsole11processCharEhj(Larg0,Larg1,Larg2){
 			if((tmp2|0)!==0){
 				if((Larg1&255)===91)Larg0.i0=2;
 				else{
-					___printf(_$pstr$p14$p205,0,Larg1&255);
+					___printf(_$pstr$p14$p210,0,Larg1&255);
 					Larg0.i0=0;
 				}
 			}else __ZN11CXUIConsole12processPlainEh(Larg0,Larg1);
 		}else{
-			if((tmp2|0)!==2)___assert_fail(_$pstr$p61,0,_$pstr$p1$p190,0,329,___func__$p_ZN11CXUIConsole11processCharEhj,0);
+			if((tmp2|0)!==2)___assert_fail(_$pstr$p61,0,_$pstr$p1$p195,0,329,___func__$p_ZN11CXUIConsole11processCharEhj,0);
 			;
 			tmp2=Larg1&255;
 			if((Larg1+208&255)<10)Larg0.a10[0]=(tmp2-48|0)+(__imul(Larg0.a10[0]|0,10)|0)|0;
@@ -20050,10 +20070,10 @@ function __ZN11CXUIConsole11processCharEhj(Larg0,Larg1,Larg2){
 							Larg0.i0=0;
 							break a;
 						}
-						___assert_fail(_$pstr$p16$p207,0,_$pstr$p1$p190,0,243,___func__$p_ZN11CXUIConsole11processCharEhj,0);
+						___assert_fail(_$pstr$p16$p212,0,_$pstr$p1$p195,0,243,___func__$p_ZN11CXUIConsole11processCharEhj,0);
 						;
 					}
-					___assert_fail(_$pstr$p15$p206,0,_$pstr$p1$p190,0,241,___func__$p_ZN11CXUIConsole11processCharEhj,0);
+					___assert_fail(_$pstr$p15$p211,0,_$pstr$p1$p195,0,241,___func__$p_ZN11CXUIConsole11processCharEhj,0);
 					;
 					case 74:
 					L$poptgep$poptgep22$poptgepsqueezed=Larg0.a11;
@@ -20062,7 +20082,7 @@ function __ZN11CXUIConsole11processCharEhj(Larg0,Larg1,Larg2){
 					tmp4=L$poptgep$poptgep22$poptgepsqueezed.a1;
 					tmp5=L$poptgep$poptgep22$poptgepsqueezed.a1o|0;
 					if(tmp3===tmp4&&tmp2===tmp5){
-						if((Larg0.a10[0]|0)!==0)___assert_fail(_$pstr$p17$p208,0,_$pstr$p1$p190,0,251,___func__$p_ZN11CXUIConsole11processCharEhj,0);
+						if((Larg0.a10[0]|0)!==0)___assert_fail(_$pstr$p17$p213,0,_$pstr$p1$p195,0,251,___func__$p_ZN11CXUIConsole11processCharEhj,0);
 						;
 						L$poptgep$poptgep22$poptgepsqueezed=Larg0.a9;
 						tmp3=L$poptgep$poptgep22$poptgepsqueezed.a1;
@@ -20070,7 +20090,7 @@ function __ZN11CXUIConsole11processCharEhj(Larg0,Larg1,Larg2){
 						tmp4=L$poptgep$poptgep22$poptgepsqueezed.a0;
 						tmp5=L$poptgep$poptgep22$poptgepsqueezed.a0o|0;
 						Lgeptoindexphi=Larg0.i6|0;
-						if(((__imul(tmp2,17))-(__imul(tmp5,17))|0)/17>>>0>Lgeptoindexphi+1>>>0)___assert_fail(_$pstr$p18$p209,0,_$pstr$p1$p190,0,253,___func__$p_ZN11CXUIConsole11processCharEhj,0);
+						if(((__imul(tmp2,17))-(__imul(tmp5,17))|0)/17>>>0>Lgeptoindexphi+1>>>0)___assert_fail(_$pstr$p18$p214,0,_$pstr$p1$p195,0,253,___func__$p_ZN11CXUIConsole11processCharEhj,0);
 						;
 						L$poptgep$poptgep22$poptgepsqueezed=__ZN11CXUIConsole7getLineEj(Larg0,Lgeptoindexphi);
 						__ZN11CXUIConsole4Line8truncateEj(L$poptgep$poptgep22$poptgepsqueezed,Larg0.i5|0);
@@ -20078,7 +20098,7 @@ function __ZN11CXUIConsole11processCharEhj(Larg0,Larg1,Larg2){
 						Larg0.i0=0;
 						break a;
 					}
-					___assert_fail(_$pstr$p15$p206,0,_$pstr$p1$p190,0,250,___func__$p_ZN11CXUIConsole11processCharEhj,0);
+					___assert_fail(_$pstr$p15$p211,0,_$pstr$p1$p195,0,250,___func__$p_ZN11CXUIConsole11processCharEhj,0);
 					;
 					case 109:
 					L$poptgep$poptgep22$poptgepsqueezed=Larg0.a11;
@@ -20097,7 +20117,7 @@ function __ZN11CXUIConsole11processCharEhj(Larg0,Larg1,Larg2){
 								if((tmp0|0)===36)Larg0.i7=4;
 								else Larg0.i7=1;
 							}else if((tmp0|0)===90)Larg0.i7=5;
-							else ___printf(_$pstr$p13$p202,0,tmp0);
+							else ___printf(_$pstr$p13$p207,0,tmp0);
 							Lgeptoindexphi=Lgeptoindexphi+1|0;
 							if(tmp3!==tmp4||(tmp2+Lgeptoindexphi|0)!==tmp5)continue;
 							break;
@@ -20120,7 +20140,7 @@ function __ZN11CXUIConsole11processCharEhj(Larg0,Larg1,Larg2){
 					if(((__imul(tmp2,4))-(__imul(Lgeptoindexphi,4))|0)===4){
 						tmp2=tmp4[Lgeptoindexphi]|0;
 					}else{
-						if(tmp4!==tmp3||Lgeptoindexphi!==tmp2)___assert_fail(_$pstr$p15$p206,0,_$pstr$p1$p190,0,274,___func__$p_ZN11CXUIConsole11processCharEhj,0);
+						if(tmp4!==tmp3||Lgeptoindexphi!==tmp2)___assert_fail(_$pstr$p15$p211,0,_$pstr$p1$p195,0,274,___func__$p_ZN11CXUIConsole11processCharEhj,0);
 						;
 						tmp2=1;
 					}
@@ -20138,7 +20158,7 @@ function __ZN11CXUIConsole11processCharEhj(Larg0,Larg1,Larg2){
 					tmp2=L$poptgep$poptgep22$poptgepsqueezed.a0o|0;
 					tmp4=L$poptgep$poptgep22$poptgepsqueezed.a1;
 					tmp5=L$poptgep$poptgep22$poptgepsqueezed.a1o|0;
-					if(tmp3!==tmp4||tmp2!==tmp5)___assert_fail(_$pstr$p15$p206,0,_$pstr$p1$p190,0,289,___func__$p_ZN11CXUIConsole11processCharEhj,0);
+					if(tmp3!==tmp4||tmp2!==tmp5)___assert_fail(_$pstr$p15$p211,0,_$pstr$p1$p195,0,289,___func__$p_ZN11CXUIConsole11processCharEhj,0);
 					;
 					tmp2=Larg0.a10[0]|0;
 					Larg0.a10[0]=0;
@@ -20164,7 +20184,7 @@ function __ZN11CXUIConsole11processCharEhj(Larg0,Larg1,Larg2){
 						Larg0.i0=0;
 						break a;
 					}
-					___assert_fail(_$pstr$p15$p206,0,_$pstr$p1$p190,0,301,___func__$p_ZN11CXUIConsole11processCharEhj,0);
+					___assert_fail(_$pstr$p15$p211,0,_$pstr$p1$p195,0,301,___func__$p_ZN11CXUIConsole11processCharEhj,0);
 					;
 					case 66:
 					L$poptgep$poptgep22$poptgepsqueezed=Larg0.a11;
@@ -20179,14 +20199,14 @@ function __ZN11CXUIConsole11processCharEhj(Larg0,Larg1,Larg2){
 						Larg0.i0=0;
 						break a;
 					}
-					___assert_fail(_$pstr$p15$p206,0,_$pstr$p1$p190,0,310,___func__$p_ZN11CXUIConsole11processCharEhj,0);
+					___assert_fail(_$pstr$p15$p211,0,_$pstr$p1$p195,0,310,___func__$p_ZN11CXUIConsole11processCharEhj,0);
 					;
 					case 59:
 					__ZNSt6vectorIjSaIjEE9push_backB7v160000ERKj(Larg0.a11,Larg0.a10,0);
 					Larg0.a10[0]=0;
 					break a;
 					default:
-					___printf(_$pstr$p19$p210,0,tmp2);
+					___printf(_$pstr$p19$p215,0,tmp2);
 					Larg0.i0=0;
 				}
 			}
@@ -20247,12 +20267,12 @@ function __ZN11CXUIConsole12queueKeyCodeEjj(Larg0,Larg1,Larg2){
 		tmp1.a6.postMessage(tmp0);
 		return;
 	}
-	___assert_fail(_$pstr$p21$p214,0,_$pstr$p1$p190,0,335,___func__$p_ZN11CXUIConsole12queueKeyCodeEjj,0);
+	___assert_fail(_$pstr$p21$p219,0,_$pstr$p1$p195,0,335,___func__$p_ZN11CXUIConsole12queueKeyCodeEjj,0);
 	;
 }
 function __ZN11CXUIConsole10setElementEPN6client11HTMLElementE(Larg0,Larg1){
 	var tmp0=null,tmp1=null;
-	if(Larg0.a3!==null)___assert_fail(_$pstr$p22$p217,0,_$pstr$p1$p190,0,344,___func__$p_ZN11CXUIConsole10setElementEPN6client11HTMLElementE,0);
+	if(Larg0.a3!==null)___assert_fail(_$pstr$p22$p222,0,_$pstr$p1$p195,0,344,___func__$p_ZN11CXUIConsole10setElementEPN6client11HTMLElementE,0);
 	;
 	Larg0.a2=Larg1;
 	tmp0="tabindex";
@@ -20291,7 +20311,7 @@ function __ZN6cheerp12InvokeHelperIvE6invokeIZN11CXUIConsole10setElementEPN6clie
 		Larg1.preventDefault();
 		return;
 	}
-	___assert_fail(_$pstr$p21$p214,0,_$pstr$p1$p190,0,335,___func__$p_ZN11CXUIConsole12queueKeyCodeEjj,0);
+	___assert_fail(_$pstr$p21$p219,0,_$pstr$p1$p195,0,335,___func__$p_ZN11CXUIConsole12queueKeyCodeEjj,0);
 	;
 }
 function __ZN6cheerp12InvokeHelperIvE6invokeIZN11CXUIConsole10setElementEPN6client11HTMLElementEE3$_1JPNS4_13KeyboardEventEEEEvPT_DpT0_(Larg0,Larg1){
@@ -20348,7 +20368,7 @@ function __Z11padHexValuePcjj(Larg0,Marg0,Larg1){
 }
 function __ZN9VGAOutput10initializeEPhR9VGAShared(Larg0,Marg0,Larg1){
 	var tmp0=null;
-	if(__ZN9VGAOutput8instanceE!==null)___assert_fail(_$pstr$p238,0,_$pstr$p1$p239,0,12,___func__$p_ZN9VGAOutput10initializeEPhR9VGAShared,0);
+	if(__ZN9VGAOutput8instanceE!==null)___assert_fail(_$pstr$p243,0,_$pstr$p1$p244,0,12,___func__$p_ZN9VGAOutput10initializeEPhR9VGAShared,0);
 	;
 	tmp0=new constructor_struct$p_Z9VGAOutput();
 	__ZN9VGAOutputC2EPhR9VGAShared(tmp0,Larg0,Marg0,Larg1);
@@ -22671,7 +22691,7 @@ function __ZN12_GLOBAL__N_119CheerpStringBuilder11processCharERjS1_h(Larg0,Marg0
 	tmp2=Larg1&255;
 	a:if((Larg1&255)<192){
 		if((L$psink|0)===0){
-			if(Larg1<<24<=-16777216)___assert_fail(_$pstr$p4$p403,0,_$pstr$p2$p13,0,79,___func__$p_ZN11CXUIConsole11processCharEhj,0);
+			if(Larg1<<24<=-16777216)___assert_fail(_$pstr$p4$p417,0,_$pstr$p2$p13,0,79,___func__$p_ZN11CXUIConsole11processCharEhj,0);
 			;
 			__ZZN12_GLOBAL__N_117do_syscall_writevEPK5ioveclE9codepoint=tmp2;
 		}else{
@@ -22685,7 +22705,7 @@ function __ZN12_GLOBAL__N_119CheerpStringBuilder11processCharERjS1_h(Larg0,Marg0
 		}
 		__ZN12_GLOBAL__N_119CheerpStringBuilder15outputCodepointEj(Larg0,Marg0,tmp2);
 	}else{
-		if((L$psink|0)!==0)___assert_fail(_$pstr$p5$p404,0,_$pstr$p2$p13,0,90,___func__$p_ZN11CXUIConsole11processCharEhj,0);
+		if((L$psink|0)!==0)___assert_fail(_$pstr$p5$p418,0,_$pstr$p2$p13,0,90,___func__$p_ZN11CXUIConsole11processCharEhj,0);
 		;
 		if((Larg1&255)<224){
 			tmp0=31;
@@ -22809,11 +22829,11 @@ var ___libc=new constructor_struct$p_Z6__libc();
 var ___c_locale=[null,null,null,null,null,null];
 var ___dummy_thread={a0:null,a1:null,a2:null,a3:null,i4:0,i5:0,i6:0,i7:0,i8:0,i9:0,i10:0,a11:null,i12:0,a13:null,i14:0,i15:0,a16:null,a17:null,a18:null,a19:{a0:[nullObj],i1:0,a2:null},i20:0,i21:0,a22:___c_locale[0],a23:[0],a24:null,a25:null};
 var __ZN7CheerpX5Linux6eventsE=[null,null,null,null];
-var _NoopCoro$pFrame$pConst$p97=[{a0:___NoopCoro_ResumeDestroy$p98,a1:___NoopCoro_ResumeDestroy$p98}];
-var $NoopCoro$pFrame$pConst$p97=0;
+var _NoopCoro$pFrame$pConst$p102=[{a0:___NoopCoro_ResumeDestroy$p103,a1:___NoopCoro_ResumeDestroy$p103}];
+var $NoopCoro$pFrame$pConst$p102=0;
 var HEAP32=null;
 var _$pstr$p61=new Uint8Array([102,97,108,115,101,0]);
-var _$pstr$p83$p100=new Uint8Array([47,104,111,109,101,47,111,109,97,116,104,111,116,47,100,101,118,47,99,104,101,101,114,112,120,47,99,120,117,105,97,112,112,46,104,0]);
+var _$pstr$p83$p105=new Uint8Array([47,104,111,109,101,47,111,109,97,116,104,111,116,47,100,101,118,47,99,104,101,101,114,112,120,47,99,120,117,105,97,112,112,46,104,0]);
 var ___func__$p_ZN7CheerpX5Linux11postRequestIjEE4TaskIT_EiPN6client6ObjectEb=new Uint8Array([112,111,115,116,82,101,113,117,101,115,116,0]);
 var _buf$p768=new Uint8Array(8);
 var ___stderr_FILE={i0:5,a1:nullArray,a2:nullArray,a3:___stdio_close,a4:nullArray,a4o:0,a5:nullArray,a5o:0,a6:null,a7:nullArray,a7o:0,a8:null,a9:___stdio_write,a10:___stdio_seek,a11:_buf$p768,a11o:8,i12:0,a13:null,a14:null,i15:2,i16:0,i17:0,i18:0,i19:-1,i20:-1,a21:null,a22:new Int32Array(6),a23:null,a24:null,a25:null,a26:null,a27:null,a28:null};
@@ -22829,38 +22849,38 @@ var _$pstr$p1$p12=new Uint8Array([40,99,104,32,38,32,49,57,50,41,32,61,61,32,49,
 var _$pstr$p2$p13=new Uint8Array([47,104,111,109,101,47,111,109,97,116,104,111,116,47,100,101,118,47,99,104,101,101,114,112,47,99,104,101,101,114,112,45,108,105,98,115,47,115,121,115,116,101,109,47,98,114,111,119,115,101,114,46,99,112,112,0]);
 var ___func__$p_ZN11CXUIConsole11processCharEhj=new Uint8Array([112,114,111,99,101,115,115,67,104,97,114,0]);
 var __ZZN12_GLOBAL__N_117do_syscall_writevEPK5ioveclE9codepoint=0;
-var _$pstr$p4$p403=new Uint8Array([99,104,32,60,32,49,50,56,117,0]);
-var _$pstr$p5$p404=new Uint8Array([114,101,109,97,105,110,105,110,103,32,61,61,32,48,0]);
+var _$pstr$p4$p417=new Uint8Array([99,104,32,60,32,49,50,56,117,0]);
+var _$pstr$p5$p418=new Uint8Array([114,101,109,97,105,110,105,110,103,32,61,61,32,48,0]);
 var _aio_fd_cnt=0;
 var _maplock={a0:new Int32Array(16),a1:[nullObj,nullObj,nullObj,nullObj,nullObj,nullObj,nullObj,nullObj]};
 var _buf$p778=new Uint8Array(1032);
 var ___stdout_FILE={i0:5,a1:nullArray,a2:nullArray,a3:___stdio_close,a4:nullArray,a4o:0,a5:nullArray,a5o:0,a6:null,a7:nullArray,a7o:0,a8:null,a9:___stdout_write,a10:___stdio_seek,a11:_buf$p778,a11o:8,i12:1024,a13:null,a14:null,i15:1,i16:0,i17:0,i18:0,i19:-1,i20:10,a21:null,a22:new Int32Array(6),a23:null,a24:null,a25:null,a26:null,a27:null,a28:null};
-var _$pstr$p28$p225=new Uint8Array([101,108,101,109,101,110,116,32,61,61,32,110,117,108,108,112,116,114,0]);
-var _$pstr$p1$p190=new Uint8Array([47,104,111,109,101,47,111,109,97,116,104,111,116,47,100,101,118,47,99,104,101,101,114,112,120,47,99,120,117,105,99,111,110,115,111,108,101,46,99,112,112,0]);
+var _$pstr$p28$p230=new Uint8Array([101,108,101,109,101,110,116,32,61,61,32,110,117,108,108,112,116,114,0]);
+var _$pstr$p1$p195=new Uint8Array([47,104,111,109,101,47,111,109,97,116,104,111,116,47,100,101,118,47,99,104,101,101,114,112,120,47,99,120,117,105,99,111,110,115,111,108,101,46,99,112,112,0]);
 var ___func__$p_ZN11CXUIConsole19setActivateCallbackEPFvjE=new Uint8Array([115,101,116,65,99,116,105,118,97,116,101,67,97,108,108,98,97,99,107,0]);
 var ___func__$p_ZN11CXUIConsole16setWriteCallbackEPFvPN6client10Uint8ArrayEjE=new Uint8Array([115,101,116,87,114,105,116,101,67,97,108,108,98,97,99,107,0]);
-var _$pstr$p21$p214=new Uint8Array([107,101,121,67,111,100,101,32,60,32,48,120,49,48,48,48,48,0]);
+var _$pstr$p21$p219=new Uint8Array([107,101,121,67,111,100,101,32,60,32,48,120,49,48,48,48,48,0]);
 var ___func__$p_ZN11CXUIConsole12queueKeyCodeEjj=new Uint8Array([113,117,101,117,101,75,101,121,67,111,100,101,0]);
 var __ZZN7CheerpX5Linux14flushKeyEventsEdE6table1=new Uint16Array([32817,32990,32819,32820,32821,32823,222,32825,32816,32824,32955,188,189,190,191]);
 var __ZZN7CheerpX5Linux14flushKeyEventsEdE6table2=new Uint16Array([32954,186,32956,187,32958,32959,32818]);
 var __ZZN7CheerpX5Linux14flushKeyEventsEdE6table3=new Uint16Array([219,220,221,32822,32957,192]);
 var __ZZN7CheerpX5Linux14flushKeyEventsEdE6table4=new Uint16Array([32987,32988,32989,32960]);
-var _$pstr$p22$p217=new Uint8Array([119,114,105,116,101,70,117,110,99,32,61,61,32,110,117,108,108,112,116,114,0]);
+var _$pstr$p22$p222=new Uint8Array([119,114,105,116,101,70,117,110,99,32,61,61,32,110,117,108,108,112,116,114,0]);
 var ___func__$p_ZN11CXUIConsole10setElementEPN6client11HTMLElementE=new Uint8Array([115,101,116,69,108,101,109,101,110,116,0]);
-var _$pstr$p77$p152=new Uint8Array([33,99,117,114,76,105,110,101,46,101,109,112,116,121,40,41,32,38,38,32,99,117,114,76,105,110,101,46,98,97,99,107,40,41,32,61,61,32,39,92,114,39,0]);
-var _$pstr$p14$p101=new Uint8Array([47,104,111,109,101,47,111,109,97,116,104,111,116,47,100,101,118,47,99,104,101,101,114,112,120,47,99,120,117,105,97,112,112,46,99,112,112,0]);
+var _$pstr$p77$p157=new Uint8Array([33,99,117,114,76,105,110,101,46,101,109,112,116,121,40,41,32,38,38,32,99,117,114,76,105,110,101,46,98,97,99,107,40,41,32,61,61,32,39,92,114,39,0]);
+var _$pstr$p14$p106=new Uint8Array([47,104,111,109,101,47,111,109,97,116,104,111,116,47,100,101,118,47,99,104,101,101,114,112,120,47,99,120,117,105,97,112,112,46,99,112,112,0]);
 var ___func__$p_ZZN7CheerpX5Linux19connectToPortHelperEjPN6client11MessagePortEPNS1_10Uint8ArrayEEN11HTTPParsing13processBufferES5_=new Uint8Array([112,114,111,99,101,115,115,66,117,102,102,101,114,0]);
-var _$pstr$p78$p153=new Uint8Array([72,84,84,80,47,49,46,48,32,50,48,48,0]);
-var _$pstr$p79=new Uint8Array([72,84,84,80,47,49,46,49,32,50,48,48,0]);
-var _$pstr$p80$p154=new Uint8Array([40,115,116,114,110,99,109,112,40,99,117,114,76,105,110,101,46,100,97,116,97,40,41,44,32,34,72,84,84,80,47,49,46,48,32,50,48,48,34,44,32,49,50,41,32,61,61,32,48,41,32,124,124,32,40,115,116,114,110,99,109,112,40,99,117,114,76,105,110,101,46,100,97,116,97,40,41,44,32,34,72,84,84,80,47,49,46,49,32,50,48,48,34,44,32,49,50,41,32,61,61,32,48,41,0]);
+var _$pstr$p78$p158=new Uint8Array([72,84,84,80,47,49,46,48,32,50,48,48,0]);
+var _$pstr$p79$p159=new Uint8Array([72,84,84,80,47,49,46,49,32,50,48,48,0]);
+var _$pstr$p80$p160=new Uint8Array([40,115,116,114,110,99,109,112,40,99,117,114,76,105,110,101,46,100,97,116,97,40,41,44,32,34,72,84,84,80,47,49,46,48,32,50,48,48,34,44,32,49,50,41,32,61,61,32,48,41,32,124,124,32,40,115,116,114,110,99,109,112,40,99,117,114,76,105,110,101,46,100,97,116,97,40,41,44,32,34,72,84,84,80,47,49,46,49,32,50,48,48,34,44,32,49,50,41,32,61,61,32,48,41,0]);
 var ___func__$p_ZZN7CheerpX5Linux19connectToPortHelperEjPN6client11MessagePortEPNS1_10Uint8ArrayEEN11HTTPParsing11processLineEv=new Uint8Array([112,114,111,99,101,115,115,76,105,110,101,0]);
-var _$pstr$p81$p155=new Uint8Array([112,111,115,32,62,32,48,0]);
+var _$pstr$p81$p161=new Uint8Array([112,111,115,32,62,32,48,0]);
 var ___func__$p_ZN7CheerpX5Linux3runEPN6client6StringEPNS1_6TArrayIS3_EEPNS1_12RunOptionalsE=new Uint8Array([114,117,110,0]);
-var _$pstr$p10$p119=new Uint8Array([73,103,110,111,114,105,110,103,32,105,110,118,97,108,105,100,32,39,109,111,117,110,116,115,39,32,112,97,114,97,109,101,116,101,114,115,44,32,102,105,114,115,116,32,101,110,116,114,121,32,105,115,32,110,111,116,32,116,104,101,32,114,111,111,116,0]);
-var _$pstr$p11$p120=new Uint8Array([73,103,110,111,114,105,110,103,32,105,110,118,97,108,105,100,32,48,45,108,101,110,103,116,104,32,39,109,111,117,110,116,115,39,32,112,97,114,97,109,101,116,101,114,0]);
-var _$pstr$p73$p122=new Uint8Array([108,97,115,116,83,108,97,115,104,32,62,61,32,48,0]);
+var _$pstr$p10$p124=new Uint8Array([73,103,110,111,114,105,110,103,32,105,110,118,97,108,105,100,32,39,109,111,117,110,116,115,39,32,112,97,114,97,109,101,116,101,114,115,44,32,102,105,114,115,116,32,101,110,116,114,121,32,105,115,32,110,111,116,32,116,104,101,32,114,111,111,116,0]);
+var _$pstr$p11$p125=new Uint8Array([73,103,110,111,114,105,110,103,32,105,110,118,97,108,105,100,32,48,45,108,101,110,103,116,104,32,39,109,111,117,110,116,115,39,32,112,97,114,97,109,101,116,101,114,0]);
+var _$pstr$p73$p127=new Uint8Array([108,97,115,116,83,108,97,115,104,32,62,61,32,48,0]);
 var ___func__$p_ZZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationEENK3$_0clES1_jPNS2_19FloppyConfigurationE=new Uint8Array([111,112,101,114,97,116,111,114,40,41,0]);
-var _$pstr$p74$p123=new Uint8Array([100,105,114,0]);
+var _$pstr$p74$p128=new Uint8Array([100,105,114,0]);
 var _$pstr$p6=new Uint8Array([47,0]);
 var __ZN11CheerpXBase13tsNetworkConfE=null;
 var __ZN11CheerpXBase13cheerpOSStateE=0;
@@ -22895,81 +22915,81 @@ var __ZZN10__cxxabiv19Exception9allocatorEvE6result=null;
 var __ZTVSt11logic_error={a0:__ZTISt11logic_error,a1:__ZNSt11logic_errorD2Ev,a2:__ZNSt11logic_errorD0Ev,a3:__ZNKSt11logic_error4whatEv};
 var __ZTVSt12length_error={a0:__ZTISt12length_error,a1:__ZNSt12length_errorD2Ev,a2:__ZNSt12length_errorD0Ev,a3:__ZNKSt11logic_error4whatEv};
 var __ZTVN7CheerpX5LinuxE={a0:null,a1:__ZN7CheerpX5Linux12cheerpOSInitEv};
-var _$pstr$p15$p124=new Uint8Array([100,0]);
+var _$pstr$p15$p129=new Uint8Array([100,0]);
 var ___func__$p_ZN7CheerpX5Linux17handleCoreMessageEPN6client11CoreMessageE=new Uint8Array([104,97,110,100,108,101,67,111,114,101,77,101,115,115,97,103,101,0]);
-var _$pstr$p16$p125=new Uint8Array([109,45,62,103,101,116,95,115,108,105,99,101,115,40,41,46,103,101,116,95,108,101,110,103,116,104,40,41,32,61,61,32,49,0]);
-var _$pstr$p18$p129=new Uint8Array([111,112,46,115,108,105,99,101,45,62,103,101,116,95,98,117,102,79,102,102,115,101,116,40,41,32,61,61,32,115,108,105,99,101,45,62,103,101,116,95,98,117,102,79,102,102,115,101,116,40,41,0]);
-var _$pstr$p19$p130=new Uint8Array([111,112,46,115,108,105,99,101,45,62,103,101,116,95,108,101,110,40,41,32,61,61,32,115,108,105,99,101,45,62,103,101,116,95,108,101,110,40,41,0]);
-var _$pstr$p20$p131=new Uint8Array([112,101,110,100,105,110,103,83,108,111,116,32,60,32,112,101,110,100,105,110,103,80,114,111,109,105,115,101,115,45,62,103,101,116,95,108,101,110,103,116,104,40,41,0]);
-var _$pstr$p21$p132=new Uint8Array([102,0]);
-var _$pstr$p22$p133=new Uint8Array([99,111,110,115,111,108,101,0]);
-var _$pstr$p23$p134=new Uint8Array([98,117,102,83,105,122,101,0]);
+var _$pstr$p16$p130=new Uint8Array([109,45,62,103,101,116,95,115,108,105,99,101,115,40,41,46,103,101,116,95,108,101,110,103,116,104,40,41,32,61,61,32,49,0]);
+var _$pstr$p18$p134=new Uint8Array([111,112,46,115,108,105,99,101,45,62,103,101,116,95,98,117,102,79,102,102,115,101,116,40,41,32,61,61,32,115,108,105,99,101,45,62,103,101,116,95,98,117,102,79,102,102,115,101,116,40,41,0]);
+var _$pstr$p19$p135=new Uint8Array([111,112,46,115,108,105,99,101,45,62,103,101,116,95,108,101,110,40,41,32,61,61,32,115,108,105,99,101,45,62,103,101,116,95,108,101,110,40,41,0]);
+var _$pstr$p20$p136=new Uint8Array([112,101,110,100,105,110,103,83,108,111,116,32,60,32,112,101,110,100,105,110,103,80,114,111,109,105,115,101,115,45,62,103,101,116,95,108,101,110,103,116,104,40,41,0]);
+var _$pstr$p21$p137=new Uint8Array([102,0]);
+var _$pstr$p22$p138=new Uint8Array([99,111,110,115,111,108,101,0]);
+var _$pstr$p23$p139=new Uint8Array([98,117,102,83,105,122,101,0]);
 var HEAP8=null;
-var _$pstr$p24$p135=new Uint8Array([105,116,32,33,61,32,101,120,116,101,114,110,97,108,80,114,111,99,101,115,115,77,97,112,46,101,110,100,40,41,0]);
+var _$pstr$p24$p140=new Uint8Array([105,116,32,33,61,32,101,120,116,101,114,110,97,108,80,114,111,99,101,115,115,77,97,112,46,101,110,100,40,41,0]);
 var HEAP16=null;
-var _$pstr$p81=new Uint8Array([116,32,61,61,32,76,73,78,85,88,95,67,84,88,95,84,72,82,69,65,68,0]);
-var _$pstr$p82=new Uint8Array([47,104,111,109,101,47,111,109,97,116,104,111,116,47,100,101,118,47,99,104,101,101,114,112,120,47,99,120,117,105,98,97,115,101,46,104,0]);
+var _$pstr$p86=new Uint8Array([116,32,61,61,32,76,73,78,85,88,95,67,84,88,95,84,72,82,69,65,68,0]);
+var _$pstr$p87=new Uint8Array([47,104,111,109,101,47,111,109,97,116,104,111,116,47,100,101,118,47,99,104,101,101,114,112,120,47,99,120,117,105,98,97,115,101,46,104,0]);
 var ___func__$p_ZN11CheerpXBase11ContextDataC2E12CONTEXT_TYPEj9DBG_STATE=new Uint8Array([67,111,110,116,101,120,116,68,97,116,97,0]);
-var _$pstr$p83=new Uint8Array([84,104,114,101,97,100,32,45,32,0]);
-var _$pstr$p80=new Uint8Array([67,112,117,32,45,32,0]);
-var _$pstr$p14$p205=new Uint8Array([84,79,68,79,58,32,83,117,112,112,111,114,116,32,101,115,99,97,112,101,32,99,111,100,101,32,37,99,10,0]);
-var _$pstr$p15$p206=new Uint8Array([112,114,101,118,67,83,73,80,97,114,97,109,46,101,109,112,116,121,40,41,0]);
-var _$pstr$p16$p207=new Uint8Array([99,117,114,67,83,73,80,97,114,97,109,32,62,32,48,0]);
-var _$pstr$p17$p208=new Uint8Array([99,117,114,67,83,73,80,97,114,97,109,32,61,61,32,48,0]);
-var _$pstr$p18$p209=new Uint8Array([108,105,110,101,115,46,115,105,122,101,40,41,32,60,61,32,99,117,114,115,111,114,89,32,43,32,49,0]);
-var _$pstr$p13$p202=new Uint8Array([84,79,68,79,58,32,83,117,112,112,111,114,116,32,83,71,82,32,37,105,10,0]);
-var _$pstr$p19$p210=new Uint8Array([84,79,68,79,58,32,83,117,112,112,111,114,116,32,67,83,73,32,112,97,114,97,109,32,37,99,10,0]);
-var _$pstr$p189=new Uint8Array([99,104,97,114,115,46,115,105,122,101,40,41,32,62,61,32,110,101,119,76,101,110,0]);
+var _$pstr$p88=new Uint8Array([84,104,114,101,97,100,32,45,32,0]);
+var _$pstr$p85=new Uint8Array([67,112,117,32,45,32,0]);
+var _$pstr$p14$p210=new Uint8Array([84,79,68,79,58,32,83,117,112,112,111,114,116,32,101,115,99,97,112,101,32,99,111,100,101,32,37,99,10,0]);
+var _$pstr$p15$p211=new Uint8Array([112,114,101,118,67,83,73,80,97,114,97,109,46,101,109,112,116,121,40,41,0]);
+var _$pstr$p16$p212=new Uint8Array([99,117,114,67,83,73,80,97,114,97,109,32,62,32,48,0]);
+var _$pstr$p17$p213=new Uint8Array([99,117,114,67,83,73,80,97,114,97,109,32,61,61,32,48,0]);
+var _$pstr$p18$p214=new Uint8Array([108,105,110,101,115,46,115,105,122,101,40,41,32,60,61,32,99,117,114,115,111,114,89,32,43,32,49,0]);
+var _$pstr$p13$p207=new Uint8Array([84,79,68,79,58,32,83,117,112,112,111,114,116,32,83,71,82,32,37,105,10,0]);
+var _$pstr$p19$p215=new Uint8Array([84,79,68,79,58,32,83,117,112,112,111,114,116,32,67,83,73,32,112,97,114,97,109,32,37,99,10,0]);
+var _$pstr$p194=new Uint8Array([99,104,97,114,115,46,115,105,122,101,40,41,32,62,61,32,110,101,119,76,101,110,0]);
 var ___func__$p_ZN11CXUIConsole4Line8truncateEj=new Uint8Array([116,114,117,110,99,97,116,101,0]);
-var _$pstr$p12$p201=new Uint8Array([99,117,114,115,111,114,88,32,62,32,48,0]);
+var _$pstr$p12$p206=new Uint8Array([99,117,114,115,111,114,88,32,62,32,48,0]);
 var ___func__$p_ZN11CXUIConsole12processPlainEh=new Uint8Array([112,114,111,99,101,115,115,80,108,97,105,110,0]);
-var _$pstr$p2$p191=new Uint8Array([112,111,115,32,61,61,32,99,104,97,114,115,46,115,105,122,101,40,41,0]);
+var _$pstr$p2$p196=new Uint8Array([112,111,115,32,61,61,32,99,104,97,114,115,46,115,105,122,101,40,41,0]);
 var ___func__$p_ZN11CXUIConsole4Line7writeAtEjhh=new Uint8Array([119,114,105,116,101,65,116,0]);
-var _$pstr$p3$p192=new Uint8Array([33,108,105,110,101,115,46,101,109,112,116,121,40,41,0]);
+var _$pstr$p3$p197=new Uint8Array([33,108,105,110,101,115,46,101,109,112,116,121,40,41,0]);
 var ___func__$p_ZN11CXUIConsole7newLineEv=new Uint8Array([110,101,119,76,105,110,101,0]);
-var _$pstr$p92=new Uint8Array([80,97,114,101,110,116,32,100,105,114,101,99,116,111,114,121,32,100,111,101,115,32,110,111,116,32,101,120,105,115,116,46,0]);
-var _$pstr$p1$p93=new Uint8Array([68,101,118,105,99,101,32,100,111,101,115,32,110,111,116,32,101,120,105,115,116,46,0]);
-var _$pstr$p5$p96=new Uint8Array([67,111,117,108,100,32,110,111,116,32,109,111,117,110,116,32,70,83,32,116,121,112,101,58,32,37,115,44,32,109,111,117,110,116,32,112,97,116,104,58,32,37,115,46,32,37,115,10,0]);
-var _$pstr$p3$p95=new Uint8Array([73,110,118,97,108,105,100,32,100,105,115,107,32,105,109,97,103,101,46,0]);
-var _$pstr$p4$p83=new Uint8Array([85,110,107,110,111,119,110,32,114,101,97,115,111,110,46,0]);
-var _$pstr$p2$p94=new Uint8Array([85,110,115,117,112,112,111,114,116,101,100,32,116,121,112,101,46,0]);
+var _$pstr$p97=new Uint8Array([80,97,114,101,110,116,32,100,105,114,101,99,116,111,114,121,32,100,111,101,115,32,110,111,116,32,101,120,105,115,116,46,0]);
+var _$pstr$p1$p98=new Uint8Array([68,101,118,105,99,101,32,100,111,101,115,32,110,111,116,32,101,120,105,115,116,46,0]);
+var _$pstr$p5$p101=new Uint8Array([67,111,117,108,100,32,110,111,116,32,109,111,117,110,116,32,70,83,32,116,121,112,101,58,32,37,115,44,32,109,111,117,110,116,32,112,97,116,104,58,32,37,115,46,32,37,115,10,0]);
+var _$pstr$p3$p100=new Uint8Array([73,110,118,97,108,105,100,32,100,105,115,107,32,105,109,97,103,101,46,0]);
+var _$pstr$p4$p86=new Uint8Array([85,110,107,110,111,119,110,32,114,101,97,115,111,110,46,0]);
+var _$pstr$p2$p99=new Uint8Array([85,110,115,117,112,112,111,114,116,101,100,32,116,121,112,101,46,0]);
 var ___func__$p_ZN7CheerpX5Linux13runFSRequestsEv=new Uint8Array([114,117,110,70,83,82,101,113,117,101,115,116,115,0]);
-var _$pstr$p33$p102=new Uint8Array([100,101,118,45,62,116,121,112,101,32,61,61,32,68,101,118,105,99,101,58,58,84,89,80,69,58,58,67,72,69,69,82,80,79,83,0]);
+var _$pstr$p33$p107=new Uint8Array([100,101,118,45,62,116,121,112,101,32,61,61,32,68,101,118,105,99,101,58,58,84,89,80,69,58,58,67,72,69,69,82,80,79,83,0]);
 var ___func__$p_ZN7CheerpX5Linux18runFSUnlinkRequestE12CORE_MESSAGEjPN6client6StringEj=new Uint8Array([114,117,110,70,83,85,110,108,105,110,107,82,101,113,117,101,115,116,0]);
 var ___func__$p_ZN7CheerpX5Linux18runFSRenameRequestE12CORE_MESSAGEjjPN6client6StringES4_=new Uint8Array([114,117,110,70,83,82,101,110,97,109,101,82,101,113,117,101,115,116,0]);
 var ___func__$p_ZN7CheerpX5Linux21runFSCacheListRequestE12CORE_MESSAGEjPN6client6StringEjj=new Uint8Array([114,117,110,70,83,67,97,99,104,101,76,105,115,116,82,101,113,117,101,115,116,0]);
 var ___func__$p_ZN7CheerpX5Linux21runFSCacheNodeRequestE12CORE_MESSAGEjPN6client6StringEjj=new Uint8Array([114,117,110,70,83,67,97,99,104,101,78,111,100,101,82,101,113,117,101,115,116,0]);
-var _$pstr$p28$p103=new Uint8Array([112,97,114,101,110,116,0]);
+var _$pstr$p28$p108=new Uint8Array([112,97,114,101,110,116,0]);
 var ___func__$p_ZN7CheerpX5Linux16runFSLinkRequestE12CORE_MESSAGEjjPN6client6StringES4_=new Uint8Array([114,117,110,70,83,76,105,110,107,82,101,113,117,101,115,116,0]);
-var _$pstr$p43$p104=new Uint8Array([112,101,114,109,84,121,112,101,0]);
+var _$pstr$p43$p109=new Uint8Array([112,101,114,109,84,121,112,101,0]);
 var ___func__$p_ZN7CheerpX5Linux18runFSFchmodRequestE12CORE_MESSAGEjjj=new Uint8Array([114,117,110,70,83,70,99,104,109,111,100,82,101,113,117,101,115,116,0]);
 var ___func__$p_ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_MESSAGEjPNS1_6ObjectEjjj=new Uint8Array([114,117,110,70,83,83,112,101,99,105,97,108,70,105,108,101,82,101,113,117,101,115,116,0]);
-var _$pstr$p48$p106=new Uint8Array([102,100,73,32,62,61,32,48,0]);
-var _$pstr$p46$p107=new Uint8Array([102,111,108,100,101,114,0]);
+var _$pstr$p48$p111=new Uint8Array([102,100,73,32,62,61,32,48,0]);
+var _$pstr$p46$p112=new Uint8Array([102,111,108,100,101,114,0]);
 var ___func__$p_ZN7CheerpX5Linux17runFSMkdirRequestEPN6client6StringEj12CORE_MESSAGEjjjj=new Uint8Array([114,117,110,70,83,77,107,100,105,114,82,101,113,117,101,115,116,0]);
 var ___func__$p_ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjjjjj=new Uint8Array([114,117,110,70,83,79,112,101,110,82,101,113,117,101,115,116,0]);
-var _$pstr$p44$p108=new Uint8Array([114,43,0]);
+var _$pstr$p44$p113=new Uint8Array([114,43,0]);
 var _$pstr$p7=new Uint8Array([119,0]);
 var _$pstr$p10=new Uint8Array([114,0]);
-var _$pstr$p45$p111=new Uint8Array([33,105,115,82,101,97,100,79,110,108,121,0]);
+var _$pstr$p45$p116=new Uint8Array([33,105,115,82,101,97,100,79,110,108,121,0]);
 var __ZTV11CheerpXBase={a0:null,a1:__ZN11CheerpXBase12cheerpOSInitEv};
 var __ZTVN7CheerpX6SystemE={a0:null,a1:__ZN7CheerpX6System12cheerpOSInitEv};
 var __ZN9VGAOutput8instanceE=null;
-var _$pstr$p37$p28=new Uint8Array([100,101,118,45,62,116,121,112,101,32,61,61,32,68,101,118,105,99,101,58,58,84,89,80,69,58,58,66,76,79,67,75,0]);
-var _$pstr$p26$p29=new Uint8Array([47,104,111,109,101,47,111,109,97,116,104,111,116,47,100,101,118,47,99,104,101,101,114,112,120,47,99,120,117,105,46,99,112,112,0]);
+var _$pstr$p42$p36=new Uint8Array([100,101,118,45,62,116,121,112,101,32,61,61,32,68,101,118,105,99,101,58,58,84,89,80,69,58,58,66,76,79,67,75,0]);
+var _$pstr$p31$p37=new Uint8Array([47,104,111,109,101,47,111,109,97,116,104,111,116,47,100,101,118,47,99,104,101,101,114,112,120,47,99,120,117,105,46,99,112,112,0]);
 var ___func__$p_ZN7CheerpX6System17runIOWriteRequestEPS0_jjjjj=new Uint8Array([114,117,110,73,79,87,114,105,116,101,82,101,113,117,101,115,116,0]);
 var ___func__$p_ZN7CheerpX6System16runIOReadRequestEPS0_jjjjj=new Uint8Array([114,117,110,73,79,82,101,97,100,82,101,113,117,101,115,116,0]);
-var _$pstr$p238=new Uint8Array([105,110,115,116,97,110,99,101,32,61,61,32,110,117,108,108,112,116,114,0]);
-var _$pstr$p1$p239=new Uint8Array([47,104,111,109,101,47,111,109,97,116,104,111,116,47,100,101,118,47,99,104,101,101,114,112,120,47,100,101,118,105,99,101,115,47,118,103,97,111,117,116,46,99,112,112,0]);
+var _$pstr$p243=new Uint8Array([105,110,115,116,97,110,99,101,32,61,61,32,110,117,108,108,112,116,114,0]);
+var _$pstr$p1$p244=new Uint8Array([47,104,111,109,101,47,111,109,97,116,104,111,116,47,100,101,118,47,99,104,101,101,114,112,120,47,100,101,118,105,99,101,115,47,118,103,97,111,117,116,46,99,112,112,0]);
 var ___func__$p_ZN9VGAOutput10initializeEPhR9VGAShared=new Uint8Array([105,110,105,116,105,97,108,105,122,101,0]);
 var _NoopCoro$pFrame$pConst$p5=[{a0:___NoopCoro_ResumeDestroy$p6,a1:___NoopCoro_ResumeDestroy$p6}];
 var $NoopCoro$pFrame$pConst$p5=0;
-var _$pstr$p91=new Uint8Array([100,98,103,67,117,114,67,116,120,32,38,38,32,40,100,98,103,67,117,114,67,116,120,45,62,115,116,97,116,101,32,61,61,32,68,66,71,95,68,69,84,65,84,67,72,69,68,32,124,124,32,100,98,103,67,117,114,67,116,120,45,62,115,116,97,116,101,32,61,61,32,68,66,71,95,83,84,79,80,80,69,68,41,0]);
-var _$pstr$p90=new Uint8Array([100,98,103,67,117,114,67,116,120,32,38,38,32,100,98,103,67,117,114,67,116,120,45,62,115,116,97,116,101,32,61,61,32,68,66,71,95,83,84,79,80,80,69,68,0]);
-var _$pstr$p25$p67=new Uint8Array([98,105,111,115,68,101,118,105,99,101,45,62,116,121,112,101,32,61,61,32,67,104,101,101,114,112,88,58,58,68,101,118,105,99,101,58,58,66,76,79,67,75,0]);
+var _$pstr$p96=new Uint8Array([100,98,103,67,117,114,67,116,120,32,38,38,32,40,100,98,103,67,117,114,67,116,120,45,62,115,116,97,116,101,32,61,61,32,68,66,71,95,68,69,84,65,84,67,72,69,68,32,124,124,32,100,98,103,67,117,114,67,116,120,45,62,115,116,97,116,101,32,61,61,32,68,66,71,95,83,84,79,80,80,69,68,41,0]);
+var _$pstr$p95=new Uint8Array([100,98,103,67,117,114,67,116,120,32,38,38,32,100,98,103,67,117,114,67,116,120,45,62,115,116,97,116,101,32,61,61,32,68,66,71,95,83,84,79,80,80,69,68,0]);
+var _$pstr$p30$p69=new Uint8Array([98,105,111,115,68,101,118,105,99,101,45,62,116,121,112,101,32,61,61,32,67,104,101,101,114,112,88,58,58,68,101,118,105,99,101,58,58,66,76,79,67,75,0]);
 var ___func__$p_ZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationE=new Uint8Array([114,117,110,73,109,112,108,0]);
-var _$pstr$p27$p68=new Uint8Array([118,103,97,66,105,111,115,68,101,118,105,99,101,45,62,116,121,112,101,32,61,61,32,67,104,101,101,114,112,88,58,58,68,101,118,105,99,101,58,58,66,76,79,67,75,0]);
-var _$pstr$p86=new Uint8Array([102,108,112,45,62,116,121,112,101,32,33,61,32,67,104,101,101,114,112,88,58,58,68,101,118,105,99,101,58,58,67,72,69,69,82,80,79,83,0]);
+var _$pstr$p32$p70=new Uint8Array([118,103,97,66,105,111,115,68,101,118,105,99,101,45,62,116,121,112,101,32,61,61,32,67,104,101,101,114,112,88,58,58,68,101,118,105,99,101,58,58,66,76,79,67,75,0]);
+var _$pstr$p91=new Uint8Array([102,108,112,45,62,116,121,112,101,32,33,61,32,67,104,101,101,114,112,88,58,58,68,101,118,105,99,101,58,58,67,72,69,69,82,80,79,83,0]);
 var __ZTVN7CheerpX10FileDeviceE={a0:null,a1:__ZN7CheerpX6Device17isWebCheerpDeviceEv,a2:__ZN7CheerpX6Device3runEPNS_5LinuxE,a3:__ZNK7CheerpX6Device16hasPendingWritesEv,a4:__ZN7CheerpX10FileDevice11getPermTypeEv,a5:__ZN7CheerpX11BlockDevice12requestBytesEP11CheerpXBasejj,a6:__ZN7CheerpX10FileDevice4readEP11CheerpXBasejjPN6client10Uint8ArrayEj,a7:__ZN7CheerpX10FileDevice5writeEP11CheerpXBasejjPN6client10Uint8ArrayEj};
 var _$pstr$p13=new Uint8Array([100,111,110,101,66,121,116,101,115,32,61,61,32,108,101,110,0]);
 var _$pstr$p9=new Uint8Array([47,104,111,109,101,47,111,109,97,116,104,111,116,47,100,101,118,47,99,104,101,101,114,112,120,47,99,120,117,105,100,101,118,105,99,101,115,46,99,112,112,0]);
@@ -22977,15 +22997,15 @@ var ___func__$p_ZN7CheerpX10FileDevice5writeEP11CheerpXBasejjPN6client10Uint8Arr
 var ___func__$p_ZN7CheerpX11BlockDevice4readEP11CheerpXBasejjPN6client10Uint8ArrayEj=new Uint8Array([114,101,97,100,0]);
 var _$pstr$p62=new Uint8Array([47,104,111,109,101,47,111,109,97,116,104,111,116,47,100,101,118,47,99,104,101,101,114,112,120,47,99,120,117,105,100,101,118,105,99,101,115,46,104,0]);
 var ___func__$p_ZN7CheerpX12GitHubDevice12requestBytesEP11CheerpXBasejj=new Uint8Array([114,101,113,117,101,115,116,66,121,116,101,115,0]);
-var _$pstr$p35$p176=new Uint8Array([98,117,102,0]);
+var _$pstr$p35$p181=new Uint8Array([98,117,102,0]);
 var ___func__$p_ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8ArrayEjPNS3_6ObjectE=new Uint8Array([114,101,97,100,67,104,117,110,107,0]);
-var _$pstr$p36$p177=new Uint8Array([117,105,110,116,51,50,95,116,40,117,56,45,62,103,101,116,95,108,101,110,103,116,104,40,41,41,32,61,61,32,67,72,85,78,75,95,83,73,90,69,0]);
-var _$pstr$p38$p178=new Uint8Array([102,100,32,62,61,32,48,0]);
+var _$pstr$p36$p182=new Uint8Array([117,105,110,116,51,50,95,116,40,117,56,45,62,103,101,116,95,108,101,110,103,116,104,40,41,41,32,61,61,32,67,72,85,78,75,95,83,73,90,69,0]);
+var _$pstr$p38$p183=new Uint8Array([102,100,32,62,61,32,48,0]);
 var __ZTVN7CheerpX13OverlayDeviceE={a0:null,a1:__ZN7CheerpX6Device17isWebCheerpDeviceEv,a2:__ZN7CheerpX13OverlayDevice3runEPNS_5LinuxE,a3:__ZNK7CheerpX13OverlayDevice16hasPendingWritesEv,a4:__ZN7CheerpX13OverlayDevice11getPermTypeEv,a5:__ZN7CheerpX11BlockDevice12requestBytesEP11CheerpXBasejj,a6:__ZN7CheerpX11BlockDevice4readEP11CheerpXBasejjPN6client10Uint8ArrayEj,a7:__ZN7CheerpX11BlockDevice5writeEP11CheerpXBasejjPN6client10Uint8ArrayEj};
-var _$pstr$p39$p181=new Uint8Array([40,111,112,46,102,105,108,101,79,102,102,115,101,116,32,37,32,67,72,85,78,75,95,83,73,90,69,41,32,61,61,32,48,0]);
+var _$pstr$p39$p186=new Uint8Array([40,111,112,46,102,105,108,101,79,102,102,115,101,116,32,37,32,67,72,85,78,75,95,83,73,90,69,41,32,61,61,32,48,0]);
 var ___func__$p_ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE=new Uint8Array([114,117,110,79,112,101,114,97,116,105,111,110,115,0]);
-var _$pstr$p40$p182=new Uint8Array([98,117,102,76,101,110,32,61,61,32,67,72,85,78,75,95,83,73,90,69,0]);
-var _$pstr$p41$p183=new Uint8Array([40,102,105,108,101,79,102,102,115,101,116,32,37,32,67,72,85,78,75,95,83,73,90,69,41,32,61,61,32,48,0]);
+var _$pstr$p40$p187=new Uint8Array([98,117,102,76,101,110,32,61,61,32,67,72,85,78,75,95,83,73,90,69,0]);
+var _$pstr$p41$p188=new Uint8Array([40,102,105,108,101,79,102,102,115,101,116,32,37,32,67,72,85,78,75,95,83,73,90,69,41,32,61,61,32,48,0]);
 var _$pstr$p5=new Uint8Array([67,108,101,97,114,105,110,103,32,108,111,99,97,108,32,99,97,99,104,101,32,102,111,114,32,100,101,118,105,99,101,58,32,37,115,10,0]);
 var __ZTVN7CheerpX12GitHubDeviceE={a0:null,a1:__ZN7CheerpX6Device17isWebCheerpDeviceEv,a2:__ZN7CheerpX6Device3runEPNS_5LinuxE,a3:__ZNK7CheerpX6Device16hasPendingWritesEv,a4:__ZN7CheerpX12GitHubDevice11getPermTypeEv,a5:__ZN7CheerpX12GitHubDevice12requestBytesEP11CheerpXBasejj,a6:__ZN7CheerpX11BlockDevice4readEP11CheerpXBasejjPN6client10Uint8ArrayEj,a7:__ZN7CheerpX11BlockDevice5writeEP11CheerpXBasejjPN6client10Uint8ArrayEj};
 var _$pstr$p22=new Uint8Array([40,115,116,97,114,116,32,37,32,79,118,101,114,108,97,121,68,101,118,105,99,101,58,58,67,72,85,78,75,95,83,73,90,69,41,32,61,61,32,48,0]);
@@ -23036,20 +23056,73 @@ function constructor__ZN7CheerpX9IDBDevice15createEmptyFileEPN6client6StringEj$p
 	this.a13={a0:nullArray,a0o:0};
 	this.i14=0;
 	create__ZN7CheerpX9IDBDevice15createEmptyFileEPN6client6StringEj$pFrame(this)}
-function constructor__ZN7CheerpX9IDBDevice10clearCacheEv$pFrame(){
+function constructor__ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE$pFrame(){
 	this.a0=null;
 	this.a1=null;
-	this.a2={a0:nullArray,a0o:0};
-	this.a3=null;
-	this.a4=null;
-	this.a5=null;
-	this.i6=0;
-	this.a7=null;
-	this.a8=null;
+	this.a2={i0:0};
+	this.a3={i0:0,i1:0,i2:0,a3:null};
+	this.a4={a0:nullArray,a0o:0};
+	this.a5={a0:nullArray,a0o:0};
+	this.a6={a0:nullArray,a0o:0};
+	this.a7={a0:nullArray,a0o:0};
+	this.a8={a0:nullArray,a0o:0};
 	this.a9={a0:nullArray,a0o:0};
 	this.a10={a0:nullArray,a0o:0};
-	this.i11=0;
-	create__ZN7CheerpX9IDBDevice10clearCacheEv$pFrame(this)}
+	this.a11={a0:nullArray,a0o:0};
+	this.i12=0;
+	this.a13=new Uint8Array(2);
+	this.a14=[null];
+	this.a15=null;
+	this.a16=null;
+	this.a17=null;
+	this.a18=null;
+	this.a19=null;
+	this.a20=null;
+	this.a21=null;
+	this.a22=null;
+	this.i23=0;
+	this.i24=0;
+	this.a25=null;
+	this.a26=null;
+	this.a27=null;
+	this.a28=null;
+	this.a29=null;
+	this.a30=null;
+	this.a31=null;
+	this.a32=null;
+	this.i33=0;
+	create__ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE$pFrame(this)}
+function constructor__ZN7CheerpX11BlockDevice4readEP11CheerpXBasejjPN6client10Uint8ArrayEj$pFrame(){
+	this.a0=null;
+	this.a1=null;
+	this.a2={a0:nullArray,a0o:0,a1:{i0:0,i1:0}};
+	this.a3={a0:nullArray,a0o:0};
+	this.i4=0;
+	this.a5=[0];
+	this.i6=0;
+	this.a7=null;
+	this.i8=0;
+	this.a9=null;
+	create__ZN7CheerpX11BlockDevice4readEP11CheerpXBasejjPN6client10Uint8ArrayEj$pFrame(this)}
+function constructor__ZZN7CheerpX13OverlayDevice6createEPNS_11BlockDeviceEPNS_9IDBDeviceEENK3$_0clES2_S4_PFvPN6client6ObjectEEPFvRKNS6_6StringEE$pFrame(){
+	this.a0=null;
+	this.a1=null;
+	this.a2={i0:0};
+	this.a3={a0:nullArray,a0o:0};
+	this.a4={a0:nullArray,a0o:0};
+	this.a5={a0:nullArray,a0o:0};
+	this.a6={a0:nullArray,a0o:0};
+	this.i7=0;
+	this.a8=new Uint8Array(2);
+	this.a9=null;
+	this.a10=null;
+	this.a11=null;
+	this.a12=null;
+	this.a13=null;
+	this.a14=null;
+	this.a15=null;
+	this.a16=null;
+	create__ZZN7CheerpX13OverlayDevice6createEPNS_11BlockDeviceEPNS_9IDBDeviceEENK3$_0clES2_S4_PFvPN6client6ObjectEEPFvRKNS6_6StringEE$pFrame(this)}
 function constructor__ZZN7CheerpX12GitHubDevice6createERKN6client6StringEENK3$_0clES4_PFvPNS1_6ObjectEEPFvS4_E$pFrame(){
 	this.a0=null;
 	this.a1=null;
@@ -23073,6 +23146,32 @@ function constructor__ZN7CheerpX11BlockDevice29requestBytesAndMeasureLatencyEP11
 	this.a7=null;
 	this.a8=null;
 	create__ZN7CheerpX11BlockDevice29requestBytesAndMeasureLatencyEP11CheerpXBasejj$pFrame(this)}
+function constructor__ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8ArrayEjPNS3_6ObjectE$pFrame(){
+	this.a0=null;
+	this.a1=null;
+	this.a2={a0:nullArray,a0o:0};
+	this.a3=null;
+	this.a4=null;
+	this.i5=0;
+	this.a6=null;
+	this.i7=0;
+	this.a8=null;
+	this.a9=null;
+	this.a10=null;
+	this.i11=0;
+	this.a12=null;
+	this.a13=null;
+	this.i14=0;
+	this.a15=null;
+	this.a16={a0:nullArray,a0o:0};
+	this.a17={a0:nullArray,a0o:0};
+	this.a18={a0:nullArray,a0o:0};
+	this.a19={a0:nullArray,a0o:0};
+	this.a20={a0:nullArray,a0o:0};
+	this.a21={a0:nullArray,a0o:0};
+	this.a22={a0:nullArray,a0o:0};
+	this.i23=0;
+	create__ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8ArrayEjPNS3_6ObjectE$pFrame(this)}
 function constructor__ZN7CheerpX13OverlayDevice8dumpImplEv$pFrame(){
 	this.a0=null;
 	this.a1=null;
@@ -23086,6 +23185,24 @@ function constructor__ZN7CheerpX13OverlayDevice8dumpImplEv$pFrame(){
 	this.i9=0;
 	this.a10=null;
 	create__ZN7CheerpX13OverlayDevice8dumpImplEv$pFrame(this)}
+function constructor__ZN7CheerpX10FileDevice5writeEP11CheerpXBasejjPN6client10Uint8ArrayEj$pFrame(){
+	this.a0=null;
+	this.a1=null;
+	this.a2={a0:nullArray,a0o:0,a1:{i0:0,i1:0}};
+	this.a3={a0:nullArray,a0o:0};
+	this.a4={a0:nullArray,a0o:0};
+	this.a5={a0:nullArray,a0o:0};
+	this.i6=0;
+	this.a7=[0];
+	this.i8=0;
+	this.i9=0;
+	this.a10=null;
+	this.i11=0;
+	this.a12=null;
+	this.a13=null;
+	this.i14=0;
+	this.a15=null;
+	create__ZN7CheerpX10FileDevice5writeEP11CheerpXBasejjPN6client10Uint8ArrayEj$pFrame(this)}
 function constructor__ZZN7CheerpX10FileDevice6createEPNS_14CheerpOSDeviceERKN6client6StringEENK3$_0clES2_S6_PFvPNS3_6ObjectEEPFvS6_E$pFrame(){
 	this.a0=null;
 	this.a1=null;
@@ -23125,232 +23242,33 @@ function constructor__ZZN7CheerpX8copyFileEPN6client13CopyOptionalsES2_ENK3$_0cl
 	this.i22=0;
 	this.i23=0;
 	create__ZZN7CheerpX8copyFileEPN6client13CopyOptionalsES2_ENK3$_0clES2_S2_PFvPNS0_6ObjectEEPFvRKNS0_6StringEE$pFrame(this)}
-function constructor__ZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationE$pFrame(){
+function constructor__ZZN7CheerpX5Linux18createUnixListenerEPN6client6StringEENK3$_0clIPFvPNS1_6ObjectEENS1_10Uint8ArrayEEE6ThreadPS0_T_PT0_$pFrame(){
 	this.a0=null;
 	this.a1=null;
 	this.a2={i0:0};
-	this.a3={a0:nullArray,a0o:0,a1:{i0:0,i1:0}};
-	this.a4={a0:nullArray,a0o:0,a1:{i0:0,i1:0}};
-	this.a5={a0:nullArray,a0o:0,a1:{i0:0,i1:0}};
-	this.a6={a0:nullArray,a0o:0,a1:{i0:0,i1:0}};
-	this.a7={a0:nullArray,a0o:0};
-	this.a8={a0:nullArray,a0o:0};
-	this.a9={a0:nullArray,a0o:0};
-	this.a10=new Uint8Array(2);
-	this.i11=0;
-	this.a12=[null];
-	this.a13=null;
-	this.a14=null;
-	this.a15=null;
-	this.a16=null;
-	this.a17=null;
-	this.i18=0;
-	this.a19=null;
-	this.i20=0;
-	this.i21=0;
-	this.a22=null;
-	this.a23=null;
-	this.a24=null;
-	this.a25=null;
-	this.i26=0;
-	this.a27=null;
-	this.a28=null;
-	this.a29={i0:0};
-	create__ZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationE$pFrame(this)}
-function constructor__ZN7CheerpX11BlockDevice4readEP11CheerpXBasejjPN6client10Uint8ArrayEj$pFrame(){
-	this.a0=null;
-	this.a1=null;
-	this.a2={a0:nullArray,a0o:0,a1:{i0:0,i1:0}};
 	this.a3={a0:nullArray,a0o:0};
 	this.i4=0;
-	this.a5=[0];
-	this.i6=0;
-	this.a7=null;
-	this.i8=0;
-	this.a9=null;
-	create__ZN7CheerpX11BlockDevice4readEP11CheerpXBasejjPN6client10Uint8ArrayEj$pFrame(this)}
-function constructor__ZN7CheerpX5Linux21runFSCacheNodeRequestE12CORE_MESSAGEjPN6client6StringEjj$pFrame(){
-	this.a0=null;
-	this.a1=null;
-	this.a2={a0:nullArray,a0o:0};
-	this.a3=null;
-	this.i4=0;
-	this.i5=0;
+	this.a5=new Uint8Array(2);
 	this.a6=null;
-	this.i7=0;
-	this.i8=0;
-	this.a9=null;
-	this.a10=null;
-	this.a11={a0:nullArray,a0o:0};
-	this.i12=0;
-	create__ZN7CheerpX5Linux21runFSCacheNodeRequestE12CORE_MESSAGEjPN6client6StringEjj$pFrame(this)}
-function constructor__ZN7CheerpX10FileDevice4readEP11CheerpXBasejjPN6client10Uint8ArrayEj$pFrame(){
-	this.a0=null;
-	this.a1=null;
-	this.a2={a0:nullArray,a0o:0,a1:{i0:0,i1:0}};
-	this.a3={a0:nullArray,a0o:0};
-	this.a4={a0:nullArray,a0o:0};
-	this.i5=0;
-	this.a6=[0];
-	this.i7=0;
-	this.i8=0;
-	this.a9=null;
-	this.i10=0;
-	this.a11=null;
-	this.a12=null;
-	this.a13=null;
-	create__ZN7CheerpX10FileDevice4readEP11CheerpXBasejjPN6client10Uint8ArrayEj$pFrame(this)}
-function constructor__ZN7CheerpX10FileDevice5writeEP11CheerpXBasejjPN6client10Uint8ArrayEj$pFrame(){
-	this.a0=null;
-	this.a1=null;
-	this.a2={a0:nullArray,a0o:0,a1:{i0:0,i1:0}};
-	this.a3={a0:nullArray,a0o:0};
-	this.a4={a0:nullArray,a0o:0};
-	this.a5={a0:nullArray,a0o:0};
-	this.i6=0;
-	this.a7=[0];
-	this.i8=0;
+	this.a7=null;
+	this.a8=null;
 	this.i9=0;
-	this.a10=null;
-	this.i11=0;
-	this.a12=null;
-	this.a13=null;
-	this.i14=0;
-	this.a15=null;
-	create__ZN7CheerpX10FileDevice5writeEP11CheerpXBasejjPN6client10Uint8ArrayEj$pFrame(this)}
-function constructor__ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjjjjj$pFrame(){
-	this.a0=null;
-	this.a1=null;
-	this.a2={a0:nullArray,a0o:0};
-	this.a3=null;
-	this.i4=0;
-	this.i5=0;
-	this.i6=0;
-	this.i7=0;
-	this.i8=0;
-	this.a9=null;
-	this.a10=null;
-	this.a11=null;
-	this.a12={a0:nullArray,a0o:0};
-	this.i13=0;
-	create__ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjjjjj$pFrame(this)}
-function constructor__ZN7CheerpX5Linux13requestAcceptEjj$pFrame(){
-	this.a0=null;
-	this.a1=null;
-	this.a2={a0:nullArray,a0o:0,a1:{i0:0,a1:null}};
-	this.a3={a0:nullArray,a0o:0};
-	this.i4=0;
-	this.a5=[0];
-	this.a6=null;
-	this.i7=0;
-	this.a8=null;
-	create__ZN7CheerpX5Linux13requestAcceptEjj$pFrame(this)}
-function constructor_struct$p_Z8_IO_FILE(){
-	this.i0=0;
-	this.a1=nullArray;
-	this.a2=nullArray;
-	this.a3=null;
-	this.a4=nullArray;
-	this.a4o=0;
-	this.a5=nullArray;
-	this.a5o=0;
-	this.a6=null;
-	this.a7=nullArray;
-	this.a7o=0;
-	this.a8=null;
-	this.a9=null;
-	this.a10=null;
-	this.a11=nullArray;
-	this.a11o=0;
-	this.i12=0;
-	this.a13=null;
-	this.a14=null;
-	this.i15=0;
-	this.i16=0;
-	this.i17=0;
-	this.i18=0;
-	this.i19=0;
-	this.i20=0;
-	this.a21=null;
-	this.a22=new Int32Array(6);
-	this.a23=null;
-	this.a24=null;
-	this.a25=null;
-	this.a26=null;
-	this.a27=null;
-	this.a28=null;
-}
-function constructor__ZN7CheerpX5Linux18runFSUnlinkRequestE12CORE_MESSAGEjPN6client6StringEj$pFrame(){
-	this.a0=null;
-	this.a1=null;
-	this.a2={a0:nullArray,a0o:0};
-	this.a3=null;
-	this.i4=0;
-	this.i5=0;
-	this.a6=null;
-	this.a7=null;
-	this.a8=null;
-	this.a9={a0:nullArray,a0o:0};
-	this.a10={a0:nullArray,a0o:0};
-	this.i11=0;
-	create__ZN7CheerpX5Linux18runFSUnlinkRequestE12CORE_MESSAGEjPN6client6StringEj$pFrame(this)}
-function constructor__ZN7CheerpX5Linux17runFSCloseRequestE12CORE_MESSAGEjj$pFrame(){
-	this.a0=null;
-	this.a1=null;
-	this.a2={a0:nullArray,a0o:0};
-	this.a3=null;
-	this.i4=0;
-	this.i5=0;
-	this.a6=null;
-	this.a7={a0:nullArray,a0o:0};
-	this.i8=0;
-	create__ZN7CheerpX5Linux17runFSCloseRequestE12CORE_MESSAGEjj$pFrame(this)}
-function constructor__ZN7CheerpX9IDBDevice8dumpImplEPN6client6StringE$pFrame(){
-	this.a0=null;
-	this.a1=null;
-	this.a2={i0:0};
-	this.a3={a0:nullArray,a0o:0};
-	this.a4={a0:nullArray,a0o:0};
-	this.i5=0;
-	this.a6=new Uint8Array(2);
-	this.a7=null;
-	this.a8=null;
-	this.a9=null;
-	create__ZN7CheerpX9IDBDevice8dumpImplEPN6client6StringE$pFrame(this)}
-function constructor__ZZN7CheerpX11CloudDevice6createERKN6client6StringEENK3$_0clES4_PFvPNS1_6ObjectEEPFvS4_E$pFrame(){
-	this.a0=null;
-	this.a1=null;
-	this.a2={i0:0};
-	this.a3={i0:0,a1:null,a2:{a0:nullArray,a0o:0}};
-	this.a4={a0:nullArray,a0o:0};
-	this.i5=0;
-	this.a6=[0];
-	this.a7=null;
-	this.a8=null;
-	this.a9=null;
-	this.a10=null;
-	this.a11=null;
-	this.a12=null;
-	this.a13=null;
-	create__ZZN7CheerpX11CloudDevice6createERKN6client6StringEENK3$_0clES4_PFvPNS1_6ObjectEEPFvS4_E$pFrame(this)}
-function constructor__ZN7CheerpX5Linux17runFSMkdirRequestEPN6client6StringEj12CORE_MESSAGEjjjj$pFrame(){
+	this.i10=0;
+	create__ZZN7CheerpX5Linux18createUnixListenerEPN6client6StringEENK3$_0clIPFvPNS1_6ObjectEENS1_10Uint8ArrayEEE6ThreadPS0_T_PT0_$pFrame(this)}
+function constructor__ZN7CheerpX9IDBDevice10clearCacheEv$pFrame(){
 	this.a0=null;
 	this.a1=null;
 	this.a2={a0:nullArray,a0o:0};
 	this.a3=null;
 	this.a4=null;
-	this.i5=0;
+	this.a5=null;
 	this.i6=0;
-	this.i7=0;
-	this.i8=0;
-	this.i9=0;
-	this.a10=null;
-	this.a11=null;
-	this.a12=null;
-	this.a13={a0:nullArray,a0o:0};
-	this.a14={a0:nullArray,a0o:0};
-	this.i15=0;
-	create__ZN7CheerpX5Linux17runFSMkdirRequestEPN6client6StringEj12CORE_MESSAGEjjjj$pFrame(this)}
+	this.a7=null;
+	this.a8=null;
+	this.a9={a0:nullArray,a0o:0};
+	this.a10={a0:nullArray,a0o:0};
+	this.i11=0;
+	create__ZN7CheerpX9IDBDevice10clearCacheEv$pFrame(this)}
 function constructor_class$p_ZN7CheerpX5LinuxE(){
 	this.a0=null;
 	this.a1=null;
@@ -23402,58 +23320,147 @@ function constructor_class$p_ZN7CheerpX5LinuxE(){
 	this.a47={a0:nullArray,a0o:0,a1:nullArray,a1o:0,a2:{a0:nullArray,a0o:0}};
 	this.a48={a0:nullArray,a0o:0,a1:nullArray,a1o:0,a2:{a0:nullArray,a0o:0}};
 }
-function constructor_struct$p_Z6__libc(){
-	this.i0=0;
-	this.i1=0;
-	this.a2=null;
-	this.a3=null;
+function constructor__ZN7CheerpX5Linux13requestAcceptEjj$pFrame(){
+	this.a0=null;
+	this.a1=null;
+	this.a2={a0:nullArray,a0o:0,a1:{i0:0,a1:null}};
+	this.a3={a0:nullArray,a0o:0};
 	this.i4=0;
-	this.i5=0;
-	this.i6=0;
+	this.a5=[0];
+	this.a6=null;
 	this.i7=0;
-	this.a8=[null,null,null,null,null,null];
+	this.a8=null;
+	create__ZN7CheerpX5Linux13requestAcceptEjj$pFrame(this)}
+function constructor_struct$p_Z8_IO_FILE(){
+	this.i0=0;
+	this.a1=nullArray;
+	this.a2=nullArray;
+	this.a3=null;
+	this.a4=nullArray;
+	this.a4o=0;
+	this.a5=nullArray;
+	this.a5o=0;
+	this.a6=null;
+	this.a7=nullArray;
+	this.a7o=0;
+	this.a8=null;
+	this.a9=null;
+	this.a10=null;
+	this.a11=nullArray;
+	this.a11o=0;
+	this.i12=0;
+	this.a13=null;
+	this.a14=null;
+	this.i15=0;
+	this.i16=0;
+	this.i17=0;
+	this.i18=0;
+	this.i19=0;
+	this.i20=0;
+	this.a21=null;
+	this.a22=new Int32Array(6);
+	this.a23=null;
+	this.a24=null;
+	this.a25=null;
+	this.a26=null;
+	this.a27=null;
+	this.a28=null;
 }
-function constructor__ZZN7CheerpX5Linux18createUnixListenerEPN6client6StringEENK3$_0clIPFvPNS1_6ObjectEENS1_10Uint8ArrayEEE6ThreadPS0_T_PT0_$pFrame(){
+function constructor__ZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationE$pFrame(){
 	this.a0=null;
 	this.a1=null;
 	this.a2={i0:0};
-	this.a3={a0:nullArray,a0o:0};
-	this.i4=0;
-	this.a5=new Uint8Array(2);
-	this.a6=null;
-	this.a7=null;
-	this.a8=null;
-	this.i9=0;
-	this.i10=0;
-	create__ZZN7CheerpX5Linux18createUnixListenerEPN6client6StringEENK3$_0clIPFvPNS1_6ObjectEENS1_10Uint8ArrayEEE6ThreadPS0_T_PT0_$pFrame(this)}
-function constructor_struct$p_Z9__pthread(){
-	this.a0=null;
-	this.a1=null;
-	this.a2=null;
-	this.a3=null;
-	this.i4=0;
-	this.i5=0;
-	this.i6=0;
-	this.i7=0;
-	this.i8=0;
-	this.i9=0;
-	this.i10=0;
-	this.a11=null;
-	this.i12=0;
+	this.a3={a0:nullArray,a0o:0,a1:{i0:0,i1:0}};
+	this.a4={a0:nullArray,a0o:0,a1:{i0:0,i1:0}};
+	this.a5={a0:nullArray,a0o:0,a1:{i0:0,i1:0}};
+	this.a6={a0:nullArray,a0o:0,a1:{i0:0,i1:0}};
+	this.a7={a0:nullArray,a0o:0};
+	this.a8={a0:nullArray,a0o:0};
+	this.a9={a0:nullArray,a0o:0};
+	this.a10=new Uint8Array(2);
+	this.i11=0;
+	this.a12=[null];
 	this.a13=null;
-	this.i14=0;
-	this.i15=0;
+	this.a14=null;
+	this.a15=null;
 	this.a16=null;
 	this.a17=null;
-	this.a18=null;
-	this.a19={a0:[nullObj],i1:0,a2:null};
+	this.i18=0;
+	this.a19=null;
 	this.i20=0;
 	this.i21=0;
 	this.a22=null;
-	this.a23=[0];
+	this.a23=null;
 	this.a24=null;
 	this.a25=null;
-}
+	this.i26=0;
+	this.a27=null;
+	this.a28=null;
+	this.a29={i0:0};
+	create__ZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationE$pFrame(this)}
+function constructor__ZN7CheerpX5Linux18runFSUnlinkRequestE12CORE_MESSAGEjPN6client6StringEj$pFrame(){
+	this.a0=null;
+	this.a1=null;
+	this.a2={a0:nullArray,a0o:0};
+	this.a3=null;
+	this.i4=0;
+	this.i5=0;
+	this.a6=null;
+	this.a7=null;
+	this.a8=null;
+	this.a9={a0:nullArray,a0o:0};
+	this.a10={a0:nullArray,a0o:0};
+	this.i11=0;
+	create__ZN7CheerpX5Linux18runFSUnlinkRequestE12CORE_MESSAGEjPN6client6StringEj$pFrame(this)}
+function constructor__ZN11CheerpXBase10coreWorkerERKN6client6StringE12CORE_MESSAGE$pFrame(){
+	this.a0=null;
+	this.a1=null;
+	this.a2={i0:0};
+	this.a3={a0:null,a1:null};
+	this.a4={a0:null,a1:null};
+	this.i5=0;
+	this.a6=new Uint8Array(2);
+	this.a7=null;
+	this.a8=null;
+	this.i9=0;
+	this.a10=null;
+	this.a11=null;
+	this.a12=null;
+	this.a13=null;
+	this.a14=null;
+	create__ZN11CheerpXBase10coreWorkerERKN6client6StringE12CORE_MESSAGE$pFrame(this)}
+function constructor__ZZN7CheerpX11CloudDevice6createERKN6client6StringEENK3$_0clES4_PFvPNS1_6ObjectEEPFvS4_E$pFrame(){
+	this.a0=null;
+	this.a1=null;
+	this.a2={i0:0};
+	this.a3={i0:0,a1:null,a2:{a0:nullArray,a0o:0}};
+	this.a4={a0:nullArray,a0o:0};
+	this.i5=0;
+	this.a6=[0];
+	this.a7=null;
+	this.a8=null;
+	this.a9=null;
+	this.a10=null;
+	this.a11=null;
+	this.a12=null;
+	this.a13=null;
+	create__ZZN7CheerpX11CloudDevice6createERKN6client6StringEENK3$_0clES4_PFvPNS1_6ObjectEEPFvS4_E$pFrame(this)}
+function constructor__ZN7CheerpX10FileDevice4readEP11CheerpXBasejjPN6client10Uint8ArrayEj$pFrame(){
+	this.a0=null;
+	this.a1=null;
+	this.a2={a0:nullArray,a0o:0,a1:{i0:0,i1:0}};
+	this.a3={a0:nullArray,a0o:0};
+	this.a4={a0:nullArray,a0o:0};
+	this.i5=0;
+	this.a6=[0];
+	this.i7=0;
+	this.i8=0;
+	this.a9=null;
+	this.i10=0;
+	this.a11=null;
+	this.a12=null;
+	this.a13=null;
+	create__ZN7CheerpX10FileDevice4readEP11CheerpXBasejjPN6client10Uint8ArrayEj$pFrame(this)}
 function constructor__ZZN11CheerpXBase21handleCoreMessageBaseEPN6client11CoreMessageEENK3$_1clEv$pFrame(){
 	this.a0=null;
 	this.a1=null;
@@ -23512,22 +23519,45 @@ function constructor_class$p_ZN7CheerpX6SystemE(){
 	this.a24={a0:nullArray,a0o:0,a1:nullArray,a1o:0,a2:{a0:nullArray,a0o:0}};
 	this.a25=null;
 }
-function constructor__ZN11CheerpXBase10coreWorkerERKN6client6StringE12CORE_MESSAGE$pFrame(){
+function constructor_struct$p_Z6__libc(){
+	this.i0=0;
+	this.i1=0;
+	this.a2=null;
+	this.a3=null;
+	this.i4=0;
+	this.i5=0;
+	this.i6=0;
+	this.i7=0;
+	this.a8=[null,null,null,null,null,null];
+}
+function constructor_struct$p_Z9__pthread(){
 	this.a0=null;
 	this.a1=null;
-	this.a2={i0:0};
-	this.a3={a0:null,a1:null};
-	this.a4={a0:null,a1:null};
+	this.a2=null;
+	this.a3=null;
+	this.i4=0;
 	this.i5=0;
-	this.a6=new Uint8Array(2);
-	this.a7=null;
-	this.a8=null;
+	this.i6=0;
+	this.i7=0;
+	this.i8=0;
 	this.i9=0;
-	this.a10=null;
+	this.i10=0;
 	this.a11=null;
-	this.a12=null;
+	this.i12=0;
 	this.a13=null;
-	create__ZN11CheerpXBase10coreWorkerERKN6client6StringE12CORE_MESSAGE$pFrame(this)}
+	this.i14=0;
+	this.i15=0;
+	this.a16=null;
+	this.a17=null;
+	this.a18=null;
+	this.a19={a0:[nullObj],i1:0,a2:null};
+	this.i20=0;
+	this.i21=0;
+	this.a22=null;
+	this.a23=[0];
+	this.a24=null;
+	this.a25=null;
+}
 function constructor_class$p_ZN7CheerpX13OverlayDeviceE(){
 	this.a0=null;
 	this.i1=0;
@@ -23542,57 +23572,7 @@ function constructor_class$p_ZN7CheerpX13OverlayDeviceE(){
 	this.a10={a0:nullArray,a0o:0,a1:nullArray,a1o:0,a2:{a0:nullArray,a0o:0}};
 	this.i11=0;
 }
-function constructor__ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE$pFrame(){
-	this.a0=null;
-	this.a1=null;
-	this.a2={i0:0};
-	this.a3={i0:0,i1:0,i2:0,a3:null};
-	this.a4={a0:nullArray,a0o:0};
-	this.a5={a0:nullArray,a0o:0};
-	this.a6={a0:nullArray,a0o:0};
-	this.a7={a0:nullArray,a0o:0};
-	this.a8={a0:nullArray,a0o:0};
-	this.a9={a0:nullArray,a0o:0};
-	this.a10={a0:nullArray,a0o:0};
-	this.a11={a0:nullArray,a0o:0};
-	this.i12=0;
-	this.a13=new Uint8Array(2);
-	this.a14=[null];
-	this.a15=null;
-	this.a16=null;
-	this.a17=null;
-	this.a18=null;
-	this.a19=null;
-	this.a20=null;
-	this.a21=null;
-	this.a22=null;
-	this.i23=0;
-	this.i24=0;
-	this.a25=null;
-	this.a26=null;
-	this.a27=null;
-	this.a28=null;
-	this.a29=null;
-	this.a30=null;
-	this.a31=null;
-	this.a32=null;
-	this.i33=0;
-	create__ZN7CheerpX13OverlayDevice13runOperationsEPNS_5LinuxE$pFrame(this)}
-function constructor__ZZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationEENK3$_0clES1_jPNS2_19FloppyConfigurationE$pFrame(){
-	this.a0=null;
-	this.a1=null;
-	this.a2={a0:nullArray,a0o:0};
-	this.a3=null;
-	this.i4=0;
-	this.a5=null;
-	this.a6=null;
-	this.a7=null;
-	this.a8={a0:nullArray,a0o:0,a1:{i0:0,i1:0}};
-	this.a9={a0:nullArray,a0o:0,a1:{i0:0,i1:0}};
-	this.a10={a0:nullArray,a0o:0};
-	this.i11=0;
-	create__ZZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationEENK3$_0clES1_jPNS2_19FloppyConfigurationE$pFrame(this)}
-function construct_literal223(){
+function construct_literal193(){
 	this.a0=null;
 	this.a1=null;
 	this.a2=null;
@@ -23603,6 +23583,24 @@ function construct_literal223(){
 	this.a7=null;
 	this.a8=null;
 }
+function constructor__ZN7CheerpX5Linux17runFSMkdirRequestEPN6client6StringEj12CORE_MESSAGEjjjj$pFrame(){
+	this.a0=null;
+	this.a1=null;
+	this.a2={a0:nullArray,a0o:0};
+	this.a3=null;
+	this.a4=null;
+	this.i5=0;
+	this.i6=0;
+	this.i7=0;
+	this.i8=0;
+	this.i9=0;
+	this.a10=null;
+	this.a11=null;
+	this.a12=null;
+	this.a13={a0:nullArray,a0o:0};
+	this.a14={a0:nullArray,a0o:0};
+	this.i15=0;
+	create__ZN7CheerpX5Linux17runFSMkdirRequestEPN6client6StringEj12CORE_MESSAGEjjjj$pFrame(this)}
 function constructor__ZZN7CheerpX15HttpBytesDevice6createERKN6client6StringEENK3$_0clES4_PFvPNS1_6ObjectEEPFvS4_E$pFrame(){
 	this.a0=null;
 	this.a1=null;
@@ -23628,24 +23626,6 @@ function constructor_struct$p_ZN10__cxxabiv19ExceptionE(){
 	this.a9=null;
 	this.a10=null;
 }
-function constructor_struct$p_ZN10__cxxabiv119__dynamic_cast_infoE(){
-	this.a0=null;
-	this.i1=0;
-	this.a2=null;
-	this.i3=0;
-	this.a4=null;
-	this.i5=0;
-	this.i6=0;
-	this.i7=0;
-	this.i8=0;
-	this.i9=0;
-	this.i10=0;
-	this.i11=0;
-	this.i12=0;
-	this.i13=0;
-	this.i14=0;
-	this.i15=0;
-}
 function constructor__ZN7CheerpX10FileDevice8dumpImplEv$pFrame(){
 	this.a0=null;
 	this.a1=null;
@@ -23659,6 +23639,42 @@ function constructor__ZN7CheerpX10FileDevice8dumpImplEv$pFrame(){
 	this.a9=null;
 	this.a10=null;
 	create__ZN7CheerpX10FileDevice8dumpImplEv$pFrame(this)}
+function constructor__ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_MESSAGEjPNS1_6ObjectEjjj$pFrame(){
+	this.a0=null;
+	this.a1=null;
+	this.a2={a0:nullArray,a0o:0};
+	this.a3=null;
+	this.a4=null;
+	this.i5=0;
+	this.i6=0;
+	this.i7=0;
+	this.a8=null;
+	this.i9=0;
+	this.i10=0;
+	this.i11=0;
+	this.a12=null;
+	this.i13=0;
+	this.i14=0;
+	this.i15=0;
+	this.a16=null;
+	this.a17={a0:nullArray,a0o:0};
+	this.a18={a0:nullArray,a0o:0};
+	this.i19=0;
+	create__ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_MESSAGEjPNS1_6ObjectEjjj$pFrame(this)}
+function constructor__ZZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationEENK3$_0clES1_jPNS2_19FloppyConfigurationE$pFrame(){
+	this.a0=null;
+	this.a1=null;
+	this.a2={a0:nullArray,a0o:0};
+	this.a3=null;
+	this.i4=0;
+	this.a5=null;
+	this.a6=null;
+	this.a7=null;
+	this.a8={a0:nullArray,a0o:0,a1:{i0:0,i1:0}};
+	this.a9={a0:nullArray,a0o:0,a1:{i0:0,i1:0}};
+	this.a10={a0:nullArray,a0o:0};
+	this.i11=0;
+	create__ZZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationEENK3$_0clES1_jPNS2_19FloppyConfigurationE$pFrame(this)}
 function constructor__ZN7CheerpX9WebDevice14createInternalERKN6client6StringE$pFrame(){
 	this.a0=null;
 	this.a1=null;
@@ -23687,25 +23703,30 @@ function constructor__ZN7CheerpX5Linux16runFSReadRequestE12CORE_MESSAGEjjjPKN6cl
 	this.a13={a0:nullArray,a0o:0};
 	this.i14=0;
 	create__ZN7CheerpX5Linux16runFSReadRequestE12CORE_MESSAGEjjjPKN6client6TArrayIPNS2_10ChunkSliceEEE$pFrame(this)}
-function constructor__ZZN7CheerpX13OverlayDevice6createEPNS_11BlockDeviceEPNS_9IDBDeviceEENK3$_0clES2_S4_PFvPN6client6ObjectEEPFvRKNS6_6StringEE$pFrame(){
+function constructor__ZN7CheerpX5Linux18runFSRenameRequestE12CORE_MESSAGEjjPN6client6StringES4_$pFrame(){
 	this.a0=null;
 	this.a1=null;
-	this.a2={i0:0};
-	this.a3={a0:nullArray,a0o:0};
-	this.a4={a0:nullArray,a0o:0};
-	this.a5={a0:nullArray,a0o:0};
-	this.a6={a0:nullArray,a0o:0};
-	this.i7=0;
-	this.a8=new Uint8Array(2);
-	this.a9=null;
-	this.a10=null;
-	this.a11=null;
-	this.a12=null;
-	this.a13=null;
-	this.a14=null;
-	this.a15=null;
-	this.a16=null;
-	create__ZZN7CheerpX13OverlayDevice6createEPNS_11BlockDeviceEPNS_9IDBDeviceEENK3$_0clES2_S4_PFvPN6client6ObjectEEPFvRKNS6_6StringEE$pFrame(this)}
+	this.a2={a0:nullArray,a0o:0};
+	this.a3=null;
+	this.i4=0;
+	this.i5=0;
+	this.a6=null;
+	this.a7=null;
+	this.a8=null;
+	this.a9={a0:nullArray,a0o:0};
+	this.i10=0;
+	create__ZN7CheerpX5Linux18runFSRenameRequestE12CORE_MESSAGEjjPN6client6StringES4_$pFrame(this)}
+function constructor__ZN7CheerpX5Linux17runFSCloseRequestE12CORE_MESSAGEjj$pFrame(){
+	this.a0=null;
+	this.a1=null;
+	this.a2={a0:nullArray,a0o:0};
+	this.a3=null;
+	this.i4=0;
+	this.i5=0;
+	this.a6=null;
+	this.a7={a0:nullArray,a0o:0};
+	this.i8=0;
+	create__ZN7CheerpX5Linux17runFSCloseRequestE12CORE_MESSAGEjj$pFrame(this)}
 function constructor__ZN7CheerpX5Linux12cheerpOSInitEv$pFrame(){
 	this.a0=null;
 	this.a1=null;
@@ -23747,36 +23768,24 @@ function constructor__ZN7CheerpX5Linux13runFSRequestsEv$pFrame(){
 	this.a7=null;
 	this.a8=null;
 	create__ZN7CheerpX5Linux13runFSRequestsEv$pFrame(this)}
-function constructor__ZN7CheerpX5Linux18runFSRenameRequestE12CORE_MESSAGEjjPN6client6StringES4_$pFrame(){
+function constructor_struct$p_ZN10__cxxabiv119__dynamic_cast_infoE(){
 	this.a0=null;
-	this.a1=null;
-	this.a2={a0:nullArray,a0o:0};
-	this.a3=null;
-	this.i4=0;
-	this.i5=0;
-	this.a6=null;
-	this.a7=null;
-	this.a8=null;
-	this.a9={a0:nullArray,a0o:0};
-	this.i10=0;
-	create__ZN7CheerpX5Linux18runFSRenameRequestE12CORE_MESSAGEjjPN6client6StringES4_$pFrame(this)}
-function constructor__ZN7CheerpX5Linux17runFSWriteRequestE12CORE_MESSAGEjjjPKN6client6TArrayIPNS2_10ChunkSliceEEE$pFrame(){
-	this.a0=null;
-	this.a1=null;
-	this.a2={a0:nullArray,a0o:0};
-	this.a3=null;
-	this.i4=0;
+	this.i1=0;
+	this.a2=null;
+	this.i3=0;
+	this.a4=null;
 	this.i5=0;
 	this.i6=0;
-	this.a7=null;
+	this.i7=0;
 	this.i8=0;
 	this.i9=0;
 	this.i10=0;
 	this.i11=0;
-	this.a12=null;
-	this.a13={a0:nullArray,a0o:0};
+	this.i12=0;
+	this.i13=0;
 	this.i14=0;
-	create__ZN7CheerpX5Linux17runFSWriteRequestE12CORE_MESSAGEjjjPKN6client6TArrayIPNS2_10ChunkSliceEEE$pFrame(this)}
+	this.i15=0;
+}
 function constructor__ZN7CheerpX5Linux21runFSCacheListRequestE12CORE_MESSAGEjPN6client6StringEjj$pFrame(){
 	this.a0=null;
 	this.a1=null;
@@ -23791,32 +23800,21 @@ function constructor__ZN7CheerpX5Linux21runFSCacheListRequestE12CORE_MESSAGEjPN6
 	this.a10={a0:nullArray,a0o:0};
 	this.i11=0;
 	create__ZN7CheerpX5Linux21runFSCacheListRequestE12CORE_MESSAGEjPN6client6StringEjj$pFrame(this)}
-function constructor__ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8ArrayEjPNS3_6ObjectE$pFrame(){
+function constructor__ZN7CheerpX5Linux21runFSCacheNodeRequestE12CORE_MESSAGEjPN6client6StringEjj$pFrame(){
 	this.a0=null;
 	this.a1=null;
 	this.a2={a0:nullArray,a0o:0};
 	this.a3=null;
-	this.a4=null;
+	this.i4=0;
 	this.i5=0;
 	this.a6=null;
 	this.i7=0;
-	this.a8=null;
+	this.i8=0;
 	this.a9=null;
 	this.a10=null;
-	this.i11=0;
-	this.a12=null;
-	this.a13=null;
-	this.i14=0;
-	this.a15=null;
-	this.a16={a0:nullArray,a0o:0};
-	this.a17={a0:nullArray,a0o:0};
-	this.a18={a0:nullArray,a0o:0};
-	this.a19={a0:nullArray,a0o:0};
-	this.a20={a0:nullArray,a0o:0};
-	this.a21={a0:nullArray,a0o:0};
-	this.a22={a0:nullArray,a0o:0};
-	this.i23=0;
-	create__ZNK7CheerpX13OverlayDevice9readChunkEP11CheerpXBasejPN6client10Uint8ArrayEjPNS3_6ObjectE$pFrame(this)}
+	this.a11={a0:nullArray,a0o:0};
+	this.i12=0;
+	create__ZN7CheerpX5Linux21runFSCacheNodeRequestE12CORE_MESSAGEjPN6client6StringEjj$pFrame(this)}
 function constructor__ZN7CheerpX5Linux16runFSLinkRequestE12CORE_MESSAGEjjPN6client6StringES4_$pFrame(){
 	this.a0=null;
 	this.a1=null;
@@ -23841,28 +23839,51 @@ function constructor__ZN7CheerpX13OverlayDevice3runEPNS_5LinuxE$pFrame(){
 	this.a7={a0:null};
 	this.i8=0;
 	create__ZN7CheerpX13OverlayDevice3runEPNS_5LinuxE$pFrame(this)}
-function constructor__ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_MESSAGEjPNS1_6ObjectEjjj$pFrame(){
+function constructor__ZN7CheerpX5Linux17runFSWriteRequestE12CORE_MESSAGEjjjPKN6client6TArrayIPNS2_10ChunkSliceEEE$pFrame(){
 	this.a0=null;
 	this.a1=null;
 	this.a2={a0:nullArray,a0o:0};
 	this.a3=null;
-	this.a4=null;
+	this.i4=0;
 	this.i5=0;
 	this.i6=0;
-	this.i7=0;
-	this.a8=null;
+	this.a7=null;
+	this.i8=0;
 	this.i9=0;
 	this.i10=0;
 	this.i11=0;
 	this.a12=null;
-	this.i13=0;
+	this.a13={a0:nullArray,a0o:0};
 	this.i14=0;
-	this.i15=0;
-	this.a16=null;
-	this.a17={a0:nullArray,a0o:0};
-	this.a18={a0:nullArray,a0o:0};
-	this.i19=0;
-	create__ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_MESSAGEjPNS1_6ObjectEjjj$pFrame(this)}
+	create__ZN7CheerpX5Linux17runFSWriteRequestE12CORE_MESSAGEjjjPKN6client6TArrayIPNS2_10ChunkSliceEEE$pFrame(this)}
+function constructor__ZN7CheerpX9IDBDevice8dumpImplEPN6client6StringE$pFrame(){
+	this.a0=null;
+	this.a1=null;
+	this.a2={i0:0};
+	this.a3={a0:nullArray,a0o:0};
+	this.a4={a0:nullArray,a0o:0};
+	this.i5=0;
+	this.a6=new Uint8Array(2);
+	this.a7=null;
+	this.a8=null;
+	this.a9=null;
+	create__ZN7CheerpX9IDBDevice8dumpImplEPN6client6StringE$pFrame(this)}
+function constructor__ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjjjjj$pFrame(){
+	this.a0=null;
+	this.a1=null;
+	this.a2={a0:nullArray,a0o:0};
+	this.a3=null;
+	this.i4=0;
+	this.i5=0;
+	this.i6=0;
+	this.i7=0;
+	this.i8=0;
+	this.a9=null;
+	this.a10=null;
+	this.a11=null;
+	this.a12={a0:nullArray,a0o:0};
+	this.i13=0;
+	create__ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjjjjj$pFrame(this)}
 function constructor_struct$p_Z9VGAOutput(){
 	this.a0=nullArray;
 	this.a0o=0;
@@ -23876,7 +23897,7 @@ function constructor_struct$p_Z9VGAOutput(){
 	this.i7=0;
 	this.a8=null;
 }
-function create__ZN7CheerpX10DataDevice3runEPNS_5LinuxE$pFrame(obj){
+function create__ZZN7CheerpX10DataDevice9writeFileERKN6client6StringES4_ENK3$_0clEPNS_5LinuxES4_S4_PFvPNS1_6ObjectEEPFvS4_E$pFrame(obj){
 	var a=[];
 	a[0]=obj;
 	obj.o=0;
@@ -23886,15 +23907,6 @@ function create__ZN7CheerpX10DataDevice3runEPNS_5LinuxE$pFrame(obj){
 	obj.a2.a=a;
 	return obj;}
 function create__ZN7CheerpX5Linux17requestCreateFileEjRKN6client6StringE$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZZN7CheerpX9IDBDevice5resetEvENK3$_0clEPS0_PFvPN6client6ObjectEE$pFrame(obj){
 	var a=[];
 	a[0]=obj;
 	obj.o=0;
@@ -23921,6 +23933,24 @@ function create__ZN7CheerpX9IDBDevice14readFileAsBlobEPN6client6StringE$pFrame(o
 	obj.a2.o=1;
 	obj.a2.a=a;
 	return obj;}
+function create__ZN7CheerpX9IDBDevice8dumpImplEPN6client6StringE$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZZN7CheerpX9WebDevice6createERKN6client6StringEENK3$_0clES4_PFvPNS1_6ObjectEEPFvS4_E$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
 function create__ZZN7CheerpX15HttpBytesDevice6createERKN6client6StringEENK3$_0clES4_PFvPNS1_6ObjectEEPFvS4_E$pFrame(obj){
 	var a=[];
 	a[0]=obj;
@@ -23939,6 +23969,15 @@ function create__ZN7CheerpX15HttpBytesDevice11getPermTypeEv$pFrame(obj){
 	obj.a2.o=1;
 	obj.a2.a=a;
 	return obj;}
+function create__ZZN7CheerpX11CloudDevice6createERKN6client6StringEENK3$_0clES4_PFvPNS1_6ObjectEEPFvS4_E$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
 function create__ZN7CheerpX11CloudDevice11getPermTypeEv$pFrame(obj){
 	var a=[];
 	a[0]=obj;
@@ -23948,7 +23987,7 @@ function create__ZN7CheerpX11CloudDevice11getPermTypeEv$pFrame(obj){
 	obj.a2.o=1;
 	obj.a2.a=a;
 	return obj;}
-function create__ZN7CheerpX11CloudDevice12requestBytesEP11CheerpXBasejj$pFrame(obj){
+function create__ZZN7CheerpX12GitHubDevice6createERKN6client6StringEENK3$_0clES4_PFvPNS1_6ObjectEEPFvS4_E$pFrame(obj){
 	var a=[];
 	a[0]=obj;
 	obj.o=0;
@@ -23987,7 +24026,7 @@ function create__ZZN7CheerpX13OverlayDevice6createEPNS_11BlockDeviceEPNS_9IDBDev
 	obj.a2.o=1;
 	obj.a2.a=a;
 	return obj;}
-function create__ZN7CheerpX9IDBDevice10clearCacheEv$pFrame(obj){
+function create__ZN7CheerpX13OverlayDevice3runEPNS_5LinuxE$pFrame(obj){
 	var a=[];
 	a[0]=obj;
 	obj.o=0;
@@ -23996,7 +24035,7 @@ function create__ZN7CheerpX9IDBDevice10clearCacheEv$pFrame(obj){
 	obj.a2.o=1;
 	obj.a2.a=a;
 	return obj;}
-function create__ZN7CheerpX5Linux13requestDeviceEjj$pFrame(obj){
+function create__ZZN7CheerpX9IDBDevice5resetEvENK3$_0clEPS0_PFvPN6client6ObjectEE$pFrame(obj){
 	var a=[];
 	a[0]=obj;
 	obj.o=0;
@@ -24041,7 +24080,25 @@ function create__ZN7CheerpX11BlockDevice4readEP11CheerpXBasejjPN6client10Uint8Ar
 	obj.a2.o=1;
 	obj.a2.a=a;
 	return obj;}
-function create__ZN7CheerpX14CheerpOSDevice5closeEi$pFrame(obj){
+function create__ZN7CheerpX15HttpBytesDevice12requestBytesEP11CheerpXBasejj$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX13OverlayDevice8dumpImplEv$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX5Linux12requestMountERKSsS2_j$pFrame(obj){
 	var a=[];
 	a[0]=obj;
 	obj.o=0;
@@ -24068,7 +24125,7 @@ function create__ZN7CheerpX14CheerpOSDevice6unlinkERKN6client6StringE$pFrame(obj
 	obj.a2.o=1;
 	obj.a2.a=a;
 	return obj;}
-function create__ZN7CheerpX5Linux18runFSRenameRequestE12CORE_MESSAGEjjPN6client6StringES4_$pFrame(obj){
+function create__ZN7CheerpX5Linux21runFSCacheNodeRequestE12CORE_MESSAGEjPN6client6StringEjj$pFrame(obj){
 	var a=[];
 	a[0]=obj;
 	obj.o=0;
@@ -24077,7 +24134,7 @@ function create__ZN7CheerpX5Linux18runFSRenameRequestE12CORE_MESSAGEjjPN6client6
 	obj.a2.o=1;
 	obj.a2.a=a;
 	return obj;}
-function create__ZN7CheerpX5Linux21runFSCacheNodeRequestE12CORE_MESSAGEjPN6client6StringEjj$pFrame(obj){
+function create__ZN7CheerpX5Linux13requestDeviceEjj$pFrame(obj){
 	var a=[];
 	a[0]=obj;
 	obj.o=0;
@@ -24095,322 +24152,7 @@ function create__ZN7CheerpX14CheerpOSDevice6renameERKN6client6StringES4_$pFrame(
 	obj.a2.o=1;
 	obj.a2.a=a;
 	return obj;}
-function create__ZN7CheerpX5Linux13requestAcceptEjj$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN11CheerpXBase16cheerpOsInitImplEv$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZZN7CheerpX12GitHubDevice6createERKN6client6StringEENK3$_0clES4_PFvPNS1_6ObjectEEPFvS4_E$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZZN7CheerpX12UnixListener6acceptEvENKUlPT_T0_E_clIS0_PFvPN6client6ObjectEEEE6ThreadS2_S3_$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX5Linux11postRequestIjEE4TaskIT_EiPN6client6ObjectEb$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX5Linux11requestBindEjjPhj$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN11CheerpXBase10coreWorkerERKN6client6StringE12CORE_MESSAGE$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX5Linux28requestCreateExternalProcessEv$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
 function create__ZZN11CheerpXBase21handleCoreMessageBaseEPN6client11CoreMessageEENK3$_1clEv$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX5Linux12requestMountERKSsS2_j$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX5Linux17runFSWriteRequestE12CORE_MESSAGEjjjPKN6client6TArrayIPNS2_10ChunkSliceEEE$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX12GitHubDevice11getPermTypeEv$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationEENK3$_0clES1_jPNS2_19FloppyConfigurationE$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX10FileDevice4readEP11CheerpXBasejjPN6client10Uint8ArrayEj$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX5Linux19connectToPortHelperEjPN6client11MessagePortEPNS1_10Uint8ArrayE$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX14CheerpOSDevice9createDirERKN6client6StringEjii$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX14CheerpOSDevice4linkERKN6client6StringES4_$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX5Linux26connectToPortIpStackHelperEjjjPN6client9TCPSocketE$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX9IDBDevice8dumpImplEPN6client6StringE$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZZN7CheerpX5Linux6createEPN6client14LinuxOptionalsEENK3$_0clEv$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX14CheerpOSDevice4openERKN6client6StringES4_ii$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZZN7CheerpX9WebDevice6createERKN6client6StringEENK3$_0clES4_PFvPNS1_6ObjectEEPFvS4_E$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX6System17runIOWriteRequestEPS0_jjjjj$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX5Linux17runFSCloseRequestE12CORE_MESSAGEjj$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX5Linux18runFSUnlinkRequestE12CORE_MESSAGEjPN6client6StringEj$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX9WebDevice14createInternalERKN6client6StringE$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX5Linux11postRequestIPN6client11MessagePortEEE4TaskIT_EiPNS2_6ObjectEb$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX14CheerpOSDevice5writeEiPN6client10Uint8ArrayEii$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX6Device3runEPNS_5LinuxE$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZZN7CheerpX5Linux18createUnixListenerEPN6client6StringEENK3$_0clIPFvPNS1_6ObjectEENS1_10Uint8ArrayEEE6ThreadPS0_T_PT0_$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZZN7CheerpX11CloudDevice6createERKN6client6StringEENK3$_0clES4_PFvPNS1_6ObjectEEPFvS4_E$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationE$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX13OverlayDevice3runEPNS_5LinuxE$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX5Linux16runFSReadRequestE12CORE_MESSAGEjjjPKN6client6TArrayIPNS2_10ChunkSliceEEE$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_MESSAGEjPNS1_6ObjectEjjj$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZZN7CheerpX10FileDevice6createEPNS_14CheerpOSDeviceERKN6client6StringEENK3$_0clES2_S6_PFvPNS3_6ObjectEEPFvS6_E$pFrame(obj){
 	var a=[];
 	a[0]=obj;
 	obj.o=0;
@@ -24428,6 +24170,42 @@ function create__ZN7CheerpX14CheerpOSDevice4statERKN6client6StringE$pFrame(obj){
 	obj.a2.o=1;
 	obj.a2.a=a;
 	return obj;}
+function create__ZN7CheerpX5Linux11postRequestI12MOUNT_RESULTEE4TaskIT_EiPN6client6ObjectEb$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX12GitHubDevice11getPermTypeEv$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX5Linux26connectToPortIpStackHelperEjjjPN6client9TCPSocketE$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN11CheerpXBase16cheerpOsInitImplEv$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
 function create__ZN7CheerpX5Linux17runFSMkdirRequestEPN6client6StringEj12CORE_MESSAGEjjjj$pFrame(obj){
 	var a=[];
 	a[0]=obj;
@@ -24437,7 +24215,7 @@ function create__ZN7CheerpX5Linux17runFSMkdirRequestEPN6client6StringEj12CORE_ME
 	obj.a2.o=1;
 	obj.a2.a=a;
 	return obj;}
-function create__ZN7CheerpX10FileDevice5writeEP11CheerpXBasejjPN6client10Uint8ArrayEj$pFrame(obj){
+function create__ZN7CheerpX5Linux11postRequestIjEE4TaskIT_EiPN6client6ObjectEb$pFrame(obj){
 	var a=[];
 	a[0]=obj;
 	obj.o=0;
@@ -24446,7 +24224,7 @@ function create__ZN7CheerpX10FileDevice5writeEP11CheerpXBasejjPN6client10Uint8Ar
 	obj.a2.o=1;
 	obj.a2.a=a;
 	return obj;}
-function create__ZN7CheerpX5Linux13requestSocketEjiii$pFrame(obj){
+function create__ZN7CheerpX14CheerpOSDevice4openERKN6client6StringES4_ii$pFrame(obj){
 	var a=[];
 	a[0]=obj;
 	obj.o=0;
@@ -24455,7 +24233,241 @@ function create__ZN7CheerpX5Linux13requestSocketEjiii$pFrame(obj){
 	obj.a2.o=1;
 	obj.a2.a=a;
 	return obj;}
-function create__ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjjjjj$pFrame(obj){
+function create__ZN7CheerpX5Linux28requestCreateExternalProcessEv$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX10DataDevice3runEPNS_5LinuxE$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationE$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZZN7CheerpX8copyFileEPN6client13CopyOptionalsES2_ENK3$_0clES2_S2_PFvPNS0_6ObjectEEPFvRKNS0_6StringEE$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX5Linux18runFSUnlinkRequestE12CORE_MESSAGEjPN6client6StringEj$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX5Linux11requestBindEjjPhj$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX9WebDevice14createInternalERKN6client6StringE$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZZN7CheerpX5Linux6createEPN6client14LinuxOptionalsEENK3$_0clEv$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX5Linux11postRequestIPN6client11MessagePortEEE4TaskIT_EiPNS2_6ObjectEb$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX6System16runIOReadRequestEPS0_jjjjj$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX5Linux13requestAcceptEjj$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX9IDBDevice10clearCacheEv$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZZN7CheerpX12UnixListener6acceptEvENKUlPT_T0_E_clIS0_PFvPN6client6ObjectEEEE6ThreadS2_S3_$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN11CheerpXBase10coreWorkerERKN6client6StringE12CORE_MESSAGE$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX6Device3runEPNS_5LinuxE$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX5Linux18runFSRenameRequestE12CORE_MESSAGEjjPN6client6StringES4_$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX11CloudDevice12requestBytesEP11CheerpXBasejj$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZZN7CheerpX5Linux18createUnixListenerEPN6client6StringEENK3$_0clIPFvPNS1_6ObjectEENS1_10Uint8ArrayEEE6ThreadPS0_T_PT0_$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZZN7CheerpX10FileDevice6createEPNS_14CheerpOSDeviceERKN6client6StringEENK3$_0clES2_S6_PFvPNS3_6ObjectEEPFvS6_E$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX5Linux17runFSCloseRequestE12CORE_MESSAGEjj$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX5Linux17runFSWriteRequestE12CORE_MESSAGEjjjPKN6client6TArrayIPNS2_10ChunkSliceEEE$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX14CheerpOSDevice5writeEiPN6client10Uint8ArrayEii$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX6System17runIOWriteRequestEPS0_jjjjj$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX5Linux16runFSReadRequestE12CORE_MESSAGEjjjPKN6client6TArrayIPNS2_10ChunkSliceEEE$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX14CheerpOSDevice4linkERKN6client6StringES4_$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX5Linux23runFSSpecialFileRequestEPN6client6StringEj12CORE_MESSAGEjPNS1_6ObjectEjjj$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX14CheerpOSDevice9createDirERKN6client6StringEjii$pFrame(obj){
 	var a=[];
 	a[0]=obj;
 	obj.o=0;
@@ -24465,24 +24477,6 @@ function create__ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MES
 	obj.a2.a=a;
 	return obj;}
 function create__ZN7CheerpX5Linux13runFSRequestsEv$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX15HttpBytesDevice12requestBytesEP11CheerpXBasejj$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX13OverlayDevice8dumpImplEv$pFrame(obj){
 	var a=[];
 	a[0]=obj;
 	obj.o=0;
@@ -24509,25 +24503,16 @@ function create__ZN7CheerpX5Linux11postRequestIPN6client6ObjectEEE4TaskIT_EiS4_b
 	obj.a2.o=1;
 	obj.a2.a=a;
 	return obj;}
+function create__ZN7CheerpX14CheerpOSDevice5closeEi$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
 function create__ZN7CheerpX5Linux14requestAppInitEv$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX14CheerpOSDevice4readEiPN6client10Uint8ArrayEii$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX5Linux12cheerpOSInitEv$pFrame(obj){
 	var a=[];
 	a[0]=obj;
 	obj.o=0;
@@ -24545,7 +24530,7 @@ function create__ZN11CheerpXBase12cheerpOSInitEv$pFrame(obj){
 	obj.a2.o=1;
 	obj.a2.a=a;
 	return obj;}
-function create__ZN7CheerpX6System16runIOReadRequestEPS0_jjjjj$pFrame(obj){
+function create__ZN7CheerpX5Linux12cheerpOSInitEv$pFrame(obj){
 	var a=[];
 	a[0]=obj;
 	obj.o=0;
@@ -24572,34 +24557,7 @@ function create__ZN7CheerpX6System12cheerpOSInitEv$pFrame(obj){
 	obj.a2.o=1;
 	obj.a2.a=a;
 	return obj;}
-function create__ZN7CheerpX5Linux11postRequestI12MOUNT_RESULTEE4TaskIT_EiPN6client6ObjectEb$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZZN7CheerpX8copyFileEPN6client13CopyOptionalsES2_ENK3$_0clES2_S2_PFvPNS0_6ObjectEEPFvRKNS0_6StringEE$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX10FileDevice11getPermTypeEv$pFrame(obj){
-	var a=[];
-	a[0]=obj;
-	obj.o=0;
-	obj.a=a;
-	a[1]=obj.a2;
-	obj.a2.o=1;
-	obj.a2.a=a;
-	return obj;}
-function create__ZN7CheerpX14CheerpOSDevice11getFileBlobEjRKN6client6StringE$pFrame(obj){
+function create__ZZN7CheerpX6System7runImplEPS0_PN6client19SystemConfigurationEENK3$_0clES1_jPNS2_19FloppyConfigurationE$pFrame(obj){
 	var a=[];
 	a[0]=obj;
 	obj.o=0;
@@ -24617,7 +24575,70 @@ function create__ZN7CheerpX10FileDevice8dumpImplEv$pFrame(obj){
 	obj.a2.o=1;
 	obj.a2.a=a;
 	return obj;}
+function create__ZN7CheerpX10FileDevice5writeEP11CheerpXBasejjPN6client10Uint8ArrayEj$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX14CheerpOSDevice11getFileBlobEjRKN6client6StringE$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX10FileDevice11getPermTypeEv$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX5Linux13requestSocketEjiii$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX5Linux16runFSOpenRequestEPN6client6StringEj12CORE_MESSAGEjjjjj$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX10FileDevice4readEP11CheerpXBasejjPN6client10Uint8ArrayEj$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
 function create__ZN7CheerpX5Linux21runFSCacheListRequestE12CORE_MESSAGEjPN6client6StringEjj$pFrame(obj){
+	var a=[];
+	a[0]=obj;
+	obj.o=0;
+	obj.a=a;
+	a[1]=obj.a2;
+	obj.a2.o=1;
+	obj.a2.a=a;
+	return obj;}
+function create__ZN7CheerpX5Linux19connectToPortHelperEjPN6client11MessagePortEPNS1_10Uint8ArrayE$pFrame(obj){
 	var a=[];
 	a[0]=obj;
 	obj.o=0;
@@ -24635,7 +24656,7 @@ function create__ZN7CheerpX11BlockDevice29requestBytesAndMeasureLatencyEP11Cheer
 	obj.a2.o=1;
 	obj.a2.a=a;
 	return obj;}
-function create__ZZN7CheerpX10DataDevice9writeFileERKN6client6StringES4_ENK3$_0clEPNS_5LinuxES4_S4_PFvPNS1_6ObjectEEPFvS4_E$pFrame(obj){
+function create__ZN7CheerpX14CheerpOSDevice4readEiPN6client10Uint8ArrayEii$pFrame(obj){
 	var a=[];
 	a[0]=obj;
 	obj.o=0;

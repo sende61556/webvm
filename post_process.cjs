@@ -10,16 +10,9 @@ function postProcess() {
       return;
     }
 
-    //
-    // debug
-    // 
-    // files.forEach(file => {
-    //   console.log(file);
-    // });
-
-    // console.log(directoryPath);
-    // console.log(outputFilePath);
-
+    console.log();
+    console.log(`---Starting post-processing---`);
+    console.log();
     const htmlFiles = files.filter(file => file.endsWith('html'));
     htmlFiles.forEach(htmlFile => {
       console.log(htmlFile);
@@ -28,24 +21,32 @@ function postProcess() {
 
       const scriptContent = extractScript(fileContent);
       if (scriptContent === '') {
-        console.log(`Warning: no script content for ${filePath}`);
+        if (htmlFile === 'login.html')  {
+          console.log(`Caught login.html: No expected script for ${filePath}, skipping`);
+          return;
+        }
+        console.warn(`Warning: no script content for ${filePath}`);
         return;
       }
       const scriptName = createJsFile(htmlFile, scriptContent);
       if (scriptName === '') {
-        console.log(`Warning: no scriptName for ${filePath}`);
+        console.warn(`Warning: no scriptName for ${filePath}`);
         return;
       }
       replaceScript(fileContent, filePath, scriptName);
       console.log(`Successfully extracted scripts from [${htmlFile}] into separate [${scriptName}].`);
+      console.log('')
     });
+
+    console.log();
+    console.log("---Finished post-processing---");
   });
 }
 
 function extractScript(fileContent) {
   const scriptStart = fileContent.indexOf('__sveltekit_');
   if (scriptStart === -1)  {
-    console.log("Could not find __sveltekit_ script start in generated HTML files");
+    console.log("Could not find __sveltekit_ script start");
     return '';
   }
   var scriptEnd = fileContent.lastIndexOf('</script>');
@@ -54,7 +55,6 @@ function extractScript(fileContent) {
     console.log("Could not match the closing <script> tag");
     return '';
   }
-  console.log("script start: ", scriptStart);
   const scriptContent = fileContent.substring(scriptStart, scriptEnd);
   const containsPromiseAll = scriptContent.indexOf('Promise.all');
   if (containsPromiseAll !== -1) {

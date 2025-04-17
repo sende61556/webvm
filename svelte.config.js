@@ -24,6 +24,7 @@ const config = {
 			reportOnly: {
 				'script-src': ['self', 'wasm-unsafe-eval'],
 				'connect-src': ['self', 'https:', 'blob:', 'data:', 'wss:'],
+				'worker-src': ['self', 'wasm-unsafe-eval', 'blob:'],
 				'require-trusted-types-for': ['script'],
 				'frame-src': ['self', 'https:', 'blob:', 'data:'],
 				'img-src': ['self', 'https:', 'blob:', 'data:'],

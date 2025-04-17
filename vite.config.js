@@ -23,6 +23,8 @@ export default defineConfig({
 				{ src: 'assets/', dest: '' },
 				{ src: 'documents/', dest: '' },
 				{ src: 'cheerpOS.js', dest: ''},
+				{ src: 'cxcore.js', dest: ''},
+				{ src: 'tun/', dest: ''},
 			]
 		})
 	]
