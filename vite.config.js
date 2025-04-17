@@ -22,6 +22,8 @@ export default defineConfig({
 				{ src: 'login.html', dest: '' },
 				{ src: 'assets/', dest: '' },
 				{ src: 'documents/', dest: '' },
+
+				// added files for IWA
 				{ src: 'cheerpOS.js', dest: ''},
 				{ src: 'cxcore.js', dest: ''},
 				{ src: 'cxcore.wasm', dest: ''},
