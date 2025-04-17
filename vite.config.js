@@ -24,6 +24,7 @@ export default defineConfig({
 				{ src: 'documents/', dest: '' },
 				{ src: 'cheerpOS.js', dest: ''},
 				{ src: 'cxcore.js', dest: ''},
+				{ src: 'cxcore.wasm', dest: ''},
 				{ src: 'tun/', dest: ''},
 			]
 		})
