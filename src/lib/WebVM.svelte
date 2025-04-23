@@ -253,9 +253,11 @@
 				try
 				{
 					blockDevice = await CheerpX.CloudDevice.create(configObj.diskImageUrl);
+					console.debug("finished creating cloudDevice");
 				}
 				catch(e)
 				{
+					console.debug("caught error e: ", e);
 					// Report the failure and try again with plain HTTP
 					var wssProtocol = "wss:";
 					if(configObj.diskImageUrl.startsWith(wssProtocol))
@@ -285,6 +287,7 @@
 		var webDevice = await CheerpX.WebDevice.create("");
 		var documentsDevice = await CheerpX.WebDevice.create("documents");
 		var dataDevice = await CheerpX.DataDevice.create();
+		console.debug("moving to mount points");
 		var mountPoints = [
 			// The root filesystem, as an Ext2 image
 			{type:"ext2", dev:overlayDevice, path:"/"},
@@ -303,9 +306,27 @@
 			// Convenient access to sample documents in the user directory
 			{type:"dir", dev:documentsDevice, path:"/home/user/documents"}
 		];
+		console.debug("cursor");
 		try
 		{
+		//
+		// what seems to happen is:
+		// 	- go in CherrpXBase::init();
+		// 	- skip loading CheerpOS because CheerpOSState is already = 2
+		// 	- load tailscale
+		// 		- *loadTailscale calls handleCheerpOSLoadEvent() in a lambda that runs last on client
+		// 	- CheerpOSState doesn't get set to ready* so createCoreWorker() isn't called there.
+		// 	- instead createCoreWorker() is called in handleCheerpOSLoadEvent(), which gets called when loading tailscale
+		//
+		// tried:
+		// 	- force setting CheerpOSState to ready before the if check doesn't seem to change the resulting behaviour, other than iwaStart (from getCheerpXURL) is much higher than usual
+		// 	- tweaking the mountPoints but nothing worked.
+		// 	- networkInterface is optional on cheerpx side so it's not the issue (tested removing it and behaviour is the same)
+		// 	- commenting out Linux.create() lets execution go up to registering callbacks where registerCallback() is null and fails, which makes sense
+		// 
+			console.debug("calling Linux.create()");
 			cx = await CheerpX.Linux.create({mounts: mountPoints, networkInterface: networkInterface});
+			console.debug("Linux.create() finished");
 		}
 		catch(e)
 		{
@@ -313,11 +334,13 @@
 			printMessage([e.toString()]);
 			return;
 		}
+		console.debug("registering callbacks");
 		cx.registerCallback("cpuActivity", cpuCallback);
 		cx.registerCallback("diskActivity", hddCallback);
 		cx.registerCallback("diskLatency", latencyCallback);
 		cx.registerCallback("processCreated", handleProcessCreated);
 		term.scrollToBottom();
+		console.debug("Scrolled to bottom");
 		cxReadFunc = cx.setCustomConsole(writeData, term.cols, term.rows);
 		const display = document.getElementById("display");
 		if(display)
