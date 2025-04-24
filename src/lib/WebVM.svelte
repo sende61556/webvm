@@ -306,26 +306,40 @@
 			// Convenient access to sample documents in the user directory
 			{type:"dir", dev:documentsDevice, path:"/home/user/documents"}
 		];
-		console.debug("cursor");
 		try
 		{
 		//
 		// what seems to happen is:
-		// 	- go in CherrpXBase::init();
+		// 	- loadCheerpOS() called in IDBDevice::create() from WebVM and runs successfully
+		// 	- WebVM calls Linux.create()
+		// 	- Linux.create() successfully runs? (returns as intended, its lambda also seems to return successfully)
+		// 	- go in CheerpXBase::init();
 		// 	- skip loading CheerpOS because CheerpOSState is already = 2
 		// 	- load tailscale
-		// 		- *loadTailscale calls handleCheerpOSLoadEvent() in a lambda that runs last on client
-		// 	- CheerpOSState doesn't get set to ready* so createCoreWorker() isn't called there.
-		// 	- instead createCoreWorker() is called in handleCheerpOSLoadEvent(), which gets called when loading tailscale
+		// 		- *loadTailscale calls handleCheerpOSLoadEvent() in a lambda that runs on client(I think)
+		// 	- CheerpOSState doesn't get set to ready* so createCoreWorker() isn't called in init.
+		// 	- instead createCoreWorker() is called client side in handleCheerpOSLoadEvent(), which gets called from loading tailscale
+		// 	- coreWorker() successfully builds and returns, last log I get, pretty sure this is where it's supposed to end and return if there's more execution after this I missed it
+		// 	- WebVM still awaits Linux.create() ?
+		//
 		//
 		// tried:
-		// 	- force setting CheerpOSState to ready before the if check doesn't seem to change the resulting behaviour, other than iwaStart (from getCheerpXURL) is much higher than usual
+		// 	- force setting CheerpOSState to ready after loading tailscale but doesn't seem to change the resulting behaviour, other than iwaStart (from getCheerpXURL) is much higher than usual
 		// 	- tweaking the mountPoints but nothing worked.
-		// 	- networkInterface is optional on cheerpx side so it's not the issue (tested removing it and behaviour is the same)
-		// 	- commenting out Linux.create() lets execution go up to registering callbacks where registerCallback() is null and fails, which makes sense
+		// 	- networkInterface is optional on cheerpx side so it's not the issue (still tested removing it and behaviour is the same)
+		// 	- commenting out Linux.create() lets WebVM execution go up to registering callbacks where registerCallback() is null and fails, which makes sense
+		//
+		// note:
+		// 	- Jules mentioned it could be from how cheerpX gets cheerpOS, I did run into an issue of getting cheerpOS before but I had fixed it by serving from the WebVM itself, so it should be okay?
+		// 	- Don't remember the exact change I made to make cheerpOS work
+		//
+		// thoughts:
+		// 	- network tab says we're pending on debian_large for a long time (4.5mins) and returns 101 switching protocol?
+		// 	- there has to be more execution I'm missing? but linux.create() is called from WebVM and seems to finish running so nothing else should be called until it returns?
+		// 	- or we keep awaiting for no reason?
 		// 
 			console.debug("calling Linux.create()");
-			cx = await CheerpX.Linux.create({mounts: mountPoints, networkInterface: networkInterface});
+			cx = await CheerpX.Linux.create({mounts: mountPoints});
 			console.debug("Linux.create() finished");
 		}
 		catch(e)
