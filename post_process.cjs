@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { exec }= require("child_process");
 
 const directoryPath = path.resolve(__dirname, 'build');
 
@@ -9,50 +10,86 @@ function postProcess() {
       console.error("Error reading directory: ", err);
       return;
     }
+    processHtmlFiles(files);
 
-    console.log();
-    console.log(`---Starting post-processing---`);
-    console.log();
-    const htmlFiles = files.filter(file => file.endsWith('html'));
-    htmlFiles.forEach(htmlFile => {
-      console.log(htmlFile);
-      const filePath = path.join(directoryPath, htmlFile);
-      const fileContent = fs.readFileSync(filePath, 'utf-8');
+    // 
+    // wanted to take it out of the readdir callback but it messes up print orders
+    // 
+    appendToCxcore();
 
-      const scriptContent = extractScript(fileContent);
-      if (scriptContent === '') {
-        if (htmlFile === 'login.html')  {
-          console.log(`Caught login.html: No expected script for ${filePath}, skipping`);
-          return;
-        }
-        console.warn(`Warning: no script content for ${filePath}`);
-        return;
-      }
-      const scriptName = createJsFile(htmlFile, scriptContent);
-      if (scriptName === '') {
-        console.warn(`Warning: no scriptName for ${filePath}`);
-        return;
-      }
-      replaceScript(fileContent, filePath, scriptName);
-      console.log(`Successfully extracted scripts from [${htmlFile}] into separate [${scriptName}].`);
-      console.log('')
-    });
-
-    console.log();
     console.log("---Finished post-processing---");
+  });
+}
+
+function processHtmlFiles(files) {
+  console.log();
+  console.log(`---Starting post-processing---`);
+  console.log();
+  const htmlFiles = files.filter(file => file.endsWith('html'));
+  htmlFiles.forEach(htmlFile => {
+    console.log( '-' + htmlFile);
+    const filePath = path.join(directoryPath, htmlFile);
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+
+    const scriptContent = extractScript(fileContent);
+    if (scriptContent === '') {
+      if (htmlFile === 'login.html')  {
+        console.log(`\tAll good! No expected script for ${filePath}, skipped`);
+        return;
+      }
+      console.warn(`\tWarning: no script content for ${filePath}`);
+      return;
+    }
+    const scriptName = createJsFile(htmlFile, scriptContent);
+    if (scriptName === '') {
+      console.warn(`\tWarning: no scriptName for ${filePath}`);
+      return;
+    }
+    replaceScript(fileContent, filePath, scriptName);
+    console.log(`\tSuccessfully extracted scripts from [${htmlFile}] into separate [${scriptName}].`);
+  });
+
+
+  console.log();
+  console.log("---Finished post-processing HTML files---");
+  
+}
+
+function appendToCxcore() {
+  console.log();
+  console.log("adding init call to cxcore");
+  console.log();
+  const cxcoreFile = path.resolve(__dirname, 'cxcore.js');
+  exec("tail -n 1 cxcore.js", (err, stdout) => {
+    if (err) {
+      console.error("Failed to exec tail command: ", err);
+      return;
+    }
+    const lastLine = stdout.trim();
+    const content = 'cxCoreInit.promise.then(function(){cxCoreInit();}).catch(function(e){postMessage({type:", m, ",value:e.toString()});})';
+
+    if (lastLine == content) {
+      console.log("All good! cxcore.js already contains correct last line, skipped");
+    } else {
+      try {
+        fs.appendFileSync(cxcoreFile, content);
+      } catch (err) {
+        console.error("Failed to append: ", err);
+      }
+    }
   });
 }
 
 function extractScript(fileContent) {
   const scriptStart = fileContent.indexOf('__sveltekit_');
   if (scriptStart === -1)  {
-    console.log("Could not find __sveltekit_ script start");
+    console.log('\tCould not find __sveltekit_ script start');
     return '';
   }
   var scriptEnd = fileContent.lastIndexOf('</script>');
   scriptEnd -= 6; // getting rid of extra } closing bracket. Will find a better solution than this.
   if (scriptEnd === -1) {
-    console.log("Could not match the closing <script> tag");
+    console.log('\tCould not match the closing <script> tag');
     return '';
   }
   const scriptContent = fileContent.substring(scriptStart, scriptEnd);
@@ -60,7 +97,7 @@ function extractScript(fileContent) {
   if (containsPromiseAll !== -1) {
     return scriptContent;
   } else {
-    console.log("Could not find Promise.all call in generated __sveltekit_ script");
+    console.log('\tCould not find Promise.all call in generated __sveltekit_ script');
     return '';
   }
 }
@@ -80,11 +117,6 @@ function createJsFile(ogFileName, fileContent) {
 
 function replaceScript(fileContent, filePath, scriptName) {
   const updatedContent = fileContent.replace(/<script>[\s\S]*?<\/script>/, `<script src="${scriptName}" defer></script>`);
-  //
-  // debug
-  //
-  // console.log(`Updated content: \n ${updatedContent}`);
-
   fs.writeFileSync(filePath, updatedContent, 'utf-8', (err) =>{
     if (err) {
       console.log("Failed to write replacedContent instead of inlined script: ", err);
